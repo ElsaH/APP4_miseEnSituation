@@ -37,7 +37,7 @@
 		}
 	
 		/* Test sur le pseudo déjà utilisé */
-		$tmp = $db->prepare('SELECT COUNT(*) as Nombre FROM user WHERE idUser=:username ');
+		$tmp = $db->prepare('SELECT COUNT(*) as Nombre FROM user WHERE id_user=:username ');
 		$tmp->execute(array(
 			'username' => $pseudo
 		));
@@ -55,7 +55,7 @@
 
 		/* Test sur le mail déjà utilisé */
 
-		$tmp = $db->prepare('SELECT COUNT(*) as Nombre FROM user WHERE mail=:mail ');
+		$tmp = $db->prepare('SELECT COUNT(*) as Nombre FROM user WHERE mail_user=:mail ');
 		$tmp->execute(array(
 			'mail' => $mail
 		));
