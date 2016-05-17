@@ -66,5 +66,5 @@
     </div>
 	
 <?php
-	include('./iclude/footer.php');
+	include('./include/footer.php');
 ?>

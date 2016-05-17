@@ -1,10 +1,12 @@
 var drawBackground = function(canvas, ctx) {
+	// fond
+	ctx.fillStyle="#DDE3FF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 	// bordure
 	ctx.strokeStyle = 'black';
 	ctx.lineWidth = '1';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-	// 
 }
 
 var drawCharactersInfos = function(canvas, ctx) {
@@ -103,48 +105,4 @@ var drawCharacter2 = function(ctx, img, pos) {
 	d.w = s.w;
 	d.h = s.h;
 	ctx.drawImage(img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
-}
-
-
-/////////////////////
-var testSprite = function(ctx) {
-	
-	var coinImage = new Image();
-	coinImage.src = "images/test-sprite.png";
-	ctx.drawImage(coinImage,0,0);
-
-	var sprite = function (options) {
-					
-    var that = {};
-					
-    that.context = options.context;
-    that.width = options.width;
-    that.height = options.height;
-    that.image = options.image;
-    that.render = function () {
-        // Draw the animation
-        that.context.drawImage(
-           that.image,
-           30,
-           30,
-           that.width,
-           that.height,
-           20,
-           20,
-           that.width,
-           that.height);
-    };
-
-    return that;
-	}
-
-	var coin = sprite({
-    context: ctx,
-    width: 100,
-    height: 100,
-    image: coinImage
-	});
-	console.log(coin);
-	coin.render();
-
 }
