@@ -1,6 +1,6 @@
 <!-- Page php pour supprimer un utilisateur -->
 <?php
-	include('connexionDB.php');
+	include('connexionBD.php');
 	
 	$test = "DELETE FROM user WHERE mail_user='".$_POST["mail"]."';";
 	$db = connexion();

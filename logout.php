@@ -20,5 +20,6 @@
 	echo "Vous avez été déconnecté.";
 	//include("include/footer.php");
 	include('include/footer.php');
-	header ("Refresh: 2;URL=/APP4_miseEnSituation/index.php");  
+
+	header ("Refresh: 2;URL=./index.php");  
 ?>
