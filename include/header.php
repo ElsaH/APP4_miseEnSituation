@@ -48,7 +48,7 @@
 						} else {
 					?>
 							<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-							<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./ogout.php">Se déconnecter</a></span> 
+							<span><a href="./profil_view_edit.php?id_user=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./ogout.php">Se déconnecter</a></span> 
 					<?php } ?>
 				</div>
 			</div> <!-- row -->		
