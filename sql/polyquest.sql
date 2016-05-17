@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-05-17 11:12:29
+Date: 2016-05-17 14:31:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -95,6 +95,38 @@ CREATE TABLE `salle_user` (
 
 -- ----------------------------
 -- Records of salle_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tournoi`
+-- ----------------------------
+DROP TABLE IF EXISTS `tournoi`;
+CREATE TABLE `tournoi` (
+  `id_tournoi` int(11) NOT NULL AUTO_INCREMENT,
+  `heure_debut` datetime NOT NULL,
+  `heure_fin` datetime NOT NULL,
+  `user_vainqueur` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tournoi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tournoi
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tournoi_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `tournoi_user`;
+CREATE TABLE `tournoi_user` (
+  `id_tournoi_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tournoi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `user_points` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_tournoi_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tournoi_user
 -- ----------------------------
 
 -- ----------------------------
