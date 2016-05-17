@@ -14,18 +14,18 @@
 		<meta name="keywords" lang="fr" content="game, polytech, online"/>
 		
 		<!-- Liens vers le css et les scripts pour la selection des dates -->
-		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/custom.css">
+		<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="./bootstrap/css/custom.css">
 		
 		<!-- font -->
 		<!--<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>-->
 		
 		<!-- Liens pour l'utilisation de JQuery -->
-		<link rel="stylesheet" href="./include/jquery-ui-1.11.4/jquery-ui.css">
-		<script type="text/javascript" src="./include/jquery-1.11.2.js" ></script>
-		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
-		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./jquery-ui-1.11.4/jquery-ui.css">
+		<script type="text/javascript" src="./jquery-1.11.2.js" ></script>
+		<script src="./jquery-ui-1.11.4/jquery-ui.js"></script>
+		<script src="./bootstrap/js/bootstrap.min.js"></script>
 		
 	</head>
 		
@@ -33,7 +33,7 @@
 	<div class="header">
 		<div class="row">
 			<div class="col-lg-8"> <!-- logo du site avec lien vers l'accueil -->
-				<a href="./index.php"><img class="logo" src="./images/logo.png" alt="logo"/></a>
+				<a href="/APP4_miseEnSituation/index.php"><img class="logo" src="/APP4_miseEnSituation/images/logo.png" alt="logo"/></a>
 			</div>
 
 			<div class="col-lg-4"> <!-- lien du compte -->
@@ -42,13 +42,13 @@
 					{
 				?>
 						<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
-						<span><a href="./include/connexion.php">Se connecter</a> | <a href="./include/register.php">S'inscrire</a></span> 
+						<span><a href="./connexion.php">Se connecter</a> | <a href="./register.php">S'inscrire</a></span> 
 
 				<?php
 					} else {
 				?>
 						<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-						<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_membre"];?>">Mon compte</a> | <a href="include/logout.php">Se déconnecter</a></span> 
+						<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_membre"];?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
 				<?php } ?>
 			</div>
 		</div> <!-- row -->		

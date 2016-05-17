@@ -48,7 +48,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 copyright">Copyright © PolyQuest -2016- Tous droits réservés</div>
-						<div class="col-md-4 col-md-offset-4 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien | CORDEAU Elyse <br/> EDORH TOSSA Léon | HELIES Elsa | MASSARDIER Anaïs | NGO BUI HUNG Christelle </div>
+						<div class="col-md-4 col-md-offset-4 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien <br/> CORDEAU Elyse | EDORH TOSSA Léon <br/> HELIES Elsa | MASSARDIER Anaïs <br/> NGO BUI HUNG Christelle </div>
 					</div>
 				</div>
 			</div> <!-- row-->
