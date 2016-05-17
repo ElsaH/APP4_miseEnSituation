@@ -4,7 +4,7 @@
 		$login = $_POST['login'];
 
 		/* On vérifie que l'utilisateur existe dans la base de donnée */
-		$tmp = $db->prepare('SELECT * FROM user WHERE pseudo = :login OR mail = :login');
+		$tmp = $db->prepare('SELECT * FROM user WHERE pseudo = :login OR mail_user = :login');
 		$tmp->execute(array(
 			'login' => $login
 		));
@@ -15,8 +15,9 @@
 			if (password_verify($_POST['password'],$donnees['password'])) {
 				$_SESSION['pseudo'] = $donnees['pseudo'];
 				$_SESSION['password'] = $donnees['password'];
-				$_SESSION['idUser'] = $donnees['idUser'];
-				$_SESSION['mail'] = $donnees['mail'];
+				$_SESSION['id_User'] = $donnees['id_User'];
+				$_SESSION['mail_user'] = $donnees['mail_user'];
+				$_SESSION['admin'] = $donnees['admin'];
 				$_SESSION['login'] = true;
 				if (isset($_POST['cookie'])) {
 					setcookie("cookname", $_SESSION['pseudo'], time()+2592000, "/");

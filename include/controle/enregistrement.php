@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	/*
 	TESTS 
 	*/
@@ -92,13 +92,13 @@
 		$mail =  $_POST["email"];
 
 		/*Récupération du nombre de compte existant pour l'id comme la base de données ne s'auto-incrémente pas*/
-		$tmp = $db->query('SELECT * FROM user ORDER BY idUser DESC ');
+		$tmp = $db->query('SELECT * FROM user ORDER BY id_User DESC ');
 		$donnees = $tmp->fetch();
-		$id = $donnees['idUser'] + 1;
+		$id = $donnees['id_User'] + 1;
 		echo $id;
 
 		/* Ecriture et execution de la requête SQL pour insérer le nouveau bonhomme */
-		$tmp = $db->prepare('INSERT INTO user (idUser, pseudo, password, mail) VALUES (:id, :pseudo,:password,:mail)');
+		$tmp = $db->prepare('INSERT INTO user (id_User, pseudo, password, mail_user, xp, admin, combats_joues, combats_gagnes) VALUES (:id, :pseudo,:password,:mail,0,0,0,0)');
 		$tmp->execute(array(
 			'id' => $id,
 			'pseudo' => $pseudo,

@@ -19,6 +19,8 @@
 	</table>
 </form>
 
+<p>Mot de passe oublié ? <a href="">Clique ici</a></p>
+
 <?php
 	if(isset($_POST['login']) || isset($_POST['password'])) {
 		testIdentite();
