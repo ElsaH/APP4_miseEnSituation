@@ -32,6 +32,30 @@
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
+		<script src="./js/admin_classes.js"></script>
+
+		<!-- Liens, a nettoyer -->
+	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+	    <link href="plugins/datatables/TableTools/css/dataTables.tableTools.css" rel="stylesheet" type="text/css" />
+	    <link href="plugins/formvalidation/dist/css/formvalidation.min.css" rel="stylesheet" type="text/css" />
+	    <link href="plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+	    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	    <script src="plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+	    <script src="plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+	    <script src="plugins/datatables/datetime-moment.js" type="text/javascript"></script>
+	    <script src="plugins/datatables/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+	    <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	    <script src="plugins/formvalidation/dist/formvalidation.min.js" type="text/javascript"></script>
+	    <script src="plugins/formvalidation/dist/language/fr_FR.js" type="text/javascript" ></script>
+	    <script src="plugins/formvalidation/dist/framework/bootstrap.min.js"></script>
+	    <script src="plugins/mandatoryIcon/mandatoryIcon.min.js" type="text/javascript"></script>
+	    <script src="plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+	    <script src="plugins/moment/moment-with-locales.min.js" type="text/javascript"></script>
+	    <script src="plugins/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+	    <script src="plugins/bootstrap-fileupload/js/fileinput.min.js" type="text/javascript"></script>
+	    <script src="plugins/bootstrap-fileupload/js/fileinput_locale_fr.js" type="text/javascript"></script>
+	    <script src="plugins/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script>
 		
 	</head>
 	<body>	

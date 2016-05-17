@@ -17,7 +17,7 @@ include("include/header.php");
 		<div class='col-md-12'>
 		<h1>Gestion des classes</h1>
 			<div>
-		  		<table id="table_classes" class="table table-striped table-hover">
+		  		<table id="table_classes" class="table table-bordered table-hover">
 	                <thead>
 	                	<tr>
 		                    <th>ID Classe</th>
