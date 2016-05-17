@@ -31,9 +31,9 @@
 						<div id="meta-3" class="widget widgetFooter widget-meta">
 							<h4 class="widgettitle">INFORMATIONS</h4>
 							<ul>
-								<li><a href="../index.php">Accueil</a></li>
-								<li><a href="../a_propos.php">A propos</a></li>
-								<li><a href="../contact.php">Nous contacter</a></li>
+								<li><a href="/APP4_miseEnSituation/index.php">Accueil</a></li>
+								<li><a href="/APP4_miseEnSituation/a_propos.php">A propos</a></li>
+								<li><a href="/APP4_miseEnSituation/contact.php">Nous contacter</a></li>
 							</ul>
 						</div>
 					</div>
