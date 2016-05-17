@@ -188,7 +188,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 					if($b_profilModifiable) //Si on est sur son profil ou qu'on est admin, on peut supprimer le compte
 					{ ?>
 						<br/>
-						<form action='deleteUser.php' method='post' enctype='multipart/form-data'>
+						<form action='./include/deleteUser.php' method='post' enctype='multipart/form-data'>
 							<input hidden name='mail' value='<?php echo $result["mail_user"];?>' />
 							<input type='submit' class='btn btn-danger btn-lg right' value='Supprimer compte'/>
 						<form>	
