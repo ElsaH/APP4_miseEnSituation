@@ -1,5 +1,6 @@
 ﻿<?php
-	session_start();
+
+	include('include/header.php');
 	/* On tue les cookies */
 	if (isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])) { 
 		setcookie("cookname","",0,"/","",0);
@@ -18,6 +19,6 @@
 	//include('include/header.php');
 	echo "Vous avez été déconnecté.";
 	//include("include/footer.php");
-
+	include('include/footer.php');
 	header ("Refresh: 2;URL=/APP4_miseEnSituation/index.php");  
 ?>
