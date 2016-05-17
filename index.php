@@ -1,5 +1,5 @@
 <?php
-include("include/header.php");
+include("./include/header.php");
 echo "Coucou :)";
-include("include/footer.php");
+include("./include/footer.php");
 ?>

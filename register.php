@@ -1,6 +1,6 @@
 ﻿<?php
-    include('./header.php');
-    include('./controle/enregistrement.php');
+    include('./include/header.php');
+    include('./include/enregistrement.php');
 
     if (isset($_POST['username']) || isset($_POST['email']) || isset($_POST['password'])) {
         tests();
@@ -66,5 +66,5 @@
     </div>
 	
 <?php
-	include('./footer.php');
+	include('./iclude/footer.php');
 ?>

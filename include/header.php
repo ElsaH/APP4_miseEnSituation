@@ -14,18 +14,18 @@
 		<meta name="keywords" lang="fr" content="game, polytech, online"/>
 		
 		<!-- Liens vers le css et les scripts pour la selection des dates -->
-		<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="./bootstrap/css/custom.css">
+		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/custom.css">
 		
 		<!-- font -->
 		<!--<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>-->
 		
 		<!-- Liens pour l'utilisation de JQuery -->
-		<link rel="stylesheet" href="./jquery-ui-1.11.4/jquery-ui.css">
-		<script type="text/javascript" src="./jquery-1.11.2.js" ></script>
-		<script src="./jquery-ui-1.11.4/jquery-ui.js"></script>
-		<script src="./bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./include/jquery-ui-1.11.4/jquery-ui.css">
+		<script type="text/javascript" src="./include/jquery-1.11.2.js" ></script>
+		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
+		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		
 	</head>
 		

@@ -1,6 +1,6 @@
 <?php
-	include('./header.php');
-	include('./controle/testconnexion.php');
+	include('./include/header.php');
+	include('./include/testconnexion.php');
 
 	//if(empty($_SESSION['login'])):
 ?>
@@ -35,5 +35,5 @@
 		testIdentite();
 	}
 	//endif;
-	include('./footer.php');
+	include('./include/footer.php');
 ?>
