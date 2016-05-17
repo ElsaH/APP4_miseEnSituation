@@ -3,6 +3,8 @@ window.onload = function() {
 	var htmlCanvas = document.getElementById("canvas_game");
 	var ctx = htmlCanvas.getContext("2d");
 
+
+	
 	
 	init();
 
@@ -14,7 +16,10 @@ window.onload = function() {
 	function draw() {
 		drawBackground(htmlCanvas, ctx);
 		drawCharactersInfos(htmlCanvas, ctx);
-		testSprite(ctx);
+		drawCharacters(htmlCanvas, ctx)
+		//testSprite(ctx);
+
+		
 
 		/*var img = new Image();
 		img.onload = function() {
