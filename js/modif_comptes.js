@@ -54,7 +54,7 @@ function mailOk() {
 
 // teste si le premier mot de passe est valide
 function mdp1Ok() {
-	var reg = new RegExp('^[a-zA-Z0-9?@\.;:!_-]{1,12}$', 'i');
+	var reg = new RegExp("#((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20})#", 'i');
 	if (reg.test(document.getElementById("mdp1").value)) {
 		document.getElementById("val8").src=imgV;
 		bmdp1 = true;

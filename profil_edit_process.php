@@ -63,7 +63,8 @@
 							$s_set = $s_set." photo = ".$s_photo." ,";
 							$s_set = $s_set." pseudo = ".$s_pseudo." ,";
 							$s_set = $s_set." mail_user = ".$s_email." ,";
-							$s_set = $s_set." password = ".$s_mdp;
+							if($s_mdp!='')
+								$s_set = $s_set." password = ".password_hash($s_mdp,PASSWORD_DEFAULT);
 							$s_where = " WHERE id_user = ".$i_idMembre." ;";
 							
 							$s_request = $s_update.$s_set.$s_where;

@@ -158,7 +158,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 						<label for='mdp1'>Mot de passe : </label>
 						<div class='row'>
 							<div class='col-xs-4'>
-								<input class='input-sm form-control' id='mdp1' type='password' onchange='mdp1Ok()' name='mdp1' value='<?php echo $result['password'];?>'>
+								<input class='input-sm form-control' id='mdp1' type='password' onchange='mdp1Ok()' name='mdp1' value=''>
 							</div>
 							<div class='col-xs-1'>
 								<img id='val8' src="<?php echo $s_V; ?>" >
@@ -168,7 +168,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 						<label for='mdp2'>Confirmation du mot de passe : </label>
 						<div class='row'>
 							<div class='col-xs-4'>
-								<input class='input-sm form-control' id='mdp2' type='password' onchange='mdp2Ok()' name='mdp2' value='<?php echo $result['password'];?>'>
+								<input class='input-sm form-control' id='mdp2' type='password' onchange='mdp2Ok()' name='mdp2' value=''>
 							</div>
 							<div class='col-xs-1'>
 								<img id='val9' src="<?php echo $s_V; ?>" >
