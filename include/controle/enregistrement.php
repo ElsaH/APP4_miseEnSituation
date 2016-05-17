@@ -2,6 +2,8 @@
 	/*
 	TESTS 
 	*/
+	include('connexionBD.php');
+	
 	$i = 0;
 	$erreur = "";
 

@@ -1,6 +1,6 @@
 <?php
 	//include('include/header.php');
-	include('controle/testconnexion.php')
+	include('controle/testconnexion.php');
 
 	//if(empty($_SESSION['login'])):
 ?>
@@ -17,6 +17,8 @@
 			<td><input type="password" name="password" id="password"/></td>
 		</tr>
 	</table>
+	<input type="submit" value="Connexion" />
+	<p><input type="checkbox" name="cookie"/> <label>Se souvenir de moi ?</label></p>
 </form>
 
 <p>Mot de passe oublié ? <a href="">Clique ici</a></p>

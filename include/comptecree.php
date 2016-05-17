@@ -1,5 +1,5 @@
 ﻿<?php
-    include('include/header.php');
+    //include('include/header.php');
 ?>
 
 
@@ -8,5 +8,5 @@
 
 <?php
 	header ("Refresh: 3;URL=connexion.php");
-	include('include/footer.php')
+	//include('include/footer.php')
 ?>
