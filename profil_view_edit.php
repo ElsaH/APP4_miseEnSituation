@@ -165,7 +165,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 							</div>
 						</div>
 					
-						<label for='mdp2'>Mot de passe : </label>
+						<label for='mdp2'>Confirmation du mot de passe : </label>
 						<div class='row'>
 							<div class='col-xs-4'>
 								<input class='input-sm form-control' id='mdp2' type='password' onchange='mdp2Ok()' name='mdp2' value='<?php echo $result['password'];?>'>
