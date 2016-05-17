@@ -1,4 +1,6 @@
-var drawBackground = function(canvas, ctx) {
+var GAME = {};
+
+GAME.drawBackground = function(canvas, ctx) {
 	// fond
 	ctx.fillStyle="#DDE3FF";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -9,7 +11,7 @@ var drawBackground = function(canvas, ctx) {
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
 }
 
-var drawCharactersInfos = function(canvas, ctx) {
+GAME.drawCharactersInfos = function(canvas, ctx) {
 	// marges
 	var mx = 10; 
 	var my = 10;
@@ -24,20 +26,20 @@ var drawCharactersInfos = function(canvas, ctx) {
 	style.cap = "round"; // bords arrondis
 
 	var pos = {x:mx, y:my};
-	drawInfos(ctx, pos, style);
+	GAME.drawInfos(ctx, pos, style);
 	pos.x = canvas.width - style.len - mx;
 	pos.y = my;
-	drawInfos(ctx, pos, style);
+	GAME.drawInfos(ctx, pos, style);
 	pos.x = mx;
 	pos.y = canvas.height - my - style.mbetween;
-	drawInfos(ctx, pos, style);
+	GAME.drawInfos(ctx, pos, style);
 	pos.x = canvas.width - style.len - mx;
 	pos.y = canvas.height - my - style.mbetween;
-	drawInfos(ctx, pos, style);
+	GAME.drawInfos(ctx, pos, style);
 
 }
 
-var drawInfos = function(ctx, pos, style) {
+GAME.drawInfos = function(ctx, pos, style) {
 	// dessin du mana
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y);
@@ -57,24 +59,24 @@ var drawInfos = function(ctx, pos, style) {
 	ctx.stroke();
 }
 
-var drawCharacters = function(canvas, ctx) {
+GAME.drawCharacters = function(canvas, ctx) {
 	var img = new Image();
 	img.src = "images/characters/sprite_blue.png";
 
 	img.onload = function() {
 		var pos = {x:350, y:100};
-		drawCharacter1(ctx, img, pos);
+		DRAW_CHARAC.character1(ctx,pos,true);
 		pos = {x:400, y:160};
-		drawCharacter1(ctx, img, pos);
+		DRAW_CHARAC.character1(ctx,pos,true);
 		pos = {x:100, y:100};
-		drawCharacter2(ctx, img, pos);
+		DRAW_CHARAC.character1(ctx,pos,false);
 		pos = {x:50, y:160};
-		drawCharacter2(ctx, img, pos);
+		DRAW_CHARAC.character1(ctx,pos,false);
 	}
 
 }
 
-var drawCharacter1 = function(ctx, img, pos) {
+GAME.drawCharacter1 = function(ctx, img, pos) {
 	// source = decoupage de l'image
 	var s = {};
 	s.x = 8;
@@ -91,7 +93,7 @@ var drawCharacter1 = function(ctx, img, pos) {
 
 }
 
-var drawCharacter2 = function(ctx, img, pos) {
+GAME.drawCharacter2 = function(ctx, img, pos) {
 	// source = decoupage de l'image
 	var s = {};
 	s.x = 358;

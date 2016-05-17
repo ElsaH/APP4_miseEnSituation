@@ -1,24 +1,32 @@
-window.onload = function() {
+$(document).ready(function() {
 
 	var canvas_game = document.getElementById("canvas_game");
 	var ctx_game = canvas_game.getContext("2d");
+	var canvas_choose = document.getElementById("canvas_choose");
+	var ctx_choose = canvas_choose.getContext("2d");
 
-	function initGameCanvas() {
-		window.addEventListener('resize', updateGameCanvas, false);
-		updateGameCanvas();
+	function init() {
+		window.addEventListener('resize', updateCanvas, false);
+		DRAW_CHARAC.load(updateCanvas);
 	}
 	
 	function drawGameCanvas() {
-		drawBackground(canvas_game, ctx_game);
-		drawCharactersInfos(canvas_game, ctx_game);
-		drawCharacters(canvas_game, ctx_game)
+		GAME.drawBackground(canvas_game, ctx_game);
+		GAME.drawCharactersInfos(canvas_game, ctx_game);
+		GAME.drawCharacters(canvas_game, ctx_game)
 	}
 
-	function updateGameCanvas() {
+	function drawChooseCanvas() {
+		CHOOSE.drawBackground(canvas_choose, ctx_choose);
+		CHOOSE.drawCharacters(canvas_choose, ctx_choose);
+	}
+
+	function updateCanvas() {
 		// canvas_game.width = window.innerWidth;
 		// canvas_game.height = window.innerHeight;
 		drawGameCanvas();
+		drawChooseCanvas();
 	}
 
-	initGameCanvas();
-}
+	init();
+});
