@@ -42,13 +42,13 @@
 						{
 					?>
 							<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
-							<span><a href="/APP4_miseEnSituation/include/connexion.php">Se connecter</a> | <a href="/APP4_miseEnSituation/include/register.php">S'inscrire</a></span> 
+							<span><a href="./connexion.php">Se connecter</a> | <a href="./register.php">S'inscrire</a></span> 
 
 					<?php
 						} else {
 					?>
 							<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-							<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
+							<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./ogout.php">Se déconnecter</a></span> 
 					<?php } ?>
 				</div>
 			</div> <!-- row -->		

@@ -18,11 +18,11 @@
 							<h4 class="widgettitle">COMPTE</h4>
 							<ul>
 								<?php if(!isset($_SESSION["login"])) { ?>
-									<li><a href="/APP4_miseEnSituation/include/connexion.php">Se connecter</a></li>
-									<li><a href="/APP4_miseEnSituation/include/register.php">Inscription</a></li>
+									<li><a href="./connexion.php">Se connecter</a></li>
+									<li><a href="./register.php">Inscription</a></li>
 								<?php }else {?>
 									<li><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"]; ?>">Mon compte</a></li>
-									<li><a href="/APP4_miseEnSituation/include/logout.php">Se déconnecter</a></li>
+									<li><a href="./logout.php">Se déconnecter</a></li>
 								<?php } ?>
 							</ul>
 						</div>
