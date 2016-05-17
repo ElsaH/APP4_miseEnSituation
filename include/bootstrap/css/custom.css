@@ -1,0 +1,241 @@
+html, body {
+	margin:0%;
+	padding:0%;
+	padding-left:1em;
+	font: 14px/18px Calibri,Helvetica,Arial,sans-serif;
+}
+
+img.down, img.up{
+	float:left;
+	display:inline;
+	height:15px;
+	width:15px;
+	margin-right:5px;
+	
+}
+
+.phplist{
+	margin-left:1em;
+	width:200px;
+}
+
+img.img-circle{
+	height:70px;
+	width:70px;
+	float:left;
+	border: 4px solid white; 
+	margin-right:1em;
+}
+
+
+
+h1{
+	text-align:center;
+	font-style: italic;
+	border-bottom: solid 1px black;
+}
+
+h2{
+	text-align:center;
+	font-style: italic;
+	
+}
+
+h4{
+	text-decoration: underline;
+}
+
+menu p{
+	text-indent:3cm;
+}
+
+div#suggestions {
+	top : 3px;
+	margin-top: 30px;
+}
+
+div.autocomplete {
+  position: absolute;
+  width: 140px;
+  background-color: white;
+  border: 1px solid #888;
+  margin: 0px;
+  padding: 0px;
+}
+
+div.autocomplete ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  max-height: 20em;
+  overflow: auto;
+}
+
+div.autocomplete ul li.selected {
+    background-color: #ffb;
+}
+
+div.autocomplete ul li {
+  list-style-type:none;
+  display: block;
+  margin: 0;
+  padding: 2px;
+  cursor: pointer;
+}
+
+div.diner{
+	border:1px solid black;
+	float:left;
+	width:25em;
+	background-color:#FEEF8E;
+	margin-right:2em;
+	margin-bottom:2em;
+}
+
+
+
+div.menu_recherche {
+	position: absolute;
+	top : 3px;
+	left : 3px;
+	padding-top: 30px;
+	border-style: solid;
+	background:#FEEF8E;
+	border-width: thin;
+	width: 13vw;
+
+
+
+}
+
+div#villes_propositions, div#villes_propositions_menu{
+	position: absolute;	
+	z-index:3000;
+	border:solid 1px #E4E5E5;
+	
+	padding-left:2px;
+	width:130px;
+
+}
+input#firstinput, input#secondinput{
+	background-image:url(./calendar.jpg);
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+
+input#ville, input#ville-menu{
+	width:130px;
+	background-image:url(./ressources/images/search.png);
+	background-size: 16px 16px;
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+
+.nom_org{
+	margin-top:1em;
+	font-family: "Marck Script";
+	size:20px;
+}
+
+h3.titreMenu{
+	background-color: rgba(0, 0, 255, 0.5);
+	border: solid white 1px;
+}
+
+.carousel img {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-width: 250px;
+  max-height:150px;
+  max-width: 70em;
+}
+
+.carousel-inner > .item > img {
+    margin-left: 0px;
+	padding-left : 0px;
+}
+
+.slider-size {
+	height: 150px; 
+
+}
+
+.fiche-slider-size {
+	height: 250px; 
+}
+
+.carouselForDiner{
+	min-width: 250px;
+	max-height:150px;
+	max-width: 70em;
+}
+
+span.prixDiner{
+	position:absolute;
+	margin-top:3em;
+	right:5em;
+	color: #E3296D;
+	font-size:2em;
+	font-family: "Marck Script";
+
+}
+
+div#info_fiche_diner {
+	position:absolute;
+	top:9em;
+	right:5em;
+}
+
+div#infos_participation_diner{
+	position:absolute;
+	top:30em;
+	left:2em;
+
+}
+
+
+small.date_comm{
+	float:right;
+}
+
+div#footer{
+	border-top:solid 1px black; 
+	background:#FEFCB0; 
+	margin-left:1em;
+	margin-right:1em; 
+	padding-left:2em;
+	margin-top: 2em;
+}
+
+div#sub-floor{
+	margin-right:1em; 
+	padding-top:1em; 
+	padding-left:1em; 
+	background:#FEFA80;
+}
+
+div.header{
+	border-bottom:solid 1px black; 
+	background:#FEFCB0; 
+	margin-left:1em;
+	margin-right:1em; 
+	padding-left:2em;
+}
+
+div.logo_deener{
+	float: left; 
+	padding-top:13px; 
+	padding-left:3px;
+}
+
+div#menu{
+	margin-left:1em;
+	margin-right:1em;
+}
+
+div#historique{
+	--margin-left: 15%;
+	--margin-right: 10%;
+    
+}
