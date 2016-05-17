@@ -2,8 +2,8 @@
 // initialise tous les marqueurs à caché
 
 // images de vérif
-var imgV = "../images/valider.png";
-var imgA = "../images/annuler.png";
+var imgV = "./images/valider.png";
+var imgA = "./images/annuler.png";
 
 //booleans de champs a verifier
 var bmail,bpseudo,bmdp1,bmdp2;
