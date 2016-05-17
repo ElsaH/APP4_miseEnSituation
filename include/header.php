@@ -38,7 +38,7 @@
 
 			<div class="col-lg-4"> <!-- lien du compte -->
 				<?php
-					if (!isset($_SESSION['id_membre']))
+					if (!isset($_SESSION['login']))
 					{
 				?>
 						<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
@@ -48,7 +48,7 @@
 					} else {
 				?>
 						<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-						<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_membre"];?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
+						<span><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
 				<?php } ?>
 			</div>
 		</div> <!-- row -->		

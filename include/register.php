@@ -1,6 +1,6 @@
 ﻿<?php
-    //include('include/header.php');
-    include('controle/enregistrement.php');
+    include('./header.php');
+    include('./controle/enregistrement.php');
 
     if (isset($_POST['username']) || isset($_POST['email']) || isset($_POST['password'])) {
         tests();
@@ -29,13 +29,42 @@
             <li>Les deux mots de passe entrés doivent être identique.</li>
         </ul>
         <form method="post" action="register.php">
-            <table>
-            <tr><td class="right">Pseudo: </td><td> <input type='text' name='username' id='username' /></td></tr>
-            <tr><td class="right">Adresse email: </td><td><input type="email" name="email" id="email" /></td></tr>
-            <tr><td class="right">Mot de passe: </td><td><input type="password" name="password" id="password"/></td></tr>
-            <tr><td class="right">Confirmez le mot de passe: </td><td><input type="password" name="confirmpwd"  id="confirmpwd" /></td></tr>
-            <tr><td class="right"><input type="submit" value="S’enregistrer"/> </td></tr>
-            </table>
+			<label for='username'>Pseudo : </label>
+			<div class='row'>
+				<div class='col-xs-4'> 
+					<input class='input-sm form-control' type='text' name='username' id='username' />
+				</div>
+			</div>
+            
+			<label for='email'>Adresse email : </label>
+			<div class='row'>
+				<div class='col-xs-4'> 
+					<input class='input-sm form-control' type="email" name="email" id="email" />
+				</div>
+			</div>
+			
+			<label for='password'>Mot de passe : </label>
+			<div class='row'>
+				<div class='col-xs-4'> 
+					<input class='input-sm form-control' type="password" name="password" id="password"/>
+				</div>
+			</div>
+			
+			<label for='confirmpwd'>Confirmez le mot de passe :</label>
+			<div class='row'>
+				<div class='col-xs-4'> 
+					<input class='input-sm form-control' type="password" name="confirmpwd"  id="confirmpwd" />
+				</div>
+			</div>
+			
+            <br/>
+			<input id='submit' type='submit' class="btn btn-success btn-lg" value="S’enregistrer">
+            
         </form>
-        <p>Retournez à la page d’<a href="/APP'_miseEnSituation/index.php">accueil</a>.</p>
+		<br/>
+        <p>Retournez à la page d’<a href="/APP4_miseEnSituation/index.php">accueil</a>.</p>
     </div>
+	
+<?php
+	include('./footer.php');
+?>
