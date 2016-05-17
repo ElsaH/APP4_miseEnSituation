@@ -12,9 +12,9 @@ window.onload = function() {
 	}
 				
 	function draw() {
-		ctx.strokeStyle = 'black';
-		ctx.lineWidth = '5';
-		ctx.strokeRect(0, 0, htmlCanvas.width, htmlCanvas.height);
+		drawBackground(htmlCanvas, ctx);
+		drawMana(htmlCanvas, ctx);
+		drawLife(htmlCanvas, ctx);
 		ctx.fillStyle = "#000000";
 		ctx.fillRect(0,0,150,75);
 
