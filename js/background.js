@@ -55,16 +55,63 @@ var drawInfos = function(ctx, pos, style) {
 	ctx.stroke();
 }
 
-var drawCharacter = function(canvas) {
+var drawCharacters = function(canvas, ctx) {
+	var img = new Image();
+	img.src = "images/characters/sprite_blue.png";
 
+	img.onload = function() {
+		var pos = {x:350, y:100};
+		drawCharacter1(ctx, img, pos);
+		pos = {x:400, y:160};
+		drawCharacter1(ctx, img, pos);
+		pos = {x:100, y:100};
+		drawCharacter2(ctx, img, pos);
+		pos = {x:50, y:160};
+		drawCharacter2(ctx, img, pos);
+	}
+
+}
+
+var drawCharacter1 = function(ctx, img, pos) {
+	// source = decoupage de l'image
+	var s = {};
+	s.x = 8;
+	s.y = 10;
+	s.w = 35;
+	s.h = 55;
+	// destination = canvas
+	var d = {};
+	d.x = pos.x;
+	d.y = pos.y;
+	d.w = s.w;
+	d.h = s.h;
+	ctx.drawImage(img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
+
+}
+
+var drawCharacter2 = function(ctx, img, pos) {
+	// source = decoupage de l'image
+	var s = {};
+	s.x = 358;
+	s.y = 236;
+	s.w = 35;
+	s.h = 55;
+	// destination = canvas
+	var d = {};
+	d.x = pos.x;
+	d.y = pos.y;
+	d.w = s.w;
+	d.h = s.h;
+	ctx.drawImage(img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
 }
 
 
 /////////////////////
 var testSprite = function(ctx) {
-	console.log("coucou");
+	
 	var coinImage = new Image();
 	coinImage.src = "images/test-sprite.png";
+	ctx.drawImage(coinImage,0,0);
 
 	var sprite = function (options) {
 					
@@ -75,16 +122,15 @@ var testSprite = function(ctx) {
     that.height = options.height;
     that.image = options.image;
     that.render = function () {
-
         // Draw the animation
         that.context.drawImage(
            that.image,
-           0,
-           0,
+           30,
+           30,
            that.width,
            that.height,
-           0,
-           0,
+           20,
+           20,
            that.width,
            that.height);
     };
@@ -98,7 +144,7 @@ var testSprite = function(ctx) {
     height: 100,
     image: coinImage
 	});
-
-
+	console.log(coin);
+	coin.render();
 
 }
