@@ -101,5 +101,5 @@ function pseudoOk() {
 function suppression(email,iduser)
 {	
 	$("#"+iduser).remove(); //Suppression visuelle de la liste
-	$.post("deleteUser.php",{mail : email, test : iduser},function(result){}); //Suppression en base
+	$.post("../include/deleteUser.php",{mail : email, test : iduser},function(result){}); //Suppression en base
 }

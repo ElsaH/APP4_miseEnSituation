@@ -55,8 +55,8 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
 										<td> <?= $idemail ?> </td>
 										
 										<td> <!-- Les actions (supprimer, modifier ou contacter) -->
-											<button class="btn btn-danger" type="button" <?= $activite ?> onclick='suppression("<?= $idemail?>","<?=$iduser?>")'> <span class="glyphicon glyphicon-remove"></span> </button>
-											<button class="btn btn-primary" type="button" onclick="location.href='profil_view_edit.php?id_membre=<?= $iduser ?>';"> <span class="glyphicon glyphicon-pencil"></span> </button>
+											<button class="btn btn-danger" type="button" <?= $activite ?> onClick='suppression("<?= $idemail?>","<?=$iduser?>")'> <span class="glyphicon glyphicon-remove"></span> </button>
+											<button class="btn btn-primary" type="button" onClick="location.href='profil_view_edit.php?id_membre=<?= $iduser ?>';"> <span class="glyphicon glyphicon-pencil"></span> </button>
 											<a href="mailto:<?= $idemail ?>" class="btn btn-info" type="button"><span class="glyphicon glyphicon-envelope"></span></a>
 										</td>
 									</tr>
