@@ -10,7 +10,7 @@
 	if(!$_SESSION["admin"]){ //sinon on est redirigé vers l'accueil
 		session_unset();
 		session_destroy();
-		header('Location:index.php');
+		header('Location:../index.php');
 	}
 	else //Si on est admin on retourne sur la liste des membres
 		header("Location: " . $_SERVER["HTTP_REFERER"]);
