@@ -15,21 +15,38 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
 <body>
 	<div class='row'>
 		<div class='col-md-8'>
-		  <h1>Page d'administration</h1>
-		  <div id='tableusers'>
-				<table class="table table-striped">
-					<thead> <!-- en tête de la table des utilisateur -->
+		<h1>Gestion des classes</h1>
+			<div>
+		  		<table id="table_classes" class="table table-striped table-hover">
+	                <thead>
+	                	<tr>
+		                    <th>ID Absence</th>
+		                    <th>ID Salarié</th>
+		                    <th>Salarié</th>
+		                    <th>Type Absence</th>
+		                    <th>Date début</th>
+		                    <th>Date fin</th>
+	                	</tr>
+	                </thead>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+</body>
+				
+				<!--<table class="table table-striped">
+					<thead> <!-en tête de la table des classes 
 					  <tr>
-						<th>Pseudo</th>
+						<th>Nom de classe</th>
 						<th>Email</th>
 						<th>Action</th>
 					  </tr>
 					 
 					</thead>
 					
-					<tbody> <!-- contenu de la table -->
+					<tbody> <!-contenu de la table 
 					<?php
-						try{
+						/*try{
 							//===== On va chercher tous les utilisateurs =====
 							$rqt_users = "SELECT * FROM user ORDER BY pseudo ";
 							
@@ -54,9 +71,9 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
 										<td> <?= $idpseudo ?> </td>
 										<td> <?= $idemail ?> </td>
 										
-										<td> <!-- Les actions (supprimer, modifier ou contacter) -->
-											<button class="btn btn-danger" type="button" <?= $activite ?> onClick="suppression('<?= $idemail?>','<?=$iduser?>')"> <span class="glyphicon glyphicon-remove"></span> </button>
-											<button class="btn btn-primary" type="button" onClick="location.href='profil_view_edit.php?id_user=<?= $iduser ?>';"> <span class="glyphicon glyphicon-pencil"></span> </button>
+										<td> <!-- Les actions (supprimer, modifier ou contacter) 
+											<button class="btn btn-danger" type="button" <?= $activite ?> onclick='suppression("<?= $idemail?>","<?=$iduser?>")'> <span class="glyphicon glyphicon-remove"></span> </button>
+											<button class="btn btn-primary" type="button" onclick="location.href='profil_view_edit.php?id_membre=<?= $iduser ?>';"> <span class="glyphicon glyphicon-pencil"></span> </button>
 											<a href="mailto:<?= $idemail ?>" class="btn btn-info" type="button"><span class="glyphicon glyphicon-envelope"></span></a>
 										</td>
 									</tr>
@@ -65,14 +82,14 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
 									} 
 							
 						}catch (PDOException $ex){
-							echo "Problème de connexion MySQL";
+							echo "Problème de connexion MySQL";*/
 						}
-					?>
+					?> 
 					</tbody>
 				</table>
-			</div> <!-- ./tableUsers -->
-		</div> <!-- ./col -->
-	</div> <!-- ./row -->
+			</div> <!- ./tableUsers 
+		</div> <!- ./col 
+	</div> <!- ./row -->
 
 
 <?php
