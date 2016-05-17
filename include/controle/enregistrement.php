@@ -41,6 +41,7 @@
 		$tmp->execute(array(
 			'username' => $pseudo
 		));
+
 		$pseudolibre = ($tmp->fetchColumn()==0)?1:0;
 		if(!$pseudolibre) {
 			$erreur = $erreur . 'Pseudo déjà utilisé. ';
@@ -74,7 +75,7 @@
 	    
 	    /* i le nombre d'erreur et erreur les messages d'erreur*/
 	    if ($i == 0){
-	    	creer_User();
+	    	creer_User($pseudo, $mail, $password);
 	    } else {
 	    	echo "<script>alert('Une ou plusieurs erreurs ont empéché la création du compte : ".$erreur."')</script>";
 	    }
@@ -84,23 +85,18 @@
     Création utilisateur
     */
 
-    function creer_User(){
+    function creer_User($pseudo, $mail, $password){
     	$db = connexion();
-
-    	/* On récupère les paramètres */
-		$password = $_POST["password"];
 		$password = password_hash($password, PASSWORD_DEFAULT);
-		$pseudo =  $_POST["username"];
-		$mail =  $_POST["email"];
 
 		/*Récupération du nombre de compte existant pour l'id comme la base de données ne s'auto-incrémente pas*/
-		$tmp = $db->query('SELECT * FROM user ORDER BY id_User DESC ');
+		$tmp = $db->query('SELECT * FROM user ORDER BY id_user DESC ');
 		$donnees = $tmp->fetch();
-		$id = $donnees['id_User'] + 1;
-		echo $id;
+		$id = $donnees['id_user'] + 1;
+		echo "<srcipt>alert($id)</script>";
 
 		/* Ecriture et execution de la requête SQL pour insérer le nouveau bonhomme */
-		$tmp = $db->prepare('INSERT INTO user (id_User, pseudo, password, mail_user, xp, admin, combats_joues, combats_gagnes) VALUES (:id, :pseudo,:password,:mail,0,0,0,0)');
+		$tmp = $db->prepare('INSERT INTO user (id_user, pseudo, password, mail_user, xp, admin, combats_joues, combats_gagnes) VALUES (:id, :pseudo,:password,:mail,0,0,0,0)');
 		$tmp->execute(array(
 			'id' => $id,
 			'pseudo' => $pseudo,
