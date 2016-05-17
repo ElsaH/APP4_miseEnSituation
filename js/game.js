@@ -13,10 +13,8 @@ window.onload = function() {
 				
 	function draw() {
 		drawBackground(htmlCanvas, ctx);
-		drawMana(htmlCanvas, ctx);
-		drawLife(htmlCanvas, ctx);
-		ctx.fillStyle = "#000000";
-		ctx.fillRect(0,0,150,75);
+		drawCharactersInfos(htmlCanvas, ctx);
+		testSprite(ctx);
 
 		/*var img = new Image();
 		img.onload = function() {
