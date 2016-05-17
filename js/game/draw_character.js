@@ -28,7 +28,6 @@ DRAW_CHARAC.load = function(callback) {
 }
 
 DRAW_CHARAC.character1 = function(ctx, pos, sens) {
-	
 	// source = decoupage de l'image
 	var s = {};
 
