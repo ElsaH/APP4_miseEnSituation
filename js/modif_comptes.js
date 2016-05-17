@@ -2,18 +2,18 @@
 // initialise tous les marqueurs à caché
 
 // images de vérif
-var imgV = "./ressources/images/valider.png";
-var imgA = "./ressources/images/annuler.png";
+var imgV = "../images/valider.png";
+var imgA = "../images/annuler.png";
 
 //booleans de champs a verifier
-var bmail,bnom,bpre,bmdp1,bmdp2,bville,bCP;
+var bmail,bpseudo,bmdp1,bmdp2;
 var modifOk = false;
 
 // vérifie que toutes le variables sont correctes
 function toutOk()
 {
 	// maj de la valeur
-	modifOk = (bmail==true && bnom==true && bpre==true && bmdp1==true && bmdp2==true && bville==true && bCP==true);
+	modifOk = (bmail==true && bpseudo==true && bmdp1==true && bmdp2==true);
 	// activation ou non du bouton modifier
 	if(modifOk)
 	{
@@ -35,10 +35,7 @@ function initialiser(){
 	// initialiser les champs
 	mailOk();
 	mdp1Ok();
-	nomOk();
-	preOk();
-	villeOk();
-	CPOk();
+	pseudoOk();
 }
 
 // Affiche un marqueur selon si le mail est valide ou non
@@ -86,9 +83,9 @@ function mdp2Ok() {
 }
 
 // teste si le nom est valide
-function nomOk() {
+function pseudoOk() {
 	var reg = new RegExp('^[a-zA-Zéèàê]+$', 'i');
-	if (reg.test(document.getElementById("nom").value)) {
+	if (reg.test(document.getElementById("pseudo").value)) {
 		document.getElementById("val3").src=imgV;
 		bnom = true;
 	} else {

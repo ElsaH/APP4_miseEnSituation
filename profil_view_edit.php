@@ -107,23 +107,23 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 						<div class='col-xs-4'>
 							<input class='input-sm form-control' id='mail' onchange='mailOk()' type='email' name='email' value='<?php echo $result["mail_user"]."'".$s_isChampModifiable;?>'>
 						</div>
-						<!--<div class='col-xs-1'>
+						<div class='col-xs-1'>
 							<?php if($b_profilModifiable) {?>
 									<img id='val2' src="<?php echo $s_V; ?>" >
 							<?php } ?>
-						</div>-->
+						</div>
 					</div>
 					
 					<label for='pseudo'>Pseudo : </label>
 					<div class="row">
 						<div class='col-xs-4'>
-							<input class='input-sm form-control' id='pseudo' onchange='preOk()' type='text' name='pseudo' value='<?php echo $result["pseudo"]."'".$s_isChampModifiable;?>'>
+							<input class='input-sm form-control' id='pseudo' onchange='pseudoOk()' type='text' name='pseudo' value='<?php echo $result["pseudo"]."'".$s_isChampModifiable;?>'>
 						</div>
-						<!--<div class='col-xs-1'>
+						<div class='col-xs-1'>
 							<?php if($b_profilModifiable) {?>
 								<img id='val4' src="<?php echo $s_V; ?>" >
 							<?php } ?>
-						</div>-->
+						</div>
 					</div>
 				
 					<div class='row'>
@@ -160,9 +160,9 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 							<div class='col-xs-4'>
 								<input class='input-sm form-control' id='mdp1' type='password' onchange='mdp1Ok()' name='mdp1' value='<?php echo $result['password'];?>'>
 							</div>
-							<!--<div class='col-xs-1'>
+							<div class='col-xs-1'>
 								<img id='val8' src="<?php echo $s_V; ?>" >
-							</div>-->
+							</div>
 						</div>
 					
 						<label for='mdp2'>Mot de passe : </label>
@@ -170,9 +170,9 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 							<div class='col-xs-4'>
 								<input class='input-sm form-control' id='mdp2' type='password' onchange='mdp2Ok()' name='mdp2' value='<?php echo $result['password'];?>'>
 							</div>
-							<!--<div class='col-xs-1'>
+							<div class='col-xs-1'>
 								<img id='val9' src="<?php echo $s_V; ?>" >
-							</div>-->
+							</div>
 						</div>
 						
 						<!-- Bonton modifier -->
