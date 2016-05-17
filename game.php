@@ -7,6 +7,7 @@
 </head>
 <body>
   <canvas id="canvas_game"></canvas>
+  <script src="js/background.js"></script>
   <script src="js/game.js"></script>
 </body>
 </html>
