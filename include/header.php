@@ -31,7 +31,7 @@
 		<script type="text/javascript" src="./include/jquery-1.11.2.js" ></script>
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
-		<script src="./js/modfi_comptes.js"></script>
+		<script src="./js/modif_comptes.js"></script>
 		
 	</head>
 	<body>	
