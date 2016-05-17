@@ -21,7 +21,7 @@
 									<li><a href="./connexion.php">Se connecter</a></li>
 									<li><a href="./register.php">Inscription</a></li>
 								<?php }else {?>
-									<li><a href="./profil_view_edit.php?id_membre=<?php echo $_SESSION["id_user"]; ?>">Mon compte</a></li>
+									<li><a href="./profil_view_edit.php?id_user=<?php echo $_SESSION["id_user"]; ?>">Mon compte</a></li>
 									<li><a href="./logout.php">Se déconnecter</a></li>
 								<?php } ?>
 							</ul>

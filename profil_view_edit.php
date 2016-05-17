@@ -4,9 +4,9 @@
 
 if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 		//ERREUR si non connecté 
-		//echo "<script>";
-		//echo "javascript:window.location.replace('erreur404.php?url='+document.URL);" ; 
-		//echo "</script>";
+		echo "<script>";
+		echo "javascript:window.location.replace('erreur404.php?url='+document.URL);" ; 
+		echo "</script>";
 }?>
 
 <!-- <body onload='initialiser()'>initialisation des images OK/NOK -->
