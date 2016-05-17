@@ -1,7 +1,13 @@
 <?php include("./include/header.php");?>
 	<p>
+		Choix du personnage :
+	</p>
+	<p>
   	<canvas id="canvas_choose" width="500" height="300"></canvas>
   </p>
+  <p>
+		Interface de combat :
+	</p>
 	<p>
   	<canvas id="canvas_game" width="500" height="300"></canvas>
   </p>
