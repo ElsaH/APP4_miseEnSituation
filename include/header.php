@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php session_start(); ?>
+<?php 
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }  
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<!-- Le jeu de caractères de la page (encodage) -->
@@ -26,6 +31,7 @@
 		<script type="text/javascript" src="./include/jquery-1.11.2.js" ></script>
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
+		<script src="./js/modfi_comptes.js"></script>
 		
 	</head>
 	<body>	
