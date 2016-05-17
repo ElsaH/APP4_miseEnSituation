@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-05-17 10:48:49
+Date: 2016-05-17 11:12:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,6 +46,69 @@ CREATE TABLE `champion` (
 
 -- ----------------------------
 -- Records of champion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `champion_capacite`
+-- ----------------------------
+DROP TABLE IF EXISTS `champion_capacite`;
+CREATE TABLE `champion_capacite` (
+  `id_champion_capacite` int(11) NOT NULL AUTO_INCREMENT,
+  `id_champion` int(11) NOT NULL,
+  `id_capacite` int(11) NOT NULL,
+  PRIMARY KEY (`id_champion_capacite`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of champion_capacite
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `salle`
+-- ----------------------------
+DROP TABLE IF EXISTS `salle`;
+CREATE TABLE `salle` (
+  `id_salle` int(11) NOT NULL AUTO_INCREMENT,
+  `nb_joueurs` int(11) NOT NULL,
+  `id_type_salle` int(11) NOT NULL,
+  `xp_min` int(11) DEFAULT NULL,
+  `xp_max` int(11) DEFAULT NULL,
+  `cree_par` int(11) NOT NULL,
+  `cree_le` datetime NOT NULL,
+  PRIMARY KEY (`id_salle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of salle
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `salle_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `salle_user`;
+CREATE TABLE `salle_user` (
+  `id_salle_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_salle` int(11) NOT NULL,
+  PRIMARY KEY (`id_salle_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of salle_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `type_salle`
+-- ----------------------------
+DROP TABLE IF EXISTS `type_salle`;
+CREATE TABLE `type_salle` (
+  `id_type_salle` int(11) NOT NULL AUTO_INCREMENT,
+  `libelle_type_salle` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_type_salle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of type_salle
 -- ----------------------------
 
 -- ----------------------------

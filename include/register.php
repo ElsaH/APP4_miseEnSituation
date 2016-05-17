@@ -1,6 +1,7 @@
 ﻿<?php
     //include('include/header.php');
     include('controle/enregistrement.php');
+
     if (isset($_POST['username']) || isset($_POST['email']) || isset($_POST['password'])) {
         tests();
     }
@@ -36,5 +37,5 @@
             <tr><td class="right"><input type="submit" value="S’enregistrer"/> </td></tr>
             </table>
         </form>
-        <p>Retournez à la page d’<a href="index.php">accueil</a>.</p>
+        <p>Retournez à la page d’<a href="/APP'_miseEnSituation/index.php">accueil</a>.</p>
     </div>
