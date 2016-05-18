@@ -80,11 +80,11 @@ GAME.drawCharacters = function(canvas, ctx) {
 		GAME.charPos[3] = {x:400, y:160};
 	}
 	
-	DRAW_CHARAC.character1(ctx,GAME.charPos[0],false);
-	DRAW_CHARAC.character1(ctx,GAME.charPos[1],true);
+	DRAW_CHARAC.character0(ctx,GAME.charPos[0],false);
+	DRAW_CHARAC.character0(ctx,GAME.charPos[1],true);
 	if (GAME.nbJoueurs == 4) {
-		DRAW_CHARAC.character1(ctx,GAME.charPos[2],false);
-		DRAW_CHARAC.character1(ctx,GAME.charPos[3],true);
+		DRAW_CHARAC.character0(ctx,GAME.charPos[2],false);
+		DRAW_CHARAC.character0(ctx,GAME.charPos[3],true);
 	}
 
 }

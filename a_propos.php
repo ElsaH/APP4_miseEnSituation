@@ -2,7 +2,7 @@
 <?php include("./include/header.php"); ?>
 
 	<div class="container">
-		<h1>A A PROPOS</h1>
+		<h1>A PROPOS</h1>
 		
 		<h2>Contexte</h2>
 		<p class="text-justify">
