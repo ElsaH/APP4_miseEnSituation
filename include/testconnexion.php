@@ -23,6 +23,7 @@
 				$_SESSION['id_user'] = $donnees['id_user'];
 				$_SESSION['mail_user'] = $donnees['mail_user'];
 				$_SESSION['admin'] = $donnees['admin'];
+				$_SESSION['xp'] = $donnees['xp'];
 				$_SESSION['login'] = true;
 				if (isset($_POST['cookie'])) {
 					setcookie("cookname", $_SESSION['pseudo'], time()+2592000, "/");
