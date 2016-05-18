@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-05-17 15:03:54
+Date: 2016-05-18 10:31:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,16 +21,19 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `capacite`;
 CREATE TABLE `capacite` (
   `id_capacite` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_capacite` varchar(255) NOT NULL,
   `montant_soins` int(11) NOT NULL DEFAULT '0',
   `montant_degats` int(11) NOT NULL DEFAULT '0',
   `cout_mana` int(11) NOT NULL DEFAULT '0',
   `xp_requis` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_capacite`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of capacite
 -- ----------------------------
+INSERT INTO `capacite` VALUES ('1', 'soins', '1', '0', '1', '0');
+INSERT INTO `capacite` VALUES ('2', 'degats', '0', '1', '1', '0');
 
 -- ----------------------------
 -- Table structure for `champion`
@@ -42,11 +45,12 @@ CREATE TABLE `champion` (
   `hp_base` int(11) NOT NULL DEFAULT '100',
   `mana_base` int(11) NOT NULL DEFAULT '200',
   PRIMARY KEY (`id_champion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of champion
 -- ----------------------------
+INSERT INTO `champion` VALUES ('1', 'paysan', '100', '200');
 
 -- ----------------------------
 -- Table structure for `champion_capacite`
@@ -57,11 +61,13 @@ CREATE TABLE `champion_capacite` (
   `id_champion` int(11) NOT NULL,
   `id_capacite` int(11) NOT NULL,
   PRIMARY KEY (`id_champion_capacite`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of champion_capacite
 -- ----------------------------
+INSERT INTO `champion_capacite` VALUES ('1', '1', '1');
+INSERT INTO `champion_capacite` VALUES ('2', '1', '2');
 
 -- ----------------------------
 -- Table structure for `salle`
@@ -98,6 +104,21 @@ CREATE TABLE `salle_user` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `table_tournoi`
+-- ----------------------------
+DROP TABLE IF EXISTS `table_tournoi`;
+CREATE TABLE `table_tournoi` (
+  `id_table_tournoi` int(11) NOT NULL AUTO_INCREMENT,
+  `id_salle` int(11) NOT NULL,
+  `id_tournoi` int(11) NOT NULL,
+  PRIMARY KEY (`id_table_tournoi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of table_tournoi
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `tournoi`
 -- ----------------------------
 DROP TABLE IF EXISTS `tournoi`;
@@ -106,6 +127,7 @@ CREATE TABLE `tournoi` (
   `heure_debut` datetime NOT NULL,
   `heure_fin` datetime NOT NULL,
   `user_vainqueur` int(11) DEFAULT NULL,
+  `bonus` int(11) NOT NULL,
   PRIMARY KEY (`id_tournoi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
