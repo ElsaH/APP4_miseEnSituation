@@ -126,10 +126,66 @@ img.logo_poly{
 	background-color:#f5f5dc; 
 }
 
-canvas.default {
-	cursor: default;
+canvas {
+	border: 1px solid black;
 }
 
 canvas.pointer {
 	cursor: pointer;
+}
+
+#canvas_game_container {
+	position: relative;
+}
+
+#canvas_game, #choose_action {
+	position: absolute;
+}
+
+#choose_action {
+	width: 300px;
+    height: 110px;
+	margin: 100px 0 0 100px;
+	padding: 0;
+	z-index: 2;
+	text-align: center;
+}
+
+#game_content {
+	height: 700px;
+}
+
+#choose_action span {
+	display: inline-block;
+	margin-bottom: 10px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 3px #999;
+	padding: 5px;
+	width: 100%;
+}
+
+#choose_action ul {
+	cursor: pointer;
+	list-style: none;
+	padding: 0;
+  	margin: 0;
+}
+
+#choose_action a {
+	display: block;
+	color: #000;
+	text-decoration:none; 
+}
+
+#choose_action li {
+	background-color: #cfcfcf; 
+	border-radius: 6px;
+	margin-bottom:2px;
+	box-shadow: 3px 3px 3px #999;
+	border:solid 1px #333A40
+}
+
+#choose_action li:hover {
+	background-color: #ADADAD; 
 }
