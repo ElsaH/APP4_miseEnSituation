@@ -115,3 +115,5 @@
 			</div> <!-- row -->
 			
 		</div> <!-- header --> 
+
+		<div class="body_general">
