@@ -99,5 +99,7 @@
 			</div> <!-- row -->
 			
 		</div> <!-- header --> 
-
-		<div class="body_general">
+		
+		<div id="div_for_background">
+			<img id="background" src="/APP4_miseEnSituation/images/body_background.png" />
+			<div class="body_general">

@@ -1,6 +1,6 @@
 ﻿
 </div>
-
+</div>
 <div class="row"> <!-- container du pied de page -->
 	<div id="footer" class="clearfix">
 		<div id="footer-widgets" >

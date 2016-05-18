@@ -1,7 +1,7 @@
 <!-- Page "a propos" qui présente le concepte du site et son contexte -->
 <?php include("./include/header.php"); ?>
 
-	<div class="container">
+	<div class="container content_body">
 		<h1>A PROPOS</h1>
 		
 		<h2>Contexte</h2>

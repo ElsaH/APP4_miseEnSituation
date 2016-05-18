@@ -48,13 +48,6 @@ h4
 	text-decoration: underline;
 }
 
-input#firstinput, input#secondinput
-{
-	background-image:url(./calendar.jpg);
-	background-repeat:no-repeat;
-	background-position:right center;
-}
-
 
 .nom_org
 {
@@ -150,11 +143,24 @@ div.user-choice *
 	height:100px;
 }
 
-.body_general
-{
-	background-color:#f5f5dc;
+#div_for_background{
 	width: 950px;
 	margin : 0 auto;
+    position: relative;
+}
+
+#div_for_background #background
+{
+	position: relative;
+	z-index:0;
+}
+
+#div_for_background .body_general{
+	width: 950px;
+	margin : 0 auto;
+    position: absolute;
+	top:0;
+	left:0;
 }
 
 .container
@@ -258,7 +264,16 @@ canvas.pointer {
 }
 
 .room{
+	display: inline-block;
 	background-color:#FED09B;
 	padding: 5px 5px 5px 5px;
 	border-radius: 10px;
+	width: 800px;
+	margin : 0 auto;
+}
+
+.content_body{
+	margin : 0 auto;
+	margin-top:10px;
+	width: 800px;
 }

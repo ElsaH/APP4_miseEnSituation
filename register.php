@@ -7,7 +7,7 @@
     }
 ?>
 
-    <div class="left">    
+    <div class="left content_body">    
         <h1>Enregistrez-vous</h1>
         <?php
         if (!empty($error_msg)) {

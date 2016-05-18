@@ -5,7 +5,7 @@
 	//if(empty($_SESSION['login'])):
 ?>
 <!-- FORM POUR LA CONNEXION -->
-<div class="container">
+<div class="container content_body">
 	<h1>Connexion</h1>
 	<form class="form-signin" id="log" action="connexion.php" method="post">
 		<table>
