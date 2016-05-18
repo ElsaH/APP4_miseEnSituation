@@ -236,7 +236,6 @@ canvas.pointer {
 .door{
 	height:100px;
 	width:100px;
-
 }
 
 .type_label{
@@ -248,16 +247,18 @@ canvas.pointer {
 	padding: 6px 12px;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 1.42857143;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: middle;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	width:80px;
+	margin-top:15px;
 
 }
 
 .room{
 	background-color:#FED09B;
 	padding: 5px 5px 5px 5px;
+	border-radius: 10px;
 }

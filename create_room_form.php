@@ -89,7 +89,7 @@
 						<div class='row'>
 							<div class='col-xs-6'>
 								<div class='col-xs-3'>
-									<input class='input-sm form-control' id='xpMin' onchange='xpMinOk()' type='text' name='xpMin' value='<?php echo $conseilMin;?>'>
+									<input class='input-sm form-control' id='xpMin' onchange='xpMinOk(<?php echo $result_user["xp"];?>)' type='text' name='xpMin' value='<?php echo $conseilMin;?>'>
 								</div>
 							</div> <!-- col -->
 						</div> <!-- row -->

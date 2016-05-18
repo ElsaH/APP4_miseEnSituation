@@ -107,10 +107,10 @@ function suppression(email,iduser)
 	$.post("./include/deleteUser.php",{mail : email, test : iduser},function(result){}); //Suppression en base
 }
 
-function xpMinOk()
+function xpMinOk(xp_user)
 {
 	var reg = new RegExp('^[0-9]*$', 'i');
-	if (reg.test(document.getElementById("xpMin").value) && 0<=parseInt(document.getElementById("xpMin").value)) {
+	if (reg.test(document.getElementById("xpMin").value) && 0<=parseInt(document.getElementById("xpMin").value) && xp_user>=parseInt(document.getElementById("xpMin").value)) {
 		document.getElementById("submitCreateRoom").disabled=false;
 	} else {
 		document.getElementById("submitCreateRoom").disabled=true;

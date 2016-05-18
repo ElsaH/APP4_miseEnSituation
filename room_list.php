@@ -58,7 +58,7 @@
 				<?php if(is_array($result)){ 
 					foreach($result as $row ) { ?>
 						<div class="row room">
-							<div class='col-xs-2'>
+							<div class='col-xs-3'>
 								<img class="door" alt='door' src='./images/door.png'>
 							</div>
 							
@@ -68,8 +68,41 @@
 								</div>
 								
 								<div class="row">
-									<button type="button" class="btn btn-warning">Rejoindre</button>
+									<?php if($_SESSION["xp"]<$row["xp_min"] || $_SESSION["xp"]>$row["xp_max"] || $i_idMembre == $row["cree_par"]){
+										echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
+									}else{
+										echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
+									}?>
 								</div>
+							</div>
+							
+							<div class='col-xs-2'>
+								<label for='photolink'>Participants : </label>
+								<ul class="fa-ul">
+								<?php
+									$s_select = "SELECT * ";
+									$s_from = "FROM salle_user s, user u ";
+									$s_where = "WHERE s.id_salle = '".$row['id_salle']."' AND s.id_user=u.id_user;";
+									$s_request = $s_select.$s_from.$s_where;
+
+									$statement = $db->prepare($s_request);
+									$statement->execute();
+									$result_participants = $statement->fetchAll();
+									
+									if(is_array($result_participants)){ 
+										foreach($result_participants as $row_particiapants ) { ?>
+											<li><i class="fa-li fa fa-check-square"></i><?php echo $row_particiapants["pseudo"]; ?></li>
+											
+											
+									<?php	}
+									}
+								?>
+								</ul>
+
+							</div>
+							
+							<div class='col-xs-4'>
+								<label for='photolink'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
 							</div>
 							
 						</div>
