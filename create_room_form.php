@@ -20,16 +20,7 @@
 		$statement = $db->prepare($s_request);
 		$statement->execute();
 		$result_type_room = $statement->fetchAll();
-	
-		$s_select = "SELECT * ";
-		$s_from = "FROM user ";
-		$s_where = "WHERE id_user=".$_SESSION["id_user"].";";
-		
-		$s_request = $s_select.$s_from.$s_where;
-		
-		$statement = $db->prepare($s_request);
-		$statement->execute();
-		$result_user = $statement->fetch();
+
 		
 	}
 	catch (PDOException $ex)
@@ -57,7 +48,7 @@
 								<?php if(is_array($result_type_room)){ 
 									foreach($result_type_room as $row ) {	//Liste des type ?>
 											<div class="radio">
-											  <label><input type="radio" name="optradio"><?php echo $row["libelle_type_salle"];?></label>
+											  <label><input type="radio" name="radio" checked="checked"><?php echo $row["libelle_type_salle"];?></label>
 											</div>
 								<?php	} 
 								} ?>
@@ -67,19 +58,19 @@
 						
 						<div class='row'>
 							<div class='col-xs-4'>
-								<i>Vous avez <?php echo $result_user["xp"];?> xp</i>						
+								<i>Vous avez <?php echo $_SESSION["xp"];?> xp</i>						
 							</div> <!-- col -->
 						</div> <!-- row -->
 						
 						<div class='row'>
 							<div class='col-xs-5'>
-								<?php if($result_user["xp"]-10<=0)
+								<?php if($_SESSION["xp"]-10<=0)
 											$conseilMin = 0;
 										  else 
-											$conseilMin = $result_user["xp"]-10; 
-									$conseilMax = $result_user["xp"]+10;
+											$conseilMin = $_SESSION["xp"]-10; 
+									$conseilMax = $_SESSION["xp"]+10;
 								?>
-								Niveau de la salle conseillé : de  <?php echo $conseilMin; ?> à <?php echo $conseilMax; ?>
+								<i>Niveau de la salle conseillé : de  <?php echo $conseilMin; ?> à <?php echo $conseilMax; ?></i>
 									
 							</div> <!-- col -->
 						</div> <!-- row -->
