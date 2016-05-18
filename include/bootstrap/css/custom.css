@@ -163,6 +163,12 @@ div.user-choice *
 	padding: 30px;
 }
 
+.left
+{
+	width: 950px;
+	padding: 30px;
+}
+
 canvas {
 	border: 1px solid black;
 }

@@ -1,6 +1,6 @@
 <?php
 include("./include/header.php");
-	echo "<div>";
+	echo "<div class='container'>";
 		echo "Coucou :)<br>";
 		echo "REMPLISSAGE REMPLISSAGE<br>";
 		echo "REMPLISSAGE REMPLISSAGE<br>";
