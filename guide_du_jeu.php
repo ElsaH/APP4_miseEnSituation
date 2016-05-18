@@ -25,7 +25,9 @@
 			</li>
 		</ul>
 
-		
+		<!--
+			Utiliser hidden selon les cliques ?
+		-->
 		
 		
 	</div>
