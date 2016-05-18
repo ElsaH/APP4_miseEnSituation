@@ -106,3 +106,13 @@ function suppression(email,iduser)
 	$("#"+iduser).remove(); //Suppression visuelle de la liste
 	$.post("./include/deleteUser.php",{mail : email, test : iduser},function(result){}); //Suppression en base
 }
+
+function xpMinOk(){
+	var reg = new RegExp('^[1-0]+$', 'i');
+	if (reg.test(document.getElementById("xpMin").value)) {
+		document.getElementById("submitCreateRoom").disabled=false;
+	} else {
+		document.getElementById("submitCreateRoom").disabled=true;
+	}
+	
+}
