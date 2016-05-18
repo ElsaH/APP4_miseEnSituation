@@ -76,10 +76,10 @@
 		<div class="header">
 			<div class="row">
 				<div class="col-lg-8"> <!-- logo du site avec lien vers l'accueil -->
-					<a href="/APP4_miseEnSituation/index.php"><img class="logo" src="/APP4_miseEnSituation/images/logo.png" alt="logo"/></a>
+					<a href="/APP4_miseEnSituation/index.php"><img class="logo_header" src="/APP4_miseEnSituation/images/logo_polyquest.png" alt="logo"/></a>
 				</div>
 
-				<div class="col-lg-4"> <!-- lien du compte -->
+				<div id="connexion_link" class="col-lg-2"> <!-- lien du compte -->
 					<?php
 						if (!isset($_SESSION['login']))
 						{
@@ -96,5 +96,22 @@
 				</div>
 			</div> <!-- row -->		
 			
+			<div class="row">
+				<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room1v1.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room2v2.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/tournois.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
+				</div>
+			</div> <!-- row -->
 			
 		</div> <!-- header --> 

@@ -3,17 +3,17 @@
 		<div id="footer-widgets" >
 		﻿	<div id="footer-wrapper" > <!-- 1ere partie du footer, contient le logo et quelques liens -->
 				<div class="row">
-					<div class="col-sm-6 col-md-3"> <!-- logo de l'universite et de polytech -->
+					<div class="col-sm-1 col-md-2"> <!-- logo de l'universite et de polytech -->
 						<div id="meta-3" class="widget widgetFooter widget-meta">
 							<div class="row">
-								<img src="/APP4_miseEnSituation/images/logo_universite.png" alt="logo-universite" />
+								<img class="logo_uni" src="/APP4_miseEnSituation/images/logo_universite.png" alt="logo-universite" />
 							</div>				
 							<div class="row">
-								<img src="/APP4_miseEnSituation/images/logo_polytech.png" alt="logo-polytech" />
+								<img class="logo_poly"  src="/APP4_miseEnSituation/images/logo_polytech.png" alt="logo-polytech" />
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-3"> <!-- liens liés au compte, si connecté : voir son profil ou se déconnecter, sinon se connecter ou inscription -->
+					<div class="col-sm-1 col-md-2"> <!-- liens liés au compte, si connecté : voir son profil ou se déconnecter, sinon se connecter ou inscription -->
 						<div id="meta-3" class="widget widgetFooter widget-meta">
 							<h4 class="widgettitle">COMPTE</h4>
 							<ul>
@@ -27,7 +27,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-3"> <!-- Liens lié au site : accueil, page a propos et page de contact -->
+					<div class="col-sm-6 col-md-2"> <!-- Liens lié au site : accueil, page a propos et page de contact -->
 						<div id="meta-3" class="widget widgetFooter widget-meta">
 							<h4 class="widgettitle">INFORMATIONS</h4>
 							<ul>
@@ -39,16 +39,17 @@
 					</div>
 					<div class="col-sm-6 col-md-3"><!-- logo de polyquest -->
 						<div id="meta-3" class="widget widgetFooter widget-meta">
-							<img src="/APP4_miseEnSituation/images/logo.png" alt="logo" />
+							<img src="/APP4_miseEnSituation/images/logo_polyquest.png" class="logo_footer" alt="logo" />
 						</div>
 					</div>
 				</div> <!-- row-->
 			</div> <!-- footer-wrapper -->
+			<br/>
 			<div id="sub-floor"> <!-- seconde partie du pied de page copyright et noms des étudiants -->
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 copyright">Copyright © PolyQuest -2016- Tous droits réservés</div>
-						<div class="col-md-4 col-md-offset-4 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien <br/> CORDEAU Elyse | EDORH TOSSA Léon <br/> HELIES Elsa | MASSARDIER Anaïs <br/> NGO BUI HUNG Christelle </div>
+						<div class="col-md-4 col-md-offset-2 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien <br/> CORDEAU Elyse | EDORH TOSSA Léon <br/> HELIES Elsa | MASSARDIER Anaïs <br/> NGO BUI HUNG Christelle </div>
 					</div>
 				</div>
 			</div> <!-- row-->
