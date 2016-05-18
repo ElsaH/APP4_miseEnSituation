@@ -33,16 +33,31 @@
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
+<<<<<<< HEAD
+
+		<!--<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
+=======
 		<script src="./js/admin_classes.js"></script>	
 		<script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script>
 		<script src="./js/combat.js"></script>
 		<!-- trucs méchants
 		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
+>>>>>>> origin/master
 		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
 		<script src='./include/fullcalendar/lib/moment.min.js'></script>
 		<script src='./include/fullcalendar/fullcalendar.js'></script>
 		<script src='./js/fullcalendar.js'></script>
+<<<<<<< HEAD
+
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="./include/wickedpicker/stylesheets/wickedpicker.css">
+		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>-->
+=======
 		-->
+>>>>>>> origin/master
 
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
