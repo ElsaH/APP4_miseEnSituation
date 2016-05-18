@@ -67,7 +67,7 @@
 	    <script src="plugins/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script>
 		
 	</head>
-	<body>	
+	<body>			
 		<!-- En tête du site à inclure sur les autres pages -->
 		<div class="header">
 			<div class="row">
@@ -93,11 +93,11 @@
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->

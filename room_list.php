@@ -24,12 +24,19 @@
 	$i_idMembre = $_SESSION["id_user"];
 	$type = $_GET["type"];
 	
+	if($type==1)
+		$type="1v1";
+	else if($type==2)
+		$type="1v1";
+	else
+		$type="tournoi";
+		
 	// GET ALL room of type GET:type
 	try
 	{
 		$s_select = "SELECT * ";
-		$s_from = "FROM salle ";
-		$s_where = "WHERE id_type_salle = ".$type.";";
+		$s_from = "FROM salle s, type_salle t ";
+		$s_where = "WHERE libelle_type_salle = '".$type."' AND s.id_type_salle=t.id_type_salle;";
 		
 		$s_request = $s_select.$s_from.$s_where;
 		
