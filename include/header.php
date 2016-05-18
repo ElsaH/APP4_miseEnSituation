@@ -85,15 +85,15 @@
 			
 			<div class="row">
 				<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/room1v1.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/room2v2.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/tournois.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->

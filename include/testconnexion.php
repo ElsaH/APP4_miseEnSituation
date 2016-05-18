@@ -25,7 +25,7 @@
 					setcookie("cookname", $_SESSION['pseudo'], time()+2592000, "/");
 					setcookie("cookpass", $_SESSION['password'], time()+2592000, "/");
 				}
-				header("Location: /APP4_miseEnSituation/index.php");
+				header('Location: /APP4_miseEnSituation/index.php');
 			} else {
 				/* mauvais password*/
 				echo "<script>alert('Mauvais mot de passe')</script>";
