@@ -79,7 +79,7 @@
 						// proposer un retour au profil (recharger la page)
 						if($b_modificationValide)
 						{
-							echo($"Le profil a bien été modifié.<br/>");
+							echo("Le profil a bien été modifié.<br/>");
 						}
 					}
 				//header('Location:profil_view_edit.php?id_membre='.$i_idMembre);  
