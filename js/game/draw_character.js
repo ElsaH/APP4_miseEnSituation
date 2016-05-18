@@ -9,21 +9,33 @@ DRAW_CHARAC.load = function(callback) {
 		}
 	}
 
-	DRAW_CHARAC.img1 = new Image();
-	DRAW_CHARAC.img1.src = "images/characters/sprite_blue.png";
-	DRAW_CHARAC.img1.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers = new Array(4);
+	for (var i=0; i<4; i++)
+		DRAW_CHARAC.pers[i] = {};
 
-	DRAW_CHARAC.img2 = new Image();
-	DRAW_CHARAC.img2.src = "images/characters/sprite_grey.png";
-	DRAW_CHARAC.img2.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[0].img = new Image();
+	DRAW_CHARAC.pers[0].img.src = "images/characters/sprite_blue.png";
+	DRAW_CHARAC.pers[0].img.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[0].w = 35;	
+	DRAW_CHARAC.pers[0].h = 55;
 
-	DRAW_CHARAC.img3 = new Image();
-	DRAW_CHARAC.img3.src = "images/characters/sprite_red.png";
-	DRAW_CHARAC.img3.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[1].img = new Image();
+	DRAW_CHARAC.pers[1].img.src = "images/characters/sprite_grey.png";
+	DRAW_CHARAC.pers[1].img.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[1].w = 35;	
+	DRAW_CHARAC.pers[1].h = 55;
 
-	DRAW_CHARAC.img4 = new Image();
-	DRAW_CHARAC.img4.src = "images/characters/sprite_yellow.png";
-	DRAW_CHARAC.img4.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[2].img = new Image();
+	DRAW_CHARAC.pers[2].img.src = "images/characters/sprite_red.png";
+	DRAW_CHARAC.pers[2].img.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[2].w = 35;	
+	DRAW_CHARAC.pers[2].h = 55;
+
+	DRAW_CHARAC.pers[3].img = new Image();
+	DRAW_CHARAC.pers[3].img.src = "images/characters/sprite_yellow.png";
+	DRAW_CHARAC.pers[3].img.onload = function() {c++; isloaded();}
+	DRAW_CHARAC.pers[3].w = 35;	
+	DRAW_CHARAC.pers[3].h = 55;
 
 }
 
@@ -35,8 +47,8 @@ DRAW_CHARAC.character1 = function(ctx, pos, sens) {
 	if (sens == true) {
 		s.x = 8;
 		s.y = 10;
-		s.w = 35;
-		s.h = 55;
+		s.w = DRAW_CHARAC.pers[0].w;
+		s.h = DRAW_CHARAC.pers[0].h;
 	}
 	else {
 		s.x = 358;
@@ -52,5 +64,5 @@ DRAW_CHARAC.character1 = function(ctx, pos, sens) {
 	d.w = s.w;
 	d.h = s.h;
 
-	ctx.drawImage(DRAW_CHARAC.img1,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
+	ctx.drawImage(DRAW_CHARAC.pers[0].img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
 }

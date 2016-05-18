@@ -44,9 +44,24 @@ $(document).ready(function() {
 	}
 
 	$('canvas').click(function(e){
-	    var x = e.clientX;
-	    var y = e.clientY;     
-	    console.log(x, y);
+	    var x;
+		var y;
+		if (e.pageX || e.pageY) { 
+		  x = e.pageX;
+		  y = e.pageY;
+		}
+		else { 
+		  x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
+		  y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
+		} 
+		x -= this.offsetLeft;
+		y -= this.offsetTop;
+		console.log(x,y);
+		if (this.id == "canvas_choose") 
+			CHOOSE.onclick(x,y);
+		else if (this.id == "canvas_game")
+			GAME.onclick(x,y);
+
 	});
 
 	init();

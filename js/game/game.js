@@ -1,5 +1,7 @@
 var GAME = {};
 
+GAME.nbJoueurs = 4;
+
 GAME.drawBackground = function(canvas, ctx) {
 	// fond
 	ctx.fillStyle="#DDE3FF";
@@ -25,18 +27,23 @@ GAME.drawCharactersInfos = function(canvas, ctx) {
 	style.life_color = "red"; // couleur vie
 	style.cap = "round"; // bords arrondis
 
-	var pos = {x:mx, y:my};
-	GAME.drawInfos(ctx, pos, style);
-	pos.x = CANVAS_WIDTH - style.len - mx;
-	pos.y = my;
-	GAME.drawInfos(ctx, pos, style);
-	pos.x = mx;
-	pos.y = CANVAS_HEIGHT - my - style.mbetween;
-	GAME.drawInfos(ctx, pos, style);
-	pos.x = CANVAS_WIDTH - style.len - mx;
-	pos.y = CANVAS_HEIGHT - my - style.mbetween;
-	GAME.drawInfos(ctx, pos, style);
+	// positions des barres
+	GAME.barresPos = new Array(GAME.nbJoueurs);
 
+	for (var i=0; i<4; i++)
+		GAME.barresPos[i] = {};
+
+	GAME.barresPos[0].x = mx;
+	GAME.barresPos[0].y = my;
+	GAME.barresPos[1].x = CANVAS_WIDTH - style.len - mx;
+	GAME.barresPos[1].y = my;
+	GAME.barresPos[2].x = mx;
+	GAME.barresPos[2].y = CANVAS_HEIGHT - my - style.mbetween;
+	GAME.barresPos[3].x = CANVAS_WIDTH - style.len - mx;
+	GAME.barresPos[3].y = CANVAS_HEIGHT - my - style.mbetween;
+
+	for (var i=0; i<4; i++)
+		GAME.drawInfos(ctx, GAME.barresPos[i], style);
 }
 
 GAME.drawInfos = function(ctx, pos, style) {
@@ -60,51 +67,38 @@ GAME.drawInfos = function(ctx, pos, style) {
 }
 
 GAME.drawCharacters = function(canvas, ctx) {
-	var img = new Image();
-	img.src = "images/characters/sprite_blue.png";
+	// positions des personnages
+	GAME.charPos = new Array(GAME.nbJoueurs);
 
-	img.onload = function() {
-		var pos = {x:350, y:100};
-		DRAW_CHARAC.character1(ctx,pos,true);
-		pos = {x:400, y:160};
-		DRAW_CHARAC.character1(ctx,pos,true);
-		pos = {x:100, y:100};
-		DRAW_CHARAC.character1(ctx,pos,false);
-		pos = {x:50, y:160};
-		DRAW_CHARAC.character1(ctx,pos,false);
+	for (var i=0; i<GAME.nbJoueurs; i++)
+		GAME.charPos[i] = {};
+
+	GAME.charPos[0] = {x:100, y:100};
+	GAME.charPos[1] = {x:350, y:100};
+	if (GAME.nbJoueurs == 4) {
+		GAME.charPos[2] = {x:50, y:160};
+		GAME.charPos[3] = {x:400, y:160};
+	}
+	
+	DRAW_CHARAC.character1(ctx,GAME.charPos[0],false);
+	DRAW_CHARAC.character1(ctx,GAME.charPos[1],true);
+	if (GAME.nbJoueurs == 4) {
+		DRAW_CHARAC.character1(ctx,GAME.charPos[2],false);
+		DRAW_CHARAC.character1(ctx,GAME.charPos[3],true);
 	}
 
 }
 
-GAME.drawCharacter1 = function(ctx, img, pos) {
-	// source = decoupage de l'image
-	var s = {};
-	s.x = 8;
-	s.y = 10;
-	s.w = 35;
-	s.h = 55;
-	// destination = canvas
-	var d = {};
-	d.x = pos.x;
-	d.y = pos.y;
-	d.w = s.w;
-	d.h = s.h;
-	ctx.drawImage(img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
+GAME.onclick = function(x, y) {
+	for (var i=0; i<GAME.nbJoueurs; i++) {
 
-}
-
-GAME.drawCharacter2 = function(ctx, img, pos) {
-	// source = decoupage de l'image
-	var s = {};
-	s.x = 358;
-	s.y = 236;
-	s.w = 35;
-	s.h = 55;
-	// destination = canvas
-	var d = {};
-	d.x = pos.x;
-	d.y = pos.y;
-	d.w = s.w;
-	d.h = s.h;
-	ctx.drawImage(img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
+		var x1 = GAME.charPos[i].x;
+		var y1 = GAME.charPos[i].y;
+		var x2 = x1 + DRAW_CHARAC.pers[0].w;
+		var y2 = y1 + DRAW_CHARAC.pers[0].h;
+		//console.log("x=",x1,x2,"y=",y1,y2);
+		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
+			console.log("click on perso "+i);
+		}
+	}
 }
