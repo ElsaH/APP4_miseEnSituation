@@ -8,7 +8,7 @@ CHOOSE.drawBackground = function(canvas, ctx) {
 	// bordure
 	ctx.strokeStyle = 'black';
 	ctx.lineWidth = '1';
-	ctx.strokeRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT-1); //FIXME
+	ctx.strokeRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); //FIXME
 }
 
 CHOOSE.drawMenu = function(canvas, ctx) {
@@ -42,10 +42,10 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 		CHOOSE.opt[i].py = CHOOSE.opt[i].ry + 30;
 	}
 
-	CHOOSE.drawOption(canvas, ctx, 0, "charac1");
+	CHOOSE.drawOption(canvas, ctx, 0, "charac0");
 	CHOOSE.drawOption(canvas, ctx, 1, "charac1");
-	CHOOSE.drawOption(canvas, ctx, 2, "charac1");
-	CHOOSE.drawOption(canvas, ctx, 3, "charac1");
+	CHOOSE.drawOption(canvas, ctx, 2, "charac2");
+	CHOOSE.drawOption(canvas, ctx, 3, "charac3");
 }
 
 CHOOSE.drawOption = function(canvas, ctx, num, perso) {
@@ -57,8 +57,8 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
 	// infos personnage
-	if (perso == "charac1") {
-		DRAW_CHARAC.character1(ctx,pos,true);
+	if (perso == "charac0") {
+		DRAW_CHARAC.character0(ctx,pos,true);
 		ctx.fillStyle = "#000000";
 		ctx.font = "bold 12px Arial";
 		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
@@ -67,6 +67,36 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 		ctx.fillText(txt, pos.x+40, pos.y+10);;
 		ctx.fillText(txt, pos.x+40, pos.y+30);
 		
+	}
+	else if (perso == "charac1") {
+		DRAW_CHARAC.character1(ctx,pos,true);
+		ctx.fillStyle = "#000000";
+		ctx.font = "bold 12px Arial";
+		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
+		ctx.font = "12px Arial";
+		var txt = "blabla blabla";
+		ctx.fillText(txt, pos.x+40, pos.y+10);;
+		ctx.fillText(txt, pos.x+40, pos.y+30);
+	}
+	else if (perso == "charac2") {
+		DRAW_CHARAC.character2(ctx,pos,true);
+		ctx.fillStyle = "#000000";
+		ctx.font = "bold 12px Arial";
+		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
+		ctx.font = "12px Arial";
+		var txt = "blabla blabla";
+		ctx.fillText(txt, pos.x+40, pos.y+10);;
+		ctx.fillText(txt, pos.x+40, pos.y+30);
+	}
+	else if (perso == "charac3") {
+		DRAW_CHARAC.character3(ctx,pos,true);
+		ctx.fillStyle = "#000000";
+		ctx.font = "bold 12px Arial";
+		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
+		ctx.font = "12px Arial";
+		var txt = "blabla blabla";
+		ctx.fillText(txt, pos.x+40, pos.y+10);;
+		ctx.fillText(txt, pos.x+40, pos.y+30);
 	}
 }
 

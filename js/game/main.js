@@ -42,6 +42,7 @@ $(document).ready(function() {
 		drawGameCanvas();
 		drawChooseCanvas();
 	}
+	$('canvas').css("cursor","pointer");
 
 	$('canvas').click(function(e){
 	    var x;
