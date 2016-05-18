@@ -22,6 +22,7 @@
 		<!-- Liens vers le css et les scripts pour la selection des dates -->
 		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/custom.css">
+		<link rel="shortcut icon" type="image/x-icon" href="./images/icone.png" />
 		
 		<!-- font -->
 		<!--<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
@@ -33,31 +34,7 @@
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
-<<<<<<< HEAD
-
-		<!--<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
-=======
-		<script src="./js/admin_classes.js"></script>	
-		<script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script>
-		<script src="./js/combat.js"></script>
-		<!-- trucs méchants
-		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
->>>>>>> origin/master
-		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
-		<script src='./include/fullcalendar/lib/moment.min.js'></script>
-		<script src='./include/fullcalendar/fullcalendar.js'></script>
-		<script src='./js/fullcalendar.js'></script>
-<<<<<<< HEAD
-
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-		<link rel="stylesheet" href="./include/wickedpicker/stylesheets/wickedpicker.css">
-		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>-->
-=======
-		-->
->>>>>>> origin/master
+		<script src="./js/admin_classes.js"></script>
 
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -104,22 +81,20 @@
 			</div> <!-- row -->		
 			
 			<div class="row">
-				<div class="user-choice">
-					<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
-					</div>
+				<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room_list.php?type=2"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
 				</div>
 			</div> <!-- row -->
 			
