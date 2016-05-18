@@ -34,9 +34,8 @@
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
 		<script src="./js/admin_classes.js"></script>	
-		<script src="./js/combat.js"></script>
 		<script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script>
-
+		<script src="./js/combat.js"></script>
 		<!-- trucs méchants
 		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
 		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
