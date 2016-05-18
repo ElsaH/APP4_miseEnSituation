@@ -1,4 +1,5 @@
 <?php
+	include('include/header.php');
 	include('connexionBD.php');
 	$db = connexion();
 
@@ -9,10 +10,9 @@
 	$tTournoi =  isset($_POST['type_tournoi']) ? $_POST['type_tournoi']: NULL;
 	$tSalle =  isset($_POST['type_salle']) ? $_POST['type_salle']: NULL;
 
-	if($nbSalles == NULL || $h_debut == NULL ||$h_fin == NULL ||$tTournoi == NULL ||$tSalle == NULL ){
-		/* Des variables ne sont pas remplis 
-		*  donc on quitte */
-
+	if($nbSalles == NULL || $h_debut == NULL || $h_fin == NULL || $tTournoi == NULL || $tSalle == NULL ){
+		echo "<script> alert('Vous n\'avez pas rempli tous les champs.') </script>"
+		header("Refresh: 5;URL=../create_tournoi.php")
 	}
 
 	/* On créé le tournoi */
@@ -23,9 +23,6 @@
 		'pourcentage_bonus' => $tSalle
 	));
 
-	/*
-	Problème avec la table (il faut pouvoir mettre le type (tournoi ou normal))
-	*/
 
 	/* On créé les salles */
 	for($i=0; $i<$nbSalles; $i++){
@@ -34,4 +31,9 @@
 			'id_type_salle' => $tSalle
 		));
 	}
+
+	/* On remplit la table tournoi_salle */
+
+
+	include('include/footer.php');
 ?>
