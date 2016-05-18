@@ -63,11 +63,7 @@ $(document).ready(function() {
 		return {x:x, y:y};
 	}
 
-
-	$('canvas.default').css("cursor","default");
-	$('canvas.pointer').css("cursor","pointer");
-
-	$('canvas').addClass('pointer');
+	$('canvas').addClass('default');
 
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);
