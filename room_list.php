@@ -25,9 +25,9 @@
 	$type = $_GET["type"];
 	
 	if($type==1)
-		$type="1v1";
+		$type="1 vs 1";
 	else if($type==2)
-		$type="1v1";
+		$type="2 vs 2";
 	else
 		$type="tournoi";
 		
@@ -37,12 +37,11 @@
 		$s_select = "SELECT * ";
 		$s_from = "FROM salle s, type_salle t ";
 		$s_where = "WHERE libelle_type_salle = '".$type."' AND s.id_type_salle=t.id_type_salle;";
-		
 		$s_request = $s_select.$s_from.$s_where;
-		
+
 		$statement = $db->prepare($s_request);
 		$statement->execute();
-		$result = $statement->fetch();
+		$result = $statement->fetchAll();
 	
 	}
 	catch (PDOException $ex)
@@ -53,11 +52,31 @@
 	<div class='row'>
 		<div class='col-md-8'>
 			<form method="post" action="create_room_form.php">
-				<h1>Liste des salles de type <?php $_GET["type"]?></h1>
+				<h1>Liste des salles de type <?php echo $type?></h1>
 				
 				
+				<?php if(is_array($result)){ 
+					foreach($result as $row ) { ?>
+						<div class="row room">
+							<div class='col-xs-2'>
+								<img class="door" alt='door' src='./images/door.png'>
+							</div>
+							
+							<div class='col-xs-2'>
+								<div class="row type_label">
+									<?php echo $type?>
+								</div>
+								
+								<div class="row">
+									<button type="button" class="btn btn-warning">Rejoindre</button>
+								</div>
+							</div>
+							
+						</div>
+				<?php	}
+				}?>
 			
-				<!-- données additionelles cachées pour la modification -->
+				<!-- données additionelles cachées pour la creation -->
 				<p hidden>
 					<input id='idMembre' type='text' name='idMembre' value="<?php echo $i_idMembre;?>"
 					<input id='idtype' type='text' name='idtpe' value="<?php echo $type;?>">

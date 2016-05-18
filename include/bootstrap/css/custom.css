@@ -203,3 +203,32 @@ canvas.pointer {
 #choose_action li:hover {
 	background-color: #ADADAD; 
 }
+
+.door{
+	height:100px;
+	width:100px;
+
+}
+
+.type_label{
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+	margin-bottom:10px;
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border: 1px solid transparent;
+	border-radius: 4px;
+
+}
+
+.room{
+	background-color:#FED09B;
+	padding: 5px 5px 5px 5px;
+}
