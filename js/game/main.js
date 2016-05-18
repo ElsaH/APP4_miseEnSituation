@@ -25,6 +25,9 @@ $(document).ready(function() {
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
 
+		// Initialisation du jeu
+		GAME.init(4);
+
 		window.addEventListener('resize', updateCanvas, false);
 		DRAW_CHARAC.load(updateCanvas);
 	}
@@ -63,7 +66,7 @@ $(document).ready(function() {
 		return {x:x, y:y};
 	}
 
-	$('canvas').addClass('default');
+	//$('canvas').addClass('default');
 
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);

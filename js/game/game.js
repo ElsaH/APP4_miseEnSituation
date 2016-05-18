@@ -1,6 +1,23 @@
 var GAME = {};
 
-GAME.nbJoueurs = 4;
+GAME.init = function(nbJoueurs) {
+	GAME.nbJoueurs = nbJoueurs;
+	GAME.pers = new Array(GAME.nbJoueurs);
+	for (var i=0; i<GAME.nbJoueurs; i++) {
+		GAME.pers[i] = {};
+		// infos des perso en base 1
+		GAME.pers[i].life = 0.75;
+		GAME.pers[i].mana = 0.5;
+	}
+	GAME.pers[0].bonus = "adaptable";
+	GAME.pers[0].malus = "larvaire";
+	GAME.pers[1].bonus = "vigilant";
+	GAME.pers[1].malus = "en sous-nombre";
+	GAME.pers[2].bonus = "bourrin";
+	GAME.pers[2].malus = "en soirée";
+	GAME.pers[3].bonus = "précis";
+	GAME.pers[3].malus = "à Cachan";
+}
 
 GAME.drawBackground = function(canvas, ctx) {
 	// fond
@@ -43,14 +60,14 @@ GAME.drawCharactersInfos = function(canvas, ctx) {
 	GAME.barresPos[3].y = CANVAS_HEIGHT - my - style.mbetween;
 
 	for (var i=0; i<4; i++)
-		GAME.drawInfos(ctx, GAME.barresPos[i], style);
+		GAME.drawInfos(ctx, GAME.barresPos[i], style, i);
 }
 
-GAME.drawInfos = function(ctx, pos, style) {
+GAME.drawInfos = function(ctx, pos, style, i) {
 	// dessin du mana
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y);
-	ctx.lineTo(pos.x+style.len, pos.y);
+	ctx.lineTo(pos.x+style.len*GAME.pers[i].mana, pos.y);
 	ctx.lineWidth = style.width;
 	ctx.strokeStyle = style.mana_color;
 	ctx.lineCap = style.cap;
@@ -59,11 +76,33 @@ GAME.drawInfos = function(ctx, pos, style) {
 	// dessin de la vie
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y+style.mbetween);
+	ctx.lineTo(pos.x+style.len*GAME.pers[i].life, pos.y+style.mbetween);
+	ctx.lineWidth = style.width;
+	ctx.strokeStyle = style.life_color;
+	ctx.lineCap = style.cap;
+	ctx.stroke();
+
+	ctx.globalAlpha = 0.2;
+
+	// dessin du mana bg
+	ctx.beginPath();
+	ctx.moveTo(pos.x, pos.y);
+	ctx.lineTo(pos.x+style.len, pos.y);
+	ctx.lineWidth = style.width;
+	ctx.strokeStyle = style.mana_color;
+	ctx.lineCap = style.cap;
+	ctx.stroke();
+
+	// dessin de la vie bg
+	ctx.beginPath();
+	ctx.moveTo(pos.x, pos.y+style.mbetween);
 	ctx.lineTo(pos.x+style.len, pos.y+style.mbetween);
 	ctx.lineWidth = style.width;
 	ctx.strokeStyle = style.life_color;
 	ctx.lineCap = style.cap;
 	ctx.stroke();
+
+	ctx.globalAlpha = 1;
 }
 
 GAME.drawCharacters = function(canvas, ctx) {
@@ -89,7 +128,9 @@ GAME.drawCharacters = function(canvas, ctx) {
 
 }
 
-GAME.mouseEvents = function(event, x, y) {
+GAME.mouseEvents = function(event,x, y) {
+	var pointer = false;
+
 	for (var i=0; i<GAME.nbJoueurs; i++) {
 
 		var x1 = GAME.charPos[i].x;
@@ -101,16 +142,18 @@ GAME.mouseEvents = function(event, x, y) {
 			if (event == "click") {
 				console.log("click on perso "+i);
 			}
-			else if (event == "move" || !GAME.pointer){
-				$('canvas').css("cursor","pointer");
-				GAME.pointer = true;
-			}
+			pointer = true;
 		}
 		else {
-			if (GAME.pointer) {
-				$('canvas').css("cursor","default");
-				GAME.pointer = false;
-			}
+			pointer = pointer || false;
 		}
+	}
+	if (GAME.pointer && !pointer) {
+		$('canvas').removeClass("pointer");
+		GAME.pointer = false;
+	}
+	else if (!GAME.pointer && pointer) {
+		$('canvas').addClass("pointer");
+		GAME.pointer = true;
 	}
 }

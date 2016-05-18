@@ -39,6 +39,22 @@ DRAW_CHARAC.load = function(callback) {
 
 }
 
+DRAW_CHARAC.character = function(name, ctx, pos, sens) {
+	if (name == "Info") {
+		DRAW_CHARAC.character0(ctx, pos, sens);
+	}
+	else if (name == "Optro") {
+		DRAW_CHARAC.character1(ctx, pos, sens);
+	}
+	else if (name == "Materio") {
+		DRAW_CHARAC.character2(ctx, pos, sens);
+	}
+	else {
+		DRAW_CHARAC.character3(ctx, pos, sens);
+	}
+
+}
+
 DRAW_CHARAC.character0 = function(ctx, pos, sens) {
 	// source = decoupage de l'image
 	var s = {};
