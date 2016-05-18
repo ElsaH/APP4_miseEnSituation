@@ -44,6 +44,31 @@ include("include/header.php");
 	                        	</div>
 	                      	</div>
 	                  	</div>
+	                  	<div class="row" id="capa_box">
+				            <div class="col-md-12">
+				                <div class="box box-info">
+				                	<div class="box-header">
+				                    	<h3 class="box-title"> Capacités de classe </h3>
+				                	</div>
+				                </div>
+				            </div>
+				            <div class="col-md-12">
+					            <table id="table_capacites" class="table table-bordered table-hover">
+					                <thead>
+					                	<tr>
+						                    <th>Nom capacité</th>
+						                    <th>Dégâts</th>
+						                    <th>Soins</th>
+						                    <th>Coût en mana</th>
+						                    <th>XP requis</th>
+						                    <!--<th>Nombre de parties jouées</th>-->
+					                	</tr>
+					                </thead>
+					            </table>
+					        </div>
+				        </div>
+
+
                     </div>
 	                    <div class="box-footer">
 		                    <button id="create" type="button" class="btn btn-sm btn-primary">Créer</button>

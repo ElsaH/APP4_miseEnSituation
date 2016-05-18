@@ -78,6 +78,40 @@
 	        }
         });
 
+        /*var table_capacites = $('#table_capacites').DataTable({
+			"language": {"url": "./plugins/datatables/french.json"},
+			"bPaginate": true,
+			"bLengthChange": true,
+			"bFilter": true,
+			"bSort": true,
+			"bInfo": true,
+			"bAutoWidth": true,
+			"iDisplayLength": 5,
+		    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Tous"]],
+			"ajax": {
+				"url": "phplib/loadCapacites.php",
+				"type": "post",
+				"data": function(d){
+					d.id_classe = id_classe;
+				}
+			},
+			"sAjaxDataProp": "",
+			"order": [[1, "asc"]],
+			"columns": [
+				{ "name": "id_capacite", "data": "id_champion", "visible": false, "searchable": false },
+				{ "name": "nom_capacite", "data": "nom_capacite" },
+				{ "name": "montant_soins", "data": "montant_soins" },
+				{ "name": "montant_degats", "data": "montant_degats" },
+				{ "name": "cout_mana", "data": "cout_mana" },
+				{ "name": "xp_requis", "data": "xp_requis" },
+	        ],
+	        "fnInitComplete": function(oSettings, json){
+	        	$('#main_list_button').trigger('click');
+	        	var tt = new $.fn.dataTable.TableTools( table_capacites, tableToolsOptions );
+				$( tt.fnContainer() ).insertBefore('#table_capacites');
+	        }
+        });*/
+
         //Sélection
         table_classes.on("click","tr", function(event){
 		    table_classes.$('.selected-row').removeClass('selected-row');
@@ -91,7 +125,50 @@
 		        success:    function(data){
 		                        if(data){
 		                        	//clear_form();
-	                        		$('#nom_classe').val(data.classe);
+	                        		$('#nom_classe').val(data['classe'].classe);
+	                        		/*$.each(data['capacites'],function(index,value){
+		                        		row='<tr>';
+		                        		row+='<td>'+data['capacites'][index].nom_capacite+'</td>';
+		                        		row+='<td>'+data['capacites'][index].montant_degats+'</td>';
+		                        		row+='<td>'+data['capacites'][index].montant_soins+'</td>';
+		                        		row+='<td>'+data['capacites'][index].cout_mana+'</td>';
+		                        		row+='<td>'+data['capacites'][index].xp_requis+'</td>';
+		                        		row+='</tr>';
+										$('#table_capacites tr:last').after(row);
+		                        	});*/
+									var table_capacites = $('#table_capacites').DataTable({
+										"language": {"url": "./plugins/datatables/french.json"},
+										"bPaginate": true,
+										"bLengthChange": true,
+										"bFilter": true,
+										"bSort": true,
+										"bInfo": true,
+										"bAutoWidth": true,
+										"iDisplayLength": 5,
+									    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Tous"]],
+										"ajax": {
+											"url": "phplib/loadClasses.php",
+											"type": "post",
+											"data": function(d){
+												d.id_classe = id_classe;
+											}
+										},
+										"sAjaxDataProp": "",
+										"order": [[1, "asc"]],
+										"columns": [
+											{ "name": "id_capacite", "data": "id_champion", "visible": false, "searchable": false },
+											{ "name": "nom_capacite", "data": "nom_capacite" },
+											{ "name": "montant_soins", "data": "montant_soins" },
+											{ "name": "montant_degats", "data": "montant_degats" },
+											{ "name": "cout_mana", "data": "cout_mana" },
+											{ "name": "xp_requis", "data": "xp_requis" },
+								        ],
+								        "fnInitComplete": function(oSettings, json){
+								        	$('#main_list_button').trigger('click');
+								        	var tt = new $.fn.dataTable.TableTools( table_capacites, tableToolsOptions );
+											$( tt.fnContainer() ).insertBefore('#table_capacites');
+								        }
+							        });
 	                        		$('#create').addClass('disabled');
 	                        		$('#update').removeClass('disabled');
 	                        		$('#cancel').removeClass('disabled');
@@ -100,6 +177,13 @@
 		                    }
 		    });
 	    });
+
+		/*$('#table_capacites tr').click(function() {
+	        var val = $(this).
+	        if(href) {
+	            window.location = href;
+	        }
+	    });*/
 
         //Validation du formulaire
 	    $('#polyform').formValidation({
