@@ -63,7 +63,7 @@ $(document).ready(function() {
 		return {x:x, y:y};
 	}
 
-	$('canvas').addClass('default');
+	//$('canvas').addClass('default');
 
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);

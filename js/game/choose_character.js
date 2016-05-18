@@ -101,6 +101,8 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 }
 
 CHOOSE.mouseEvents = function(event,x, y) {
+	var pointer = false;
+
 	for (var i=0; i<4; i++) {
 
 		var x1 = CHOOSE.opt[i].rx;
@@ -112,17 +114,18 @@ CHOOSE.mouseEvents = function(event,x, y) {
 			if (event == "click") {
 				console.log("click on choice "+i);
 			}
-			else if (event == "move" || !CHOOSE.pointer){
-				//$('canvas').css("cursor","pointer");
-				CHOOSE.pointer = true;
-			}
+			pointer = true;
 		}
 		else {
-			if (GAME.pointer) {
-				console.log("a");
-				//$('canvas').css("cursor","default");
-				CHOOSE.pointer = false;
-			}
+			pointer = pointer || false;
 		}
+	}
+	if (CHOOSE.pointer && !pointer) {
+		$('canvas').removeClass("pointer");
+		CHOOSE.pointer = false;
+	}
+	else if (!GAME.pointer && pointer) {
+		$('canvas').addClass("pointer");
+		CHOOSE.pointer = true;
 	}
 }

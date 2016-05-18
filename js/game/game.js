@@ -89,7 +89,9 @@ GAME.drawCharacters = function(canvas, ctx) {
 
 }
 
-GAME.mouseEvents = function(event, x, y) {
+GAME.mouseEvents = function(event,x, y) {
+	var pointer = false;
+
 	for (var i=0; i<GAME.nbJoueurs; i++) {
 
 		var x1 = GAME.charPos[i].x;
@@ -101,16 +103,18 @@ GAME.mouseEvents = function(event, x, y) {
 			if (event == "click") {
 				console.log("click on perso "+i);
 			}
-			else if (event == "move" || !GAME.pointer){
-				$('canvas').css("cursor","pointer");
-				GAME.pointer = true;
-			}
+			pointer = true;
 		}
 		else {
-			if (GAME.pointer) {
-				$('canvas').css("cursor","default");
-				GAME.pointer = false;
-			}
+			pointer = pointer || false;
 		}
+	}
+	if (GAME.pointer && !pointer) {
+		$('canvas').removeClass("pointer");
+		GAME.pointer = false;
+	}
+	else if (!GAME.pointer && pointer) {
+		$('canvas').addClass("pointer");
+		GAME.pointer = true;
 	}
 }
