@@ -5,13 +5,10 @@
 
 	/* Récupération des variables */
 	$nbSalles 	=  isset($_POST['nb_salles'])    ? $_POST['nb_salles']     : NULL;
-	$tTournoi 	=  isset($_POST['type_tournoi']) ? $_POST['type_tournoi']+1: NULL;
+	$tTournoi 	=  isset($_POST['type_tournoi']) ? $_POST['type_tournoi']: NULL;
 	$tSalle 	=  isset($_POST['type_salle'])   ? $_POST['type_salle']    : NULL;
 	$h_debut 	= (isset($_POST['date_debut']) && isset($_POST['heure_debut'])) ? str_replace('/','-',$_POST['date_debut']) .' '. str_replace(' ','',$_POST['heure_debut']).':00': NULL;
 	$h_fin 		= (isset($_POST['date_fin'])   && isset($_POST['heure_fin']  )) ? str_replace('/','-',$_POST['date_fin'])   .' '. str_replace(' ','',$_POST['heure_fin'])  .':00': NULL;	
-	
-	echo "Type tournoi" . $tTournoi;
-	echo "Type salle" . $tSalle;
 
 	/* On récupère l'id de la salle */
 	$tmp = $db->query('SELECT id_tournoi FROM tournoi ORDER BY id_tournoi DESC');
@@ -19,12 +16,12 @@
 	$id_tournoi = $id_tournoi['id_tournoi'] + 1;
 
 	/* On créé le tournoi */
-	$tmp = $db->prepare('INSERT INTO tournoi (id_tournoi, heure_debut, heure_fin, bonus) VALUES (:id_tournoi,:heure_debut,:heure_fin,:tSalle)');
+	$tmp = $db->prepare('INSERT INTO tournoi (id_tournoi, heure_debut, heure_fin, bonus) VALUES (:id_tournoi,:heure_debut,:heure_fin,:tTournoi)');
 	$tmp->execute(array(
 		'id_tournoi' => $id_tournoi,
 		'heure_debut' => $h_debut,
 		'heure_fin' => $h_fin,
-		'tSalle' => $tSalle
+		'tTournoi' => $tSalle
 	));
 
 	for($i=0; $i<$nbSalles; $i++){
@@ -49,5 +46,5 @@
 		));
 	}
 
-	//header('Location: ../tournois_planifies.php');
+	header('Location: ../tournois_planifies.php');
 ?>
