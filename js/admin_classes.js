@@ -25,8 +25,34 @@
 			useCurrent: false
 		});*/
 
+		var tableToolsOptions = {
+			/*"sSwfPath": "./plugins/datatables/TableTools/swf/copy_csv_xls_pdf.swf",
+            "aButtons": [
+	            	{
+	            		"sExtends": "copy",
+	            		"sButtonText": "Copier"
+	            	},
+	            	{
+	            		"sExtends": "csv",
+	            		"sButtonText": "CSV"
+	            	},
+	            	{
+	            		"sExtends": "xls",
+	            		"sButtonText": "Excel"
+	            	},
+	            	{
+	            		"sExtends": "pdf",
+	            		"sButtonText": "PDF"
+	            	},
+	            	{
+	            		"sExtends": "print",
+	            		"sButtonText": "Imprimer"
+	            	}
+	            ]*/
+		};
+
 		var table_classes = $('#table_classes').DataTable({
-			"language": {"url": "../plugins/datatables/french.json"},
+			"language": {"url": "./plugins/datatables/french.json"},
 			"bPaginate": true,
 			"bLengthChange": true,
 			"bFilter": true,
@@ -37,13 +63,13 @@
 		    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Tous"]],
 			"ajax": {
 				"url": "phplib/loadClasses.php",
-				"type": "post"				}
+				"type": "post"
 			},
 			"sAjaxDataProp": "",
 			"order": [[1, "asc"]],
 			"columns": [
-				{ "name": "id_classe", "data": "id_classe", "visible": false, "searchable": false },
-				{ "name": "nom_classe", "data": "nom_classe", "visible": false, "searchable": false }
+				{ "name": "id_classe", "data": "id_champion", "visible": false, "searchable": false },
+				{ "name": "nom_classe", "data": "classe" }
 	        ],
 	        "fnInitComplete": function(oSettings, json){
 	        	$('#main_list_button').trigger('click');
@@ -56,7 +82,7 @@
         table_classes.on("click","tr", function(event){
 		    table_classes.$('.selected-row').removeClass('selected-row');
 		  	$(event.target).parent().addClass('selected-row');
-		  	id_classe = table_liste.cell('.selected-row',0).data();
+		  	id_classe = table_classes.cell('.selected-row',0).data();
 		    $.ajax({
 		        dataType:   'json',
 		        type: 		'post',
@@ -64,15 +90,12 @@
 		        url:        'phplib/loadClasses.php',
 		        success:    function(data){
 		                        if(data){
-		                        	clear_form();
-		                        	table_document.ajax.reload();
-	                        		$('#id_classe').val(data.id_classe).attr('readonly','readonly');
-	                        		$('#nom_classe').val(data.nom_classe);
+		                        	//clear_form();
+	                        		$('#nom_classe').val(data.classe);
 	                        		$('#create').addClass('disabled');
 	                        		$('#update').removeClass('disabled');
 	                        		$('#cancel').removeClass('disabled');
 	                        		$('#delete').removeClass('disabled');
-		                        	table_classes.ajax.reload();
 		                        }
 		                    }
 		    });
@@ -168,7 +191,7 @@
 
 	    //Bouton cancel
 	    $(document).on('click','#cancel',function(e){
-	    	table_liste.$('.selected-row').removeClass('selected-row');
+	    	table_classes.$('.selected-row').removeClass('selected-row');
 	    	clear_form();
 	    });
 

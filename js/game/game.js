@@ -3,12 +3,12 @@ var GAME = {};
 GAME.drawBackground = function(canvas, ctx) {
 	// fond
 	ctx.fillStyle="#DDE3FF";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 	// bordure
 	ctx.strokeStyle = 'black';
 	ctx.lineWidth = '1';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+	ctx.strokeRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 }
 
 GAME.drawCharactersInfos = function(canvas, ctx) {
@@ -27,14 +27,14 @@ GAME.drawCharactersInfos = function(canvas, ctx) {
 
 	var pos = {x:mx, y:my};
 	GAME.drawInfos(ctx, pos, style);
-	pos.x = canvas.width - style.len - mx;
+	pos.x = CANVAS_WIDTH - style.len - mx;
 	pos.y = my;
 	GAME.drawInfos(ctx, pos, style);
 	pos.x = mx;
-	pos.y = canvas.height - my - style.mbetween;
+	pos.y = CANVAS_HEIGHT - my - style.mbetween;
 	GAME.drawInfos(ctx, pos, style);
-	pos.x = canvas.width - style.len - mx;
-	pos.y = canvas.height - my - style.mbetween;
+	pos.x = CANVAS_WIDTH - style.len - mx;
+	pos.y = CANVAS_HEIGHT - my - style.mbetween;
 	GAME.drawInfos(ctx, pos, style);
 
 }
