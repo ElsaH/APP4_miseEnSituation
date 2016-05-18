@@ -213,3 +213,16 @@ INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`x
 INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (3,0,'adri',NULL,'adri','adri@gmail.com',5,0,0);
 INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (4,1,'test',NULL,'test','test@gmail.com',0,0,0);
 INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (5,0,'test2',NULL,'test2','test2@gmail.com',0,0,0);
+
+-- ----------------------------
+-- Table structure for `historique`
+-- ----------------------------
+DROP TABLE IF EXISTS `historique`;
+CREATE TABLE `historique` (
+  `id_historique` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `id_gagnant` tinyint(4) DEFAULT NULL,
+  `type_salle` int(11) DEFAULT NULL,
+  `tournoi` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_historique`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
