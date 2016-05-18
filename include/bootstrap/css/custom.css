@@ -85,6 +85,7 @@ div#footer
 
 div.header
 {
+
 	background-image:url(/APP4_miseEnSituation/images/header_background.png);
 	background-position: center; 
 	height: 150px;
@@ -101,10 +102,12 @@ img.logo_header
 	margin-left: 25px;
 }
 
-img.col_sm-2
+#connexion_link
 {
-	
+	margin-left: 130px;
 }
+
+
 
 img.logo_footer{
 	height:80px;
@@ -123,8 +126,20 @@ img.logo_poly{
 	height:60px;
 }
 
-#connexion_link{
+#connexion_link
+{
 	margin-top:20px;
+}
+
+div.user-choice
+{
+	margin-left:280px;
+	margin-top: 20px;
+}
+
+div.user-choice *
+{
+	height: 80px;
 }
 
 .logo_menu{

@@ -32,8 +32,18 @@ CREATE TABLE `capacite` (
 -- ----------------------------
 -- Records of capacite
 -- ----------------------------
-INSERT INTO `capacite` VALUES ('1', 'soins', '1', '0', '1', '0');
-INSERT INTO `capacite` VALUES ('2', 'degats', '0', '1', '1', '0');
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (1,'mug_de_cafe',5,0,10,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (2,'lance_de_clavier',0,10,15,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (3,'riff_de_guitare',0,10,30,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (4,'potion_au_ciment',5,0,10,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (5,'lance_de_disque_en_ceramique',0,10,20,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (6,'projection_de_roche',0,15,30,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (7,'pile_a_combustile',5,0,5,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (8,'morsure_de_cable_electrique',0,10,15,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (9,'electrocution_de_masse',0,15,30,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (10,'lumiere_noire',10,0,15,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (11,'lentille_convergente',0,5,15,0);
+INSERT INTO `capacite` (`id_capacite`,`nom_capacite`,`montant_soins`,`montant_degats`,`cout_mana`,`xp_requis`) VALUES (12,'rayon_laser_multiple',0,10,20,0);
 
 -- ----------------------------
 -- Table structure for `champion`
@@ -50,7 +60,10 @@ CREATE TABLE `champion` (
 -- ----------------------------
 -- Records of champion
 -- ----------------------------
-INSERT INTO `champion` VALUES ('1', 'paysan', '100', '200');
+INSERT INTO `champion` (`id_champion`,`classe`,`hp_base`,`mana_base`) VALUES (1,'informatique',100,200);
+INSERT INTO `champion` (`id_champion`,`classe`,`hp_base`,`mana_base`) VALUES (2,'materiau',100,200);
+INSERT INTO `champion` (`id_champion`,`classe`,`hp_base`,`mana_base`) VALUES (3,'electronique',100,200);
+INSERT INTO `champion` (`id_champion`,`classe`,`hp_base`,`mana_base`) VALUES (4,'optronique',100,200);
 
 -- ----------------------------
 -- Table structure for `champion_capacite`
@@ -66,8 +79,18 @@ CREATE TABLE `champion_capacite` (
 -- ----------------------------
 -- Records of champion_capacite
 -- ----------------------------
-INSERT INTO `champion_capacite` VALUES ('1', '1', '1');
-INSERT INTO `champion_capacite` VALUES ('2', '1', '2');
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (1,1,1);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (2,1,2);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (3,1,3);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (4,2,4);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (5,2,5);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (6,2,6);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (7,3,7);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (8,3,8);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (9,3,9);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (10,4,10);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (11,4,11);
+INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capacite`) VALUES (12,4,12);
 
 -- ----------------------------
 -- Table structure for `salle`
@@ -185,3 +208,8 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (1,1,'leon',NULL,'leon','leon@gamil.com',20,1,1);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (2,0,'tofuw',NULL,'tofuw','tofuw@gmail.com',40,2,1);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (3,0,'adri',NULL,'adri','adri@gmail.com',5,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (4,1,'test',NULL,'test','test@gmail.com',0,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (5,0,'test2',NULL,'test2','test2@gmail.com',0,0,0);
