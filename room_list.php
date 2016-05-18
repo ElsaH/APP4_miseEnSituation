@@ -1,8 +1,5 @@
 <?php include("./include/header.php"); ?>
-<div>
-cette page correspond à la liste des salles
-on passe en parametre GET l'id du type (ex: 1=1v1, 2=2v2 et 3=tournois)
-</div>
+
 <?php
 	if(!isset($_SESSION["login"]) || !isset($_GET["type"])){
 		//ERREUR si non connecté 
@@ -48,7 +45,7 @@ on passe en parametre GET l'id du type (ex: 1=1v1, 2=2v2 et 3=tournois)
 ?>
 	<div class='row'>
 		<div class='col-md-8'>
-			<form method="post" action="profil_edit_process.php">
+			<form method="post" action="create_room_form.php">
 				<h1>Liste des salles de type <?php $_GET["type"]?></h1>
 				
 				

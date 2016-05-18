@@ -100,7 +100,9 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 	}
 }
 
-CHOOSE.onclick = function(x, y) {
+CHOOSE.mouseEvents = function(event,x, y) {
+	var pointer = false;
+
 	for (var i=0; i<4; i++) {
 
 		var x1 = CHOOSE.opt[i].rx;
@@ -109,7 +111,21 @@ CHOOSE.onclick = function(x, y) {
 		var y2 = y1 + CHOOSE.opt[i].rh;
 
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
-			console.log("click on choice "+i);
+			if (event == "click") {
+				console.log("click on choice "+i);
+			}
+			pointer = true;
 		}
+		else {
+			pointer = pointer || false;
+		}
+	}
+	if (CHOOSE.pointer && !pointer) {
+		$('canvas').removeClass("pointer");
+		CHOOSE.pointer = false;
+	}
+	else if (!GAME.pointer && pointer) {
+		$('canvas').addClass("pointer");
+		CHOOSE.pointer = true;
 	}
 }

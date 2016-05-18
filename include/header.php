@@ -1,11 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php 
 	if(!isset($_SESSION)) 
     { 
         session_start(); 
     }  
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<!-- Le jeu de caractères de la page (encodage) -->
@@ -34,18 +35,13 @@
 		<script src="./js/modif_comptes.js"></script>
 		<script src="./js/admin_classes.js"></script>
 
+		<!-- trucs méchants
 		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
 		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
 		<script src='./include/fullcalendar/lib/moment.min.js'></script>
 		<script src='./include/fullcalendar/fullcalendar.js'></script>
 		<script src='./js/fullcalendar.js'></script>
-
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-		<link rel="stylesheet" href="./include/wickedpicker/stylesheets/wickedpicker.css">
-		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>
+		-->
 
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -80,25 +76,20 @@
 				</div>
 
 				<div id="connexion_link" class="col-lg-2"> <!-- lien du compte -->
-					<?php
-						if (!isset($_SESSION['login']))
-						{
-					?>
+					<?php if (!isset($_SESSION['login'])): ?>
 							<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
 							<span><a href="./connexion.php">Se connecter</a> | <a href="./register.php">S'inscrire</a></span> 
 
-					<?php
-						} else {
-					?>
+					<?php else: ?>
 							<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-							<span><a href="./profil_view_edit.php?id_user=<?php echo $_SESSION["id_user"];?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
-					<?php } ?>
+							<span><a href="./profil_view_edit.php?id_user=<?= $_SESSION["id_user"]?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
+					<?php endif; ?>
 				</div>
 			</div> <!-- row -->		
 			
 			<div class="row">
 				<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
-					<a href="/APP4_miseEnSituation/room_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+					<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
 				</div>
 				
 				<div class="col-sm-2 "> <!-- lien salle 1v1 -->

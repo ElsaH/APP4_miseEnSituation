@@ -6,7 +6,10 @@ var imgV = "./images/valider.png";
 var imgA = "./images/annuler.png";
 
 //booleans de champs a verifier
-var bmail,bpseudo,bmdp1,bmdp2;
+var bmail = true;
+var bpseudo = true;
+var bmdp1 = true;
+var bmdp2 = true;
 var modifOk = false;
 
 // vérifie que toutes le variables sont correctes
@@ -87,10 +90,10 @@ function pseudoOk() {
 	var reg = new RegExp('^[a-zA-Zéèàê]+$', 'i');
 	if (reg.test(document.getElementById("pseudo").value)) {
 		document.getElementById("val3").src=imgV;
-		bnom = true;
+		bpseudo = true;
 	} else {
 		document.getElementById("val3").src=imgA;
-		bnom = false;
+		bpseudo = false;
 	}
 	document.getElementById("val3").show;
 	// maj etat bouton modifier

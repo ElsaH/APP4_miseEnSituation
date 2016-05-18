@@ -73,6 +73,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 		// les champs sont modifiables uniquement si l'utilisateur a les droits (meme profil ou admin)
 		?>
 		<div class='row'>
+			<?php //include("menu_profil.php"); ?>
 			<div class='col-md-8'>
 				<form method="post" action="profil_edit_process.php">
 					<?php 
@@ -120,7 +121,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 						</div>
 						<div class='col-xs-1'>
 							<?php if($b_profilModifiable) {?>
-								<img id='val4' src="<?php echo $s_V; ?>" >
+								<img id='val3' src="<?php echo $s_V; ?>" >
 							<?php } ?>
 						</div>
 					</div>
