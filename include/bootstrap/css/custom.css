@@ -133,12 +133,12 @@ img.logo_poly{
 
 div.user-choice
 {
-	margin-left:300px;
+	margin-left:280px;
+	margin-top: 20px;
 }
 
 div.user-choice *
 {
-	background-color: red;
 	height: 80px;
 }
 
