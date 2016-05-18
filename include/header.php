@@ -36,14 +36,6 @@
 		<script src="./js/modif_comptes.js"></script>
 		<script src="./js/admin_classes.js"></script>
 
-		<!-- trucs méchants
-		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
-		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
-		<script src='./include/fullcalendar/lib/moment.min.js'></script>
-		<script src='./include/fullcalendar/fullcalendar.js'></script>
-		<script src='./js/fullcalendar.js'></script>
-		-->
-
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 	    <link href="plugins/datatables/TableTools/css/dataTables.tableTools.css" rel="stylesheet" type="text/css" />
