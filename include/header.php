@@ -34,6 +34,19 @@
 		<script src="./js/modif_comptes.js"></script>
 		<script src="./js/admin_classes.js"></script>
 
+		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
+		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
+		<script src='./include/fullcalendar/lib/moment.min.js'></script>
+		<script src='./include/fullcalendar/fullcalendar.js'></script>
+		<script src='./js/fullcalendar.js'></script>
+
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="./include/wickedpicker/stylesheets/wickedpicker.css">
+		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>
+
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 	    <link href="plugins/datatables/TableTools/css/dataTables.tableTools.css" rel="stylesheet" type="text/css" />
@@ -63,10 +76,10 @@
 		<div class="header">
 			<div class="row">
 				<div class="col-lg-8"> <!-- logo du site avec lien vers l'accueil -->
-					<a href="/APP4_miseEnSituation/index.php"><img class="logo" src="/APP4_miseEnSituation/images/logo.png" alt="logo"/></a>
+					<a href="/APP4_miseEnSituation/index.php"><img class="logo_header" src="/APP4_miseEnSituation/images/logo_polyquest.png" alt="logo"/></a>
 				</div>
 
-				<div class="col-lg-4"> <!-- lien du compte -->
+				<div id="connexion_link" class="col-lg-2"> <!-- lien du compte -->
 					<?php
 						if (!isset($_SESSION['login']))
 						{
@@ -83,5 +96,22 @@
 				</div>
 			</div> <!-- row -->		
 			
+			<div class="row">
+				<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room1v1.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/room2v2.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/tournois.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+				</div>
+				
+				<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+					<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
+				</div>
+			</div> <!-- row -->
 			
 		</div> <!-- header --> 
