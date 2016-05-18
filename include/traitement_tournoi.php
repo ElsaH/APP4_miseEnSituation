@@ -1,4 +1,5 @@
 <?php
+	include('include/header.php');
 	include('connexionBD.php');
 	$db = connexion();
 
@@ -9,29 +10,32 @@
 	$tTournoi =  isset($_POST['type_tournoi']) ? $_POST['type_tournoi']: NULL;
 	$tSalle =  isset($_POST['type_salle']) ? $_POST['type_salle']: NULL;
 
-	if($nbSalles == NULL || $h_debut == NULL ||$h_fin == NULL ||$tTournoi == NULL ||$tSalle == NULL ){
-		/* Des variables ne sont pas remplis 
-		*  donc on quitte */
-
+	if($nbSalles == NULL || $h_debut == NULL || $h_fin == NULL || $tTournoi == NULL || $tSalle == NULL ){
+		echo "<script> alert('Vous n\'avez pas rempli tous les champs.') </script>"
+		header("Refresh: 5;URL=../create_tournoi.php")
 	}
 
 	/* On créé le tournoi */
-	$tmp = $db->prepare('INSERT INTO tournoi (heure_debut, heure_fin, pourcentage_bonus) VALUES (:heure_debut,:heure_fin,:pourcentage_bonus)');
+	$tmp = $db->prepare('INSERT INTO tournoi (heure_debut, heure_fin, bonus) VALUES (:heure_debut,:heure_fin,:tSalle)');
 	$tmp->execute(array(
 		'heure_debut' => $h_debut,
 		'heure_fin' => $h_fin,
-		'pourcentage_bonus' => $tSalle
+		'bonus' => $tSalle
 	));
 
-	/*
-	Problème avec la table (il faut pouvoir mettre le type (tournoi ou normal))
-	*/
-
-	/* On créé les salles */
 	for($i=0; $i<$nbSalles; $i++){
+
+		/* On créé les salles */
 		$tmp = $db->prepare('INSERT INTO salle (nb_joueurs, id_type_salle, cree_par, cree_le) VALUES (0, :id_type_salle, "admin", getdate())');
 		$tmp->execute(array(
 			'id_type_salle' => $tSalle
 		));
+
+		/* On remplit la table tournoi_salle */
 	}
+
+	
+
+
+	include('include/footer.php');
 ?>

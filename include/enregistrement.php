@@ -82,7 +82,7 @@
 	}
 
     /*
-    Création utilisateur
+    	Création utilisateur
     */
 
     function creer_User($pseudo, $mail, $password){
@@ -93,7 +93,6 @@
 		$tmp = $db->query('SELECT * FROM user ORDER BY id_user DESC ');
 		$donnees = $tmp->fetch();
 		$id = $donnees['id_user'] + 1;
-		echo "<srcipt>alert($id)</script>";
 
 		/* Ecriture et execution de la requête SQL pour insérer le nouveau bonhomme */
 		$tmp = $db->prepare('INSERT INTO user (id_user, pseudo, password, mail_user, xp, admin, combats_joues, combats_gagnes) VALUES (:id, :pseudo,:password,:mail,0,0,0,0)');
@@ -103,9 +102,7 @@
 			'password' => $password,
 			'mail' => $mail
 		));
-
-		header('Location: comptecree.php');  
-	
+		//header('comptecree.php');  
+		echo "<meta http-equiv=\"refresh\" content=\"1;comptecree.php\" />";
 	}
-
 ?>
