@@ -29,7 +29,7 @@
 					$i_idMembre = $_POST["idMembre"];
 					$s_pseudo = '"'.$_POST["pseudo"].'"';
 					$s_email = '"'.$_POST["email"].'"';
-					$s_mdp = '"'.$_POST["mdp1"].'"';
+					$s_mdp = $_POST["mdp1"];
 					
 					// *******REQUETTES DE VERIFICATIONS************
 					
@@ -62,9 +62,9 @@
 							$s_set = " SET";
 							$s_set = $s_set." photo = ".$s_photo." ,";
 							$s_set = $s_set." pseudo = ".$s_pseudo." ,";
-							$s_set = $s_set." mail_user = ".$s_email." ,";
+							$s_set = $s_set." mail_user = ".$s_email." ";
 							if($s_mdp!='')
-								$s_set = $s_set." password = ".password_hash($s_mdp,PASSWORD_DEFAULT);
+								$s_set = $s_set.", password = '".password_hash($s_mdp,PASSWORD_DEFAULT)."'";
 							$s_where = " WHERE id_user = ".$i_idMembre." ;";
 							
 							$s_request = $s_update.$s_set.$s_where;
@@ -79,7 +79,7 @@
 						// proposer un retour au profil (recharger la page)
 						if($b_modificationValide)
 						{
-							echo("Le profil a bien été modifié.<br/>");
+							echo($"Le profil a bien été modifié.<br/>");
 						}
 					}
 				//header('Location:profil_view_edit.php?id_membre='.$i_idMembre);  
