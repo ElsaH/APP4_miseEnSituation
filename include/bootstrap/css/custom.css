@@ -8,6 +8,8 @@ html, body
 	padding: 0px;
 	cursor: default;
 	font-weight: bold;
+	min-width: 1024px;
+
 }
 
 .phplist
@@ -92,6 +94,7 @@ div.header
 	width: 1000px;
 	margin: 0 auto;
 	background-repeat: no-repeat;
+	min-width: 1000px;
 }
 
 img.logo_header
@@ -109,7 +112,8 @@ img.logo_header
 
 
 
-img.logo_footer{
+img.logo_footer
+{
 	height:80px;
 	padding-top:0px; 
 	padding-left:0px;
@@ -146,13 +150,17 @@ div.user-choice *
 	height:100px;
 }
 
-.body_general{
+.body_general
+{
+	background-color:#f5f5dc;
+	width: 950px;
+	margin : 0 auto;
+}
 
-	width:80%;
-	margin-top: 6%;
-	margin-left: auto;
-  	margin-right: auto;
-	background-color:#f5f5dc; 
+.container
+{
+	width: 950px;
+	padding: 30px;
 }
 
 canvas {
