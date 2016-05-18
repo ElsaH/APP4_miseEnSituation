@@ -4,11 +4,6 @@ CHOOSE.drawBackground = function(canvas, ctx) {
 	// fond
 	ctx.fillStyle="#DDE3FF";
 	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-	// bordure
-	ctx.strokeStyle = 'black';
-	ctx.lineWidth = '1';
-	ctx.strokeRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); //FIXME
 }
 
 CHOOSE.drawMenu = function(canvas, ctx) {
