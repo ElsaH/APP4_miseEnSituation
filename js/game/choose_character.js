@@ -38,14 +38,14 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 
 	// coordonnées du personnage
 	for (var i=0; i<4; i++) {
-		CHOOSE.opt[i].px = CHOOSE.opt[i].rx + 5;
+		CHOOSE.opt[i].px = CHOOSE.opt[i].rx + 10;
 		CHOOSE.opt[i].py = CHOOSE.opt[i].ry + 30;
 	}
 
-	CHOOSE.drawOption(canvas, ctx, 0, "charac0");
-	CHOOSE.drawOption(canvas, ctx, 1, "charac1");
-	CHOOSE.drawOption(canvas, ctx, 2, "charac2");
-	CHOOSE.drawOption(canvas, ctx, 3, "charac3");
+	CHOOSE.drawOption(canvas, ctx, 0, "Info");
+	CHOOSE.drawOption(canvas, ctx, 1, "Optro");
+	CHOOSE.drawOption(canvas, ctx, 2, "Materio");
+	CHOOSE.drawOption(canvas, ctx, 3, "Elek");
 }
 
 CHOOSE.drawOption = function(canvas, ctx, num, perso) {
@@ -57,47 +57,15 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
 	// infos personnage
-	if (perso == "charac0") {
-		DRAW_CHARAC.character0(ctx,pos,true);
-		ctx.fillStyle = "#000000";
-		ctx.font = "bold 12px Arial";
-		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
-		ctx.font = "12px Arial";
-		var txt = "blabla blabla";
-		ctx.fillText(txt, pos.x+40, pos.y+10);;
-		ctx.fillText(txt, pos.x+40, pos.y+30);
-		
-	}
-	else if (perso == "charac1") {
-		DRAW_CHARAC.character1(ctx,pos,true);
-		ctx.fillStyle = "#000000";
-		ctx.font = "bold 12px Arial";
-		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
-		ctx.font = "12px Arial";
-		var txt = "blabla blabla";
-		ctx.fillText(txt, pos.x+40, pos.y+10);;
-		ctx.fillText(txt, pos.x+40, pos.y+30);
-	}
-	else if (perso == "charac2") {
-		DRAW_CHARAC.character2(ctx,pos,true);
-		ctx.fillStyle = "#000000";
-		ctx.font = "bold 12px Arial";
-		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
-		ctx.font = "12px Arial";
-		var txt = "blabla blabla";
-		ctx.fillText(txt, pos.x+40, pos.y+10);;
-		ctx.fillText(txt, pos.x+40, pos.y+30);
-	}
-	else if (perso == "charac3") {
-		DRAW_CHARAC.character3(ctx,pos,true);
-		ctx.fillStyle = "#000000";
-		ctx.font = "bold 12px Arial";
-		ctx.fillText("Perso 1", pos.x+40, pos.y-10);
-		ctx.font = "12px Arial";
-		var txt = "blabla blabla";
-		ctx.fillText(txt, pos.x+40, pos.y+10);;
-		ctx.fillText(txt, pos.x+40, pos.y+30);
-	}
+	DRAW_CHARAC.character(perso,ctx,pos,true);
+	ctx.fillStyle = "#000000";
+	ctx.font = "bold 12px Arial";
+	ctx.fillText(perso, pos.x+40, pos.y-10);
+	ctx.font = "12px Arial";
+	var txt = " (+) "+GAME.pers[num].bonus;
+	ctx.fillText(txt, pos.x+40, pos.y+20);;
+	txt = " (-) "+GAME.pers[num].malus;
+	ctx.fillText(txt, pos.x+40, pos.y+40);
 }
 
 CHOOSE.mouseEvents = function(event,x, y) {

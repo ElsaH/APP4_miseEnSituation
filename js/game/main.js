@@ -25,6 +25,9 @@ $(document).ready(function() {
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
 
+		// Initialisation du jeu
+		GAME.init(4);
+
 		window.addEventListener('resize', updateCanvas, false);
 		DRAW_CHARAC.load(updateCanvas);
 	}
