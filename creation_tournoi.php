@@ -11,16 +11,24 @@
 			<input type="number" min=0 max=10 step=1 name="nb_salles" id="nb_salles"/>
 		</tr>
 		<tr>
+			<script>
+				$(function() {
+					$("#date_debut").datepicker();
+					$("#date_fin").datepicker();
+					$("#heure_debut").wickedpicker();
+					$("#heure_fin").wickedpicker();
+				});
+			</script>
 			<td><label for="date_debut">Date de début (jj/mm/aaaa) </label></td>
-			<td><input type="date" name="date_debut" id="date_debut"></code></td>
+			<td><input type="text" name="date_debut" id="date_debut"></code></td>
 			<td><label for="heure_debut">Heure de début (hh:mm) </label></td>
-			<td><input type="time" name="heure_debut" id="heure_debut"></code></td>
+			<td><input type="text" name="heure_debut" id="heure_debut"></code></td>
 		</tr>
 		<tr>
 			<td><label for="date_fin">Date de fin (jj/mm/aaaa)</label></td>
-			<td><input type="date" name="date_fin" id="date_fin"></code></td>
+			<td><input type="text" name="date_fin" id="date_fin"></code></td>
 			<td><label for="heure_fin">Heure de fin (hh:mm) </label></td>
-			<td><input type="time" name="heure_fin" id="heure_fin"></code></td>
+			<td><input type="text" name="heure_fin" id="heure_fin"></code></td>
 		</tr>
 		<tr><td><label>Type du tournoi :</label></td></tr>
 		<tr>

@@ -119,3 +119,11 @@ img.logo_poly{
 
 }
 
+.body_general{
+
+	width:80%;
+	margin-top: 6%;
+	margin-left: auto;
+  	margin-right: auto;
+	background-color:#f5f5dc; 
+}

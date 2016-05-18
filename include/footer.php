@@ -1,4 +1,7 @@
-﻿<div class="row"> <!-- container du pied de page -->
+﻿
+</div>
+
+<div class="row"> <!-- container du pied de page -->
 	<div id="footer" class="clearfix">
 		<div id="footer-widgets" >
 		﻿	<div id="footer-wrapper" > <!-- 1ere partie du footer, contient le logo et quelques liens -->
