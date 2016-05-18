@@ -16,23 +16,25 @@
 	}
 
 	/* On créé le tournoi */
-	$tmp = $db->prepare('INSERT INTO tournoi (heure_debut, heure_fin, pourcentage_bonus) VALUES (:heure_debut,:heure_fin,:pourcentage_bonus)');
+	$tmp = $db->prepare('INSERT INTO tournoi (heure_debut, heure_fin, bonus) VALUES (:heure_debut,:heure_fin,:tSalle)');
 	$tmp->execute(array(
 		'heure_debut' => $h_debut,
 		'heure_fin' => $h_fin,
-		'pourcentage_bonus' => $tSalle
+		'bonus' => $tSalle
 	));
 
-
-	/* On créé les salles */
 	for($i=0; $i<$nbSalles; $i++){
+
+		/* On créé les salles */
 		$tmp = $db->prepare('INSERT INTO salle (nb_joueurs, id_type_salle, cree_par, cree_le) VALUES (0, :id_type_salle, "admin", getdate())');
 		$tmp->execute(array(
 			'id_type_salle' => $tSalle
 		));
+
+		/* On remplit la table tournoi_salle */
 	}
 
-	/* On remplit la table tournoi_salle */
+	
 
 
 	include('include/footer.php');
