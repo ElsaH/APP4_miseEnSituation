@@ -7,6 +7,6 @@
 <p>Vous pouvez maintenant vous <a href="connexion.php">connecter.</a></p>
 
 <?php
-	header ("Refresh: 3;URL=connexion.php");
+	echo "<meta http-equiv=\"refresh\" content=\"2;connexion.php\" />";
 	include('include/footer.php')
 ?>

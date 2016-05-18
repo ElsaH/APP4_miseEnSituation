@@ -4,7 +4,7 @@ var CANVAS_HEIGHT = 300;
 
 $(document).ready(function() {
 
-	setHiDPICanvas = function(w, h, id) {
+	var setHiDPICanvas = function(w, h, id) {
 	    var can = document.getElementById(id);
 	    can.width = w * RATIO;
 	    can.height = h * RATIO;
@@ -20,31 +20,41 @@ $(document).ready(function() {
 	var canvas_game = setHiDPICanvas(500, 300, "canvas_game");
 	var ctx_game = canvas_game.getContext("2d");
 
-	function init() {
+	var init = function() {
+		// Gestion image du curseur
+		GAME.pointer = false;
+		CHOOSE.pointer = false;
+
+		// Initialisation du jeu
+		GAME.init(4);
+
+		// Div du choix d'action
+		
+
 		window.addEventListener('resize', updateCanvas, false);
 		DRAW_CHARAC.load(updateCanvas);
 	}
 	
-	function drawGameCanvas() {
+	var drawGameCanvas = function() {
 		GAME.drawBackground(canvas_game, ctx_game);
 		GAME.drawCharactersInfos(canvas_game, ctx_game);
 		GAME.drawCharacters(canvas_game, ctx_game)
 	}
 
-	function drawChooseCanvas() {
+	var drawChooseCanvas = function() {
 		CHOOSE.drawBackground(canvas_choose, ctx_choose);
 		CHOOSE.drawMenu(canvas_choose, ctx_choose);
 	}
 
-	function updateCanvas() {
+	var updateCanvas = function() {
 		// canvas_game.width = window.innerWidth;
 		// canvas_game.height = window.innerHeight;
 		drawGameCanvas();
 		drawChooseCanvas();
 	}
 
-	$('canvas').click(function(e){
-	    var x;
+	var getYXcanvas = function(canvas, e) {
+		var x;
 		var y;
 		if (e.pageX || e.pageY) { 
 		  x = e.pageX;
@@ -54,14 +64,31 @@ $(document).ready(function() {
 		  x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
 		  y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
 		} 
-		x -= this.offsetLeft;
-		y -= this.offsetTop;
-		console.log(x,y);
-		if (this.id == "canvas_choose") 
-			CHOOSE.onclick(x,y);
-		else if (this.id == "canvas_game")
-			GAME.onclick(x,y);
+		x -= canvas.offsetLeft;
+		y -= canvas.offsetTop;
+		return {x:x, y:y};
+	}
 
+	//$('canvas').addClass('default');
+
+	$('canvas').mousemove(function(e) {
+		var pos = getYXcanvas(this, e);
+	    var x = pos.x;
+		var y = pos.y;
+		if (this.id == "canvas_choose") 
+			CHOOSE.mouseEvents("move",x,y);
+		else if (this.id == "canvas_game")
+			GAME.mouseEvents("move",x,y);
+	});
+
+	$('canvas').click(function(e){
+		var pos = getYXcanvas(this, e);
+	    var x = pos.x;
+		var y = pos.y;
+		if (this.id == "canvas_choose") 
+			CHOOSE.mouseEvents("click",x,y);
+		else if (this.id == "canvas_game")
+			GAME.mouseEvents("click",x,y);
 	});
 
 	init();
