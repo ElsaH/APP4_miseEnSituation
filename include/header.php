@@ -32,9 +32,8 @@
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
-		<script src="./js/admin_classes.js"></script>
 
-		<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
+		<!--<link rel='stylesheet' href='./include/fullcalendar/fullcalendar.css' />
 		<script src='./include/fullcalendar/lib/jquery.min.js'></script>
 		<script src='./include/fullcalendar/lib/moment.min.js'></script>
 		<script src='./include/fullcalendar/fullcalendar.js'></script>
@@ -45,7 +44,7 @@
 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 		<link rel="stylesheet" href="./include/wickedpicker/stylesheets/wickedpicker.css">
-		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>
+		<script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>-->
 
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
