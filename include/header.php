@@ -22,6 +22,7 @@
 		<!-- Liens vers le css et les scripts pour la selection des dates -->
 		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/custom.css">
+		<link rel="shortcut icon" type="image/x-icon" href="./images/icone.png" />
 		
 		<!-- font -->
 		<!--<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
