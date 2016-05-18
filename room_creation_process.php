@@ -1,22 +1,22 @@
 <?php	
+	session_start();
+
 	// ====connexion base de données====
 	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
 	
 	// ====récupération et traitement des infos=====
-	var radios = document.getElementsByName('genderS');
 	
-	
-	$type = '"'.$_POST["radio"].'"';
+	$type = $_POST["type"];
 	$i_idMembre = $_SESSION["id_user"];
-	$xpMin = '"'.$_POST["xpMin"].'"';
-	$xpMax = '"'.$_POST["xpMax"].'"';
+	$xpMin = $_POST["xpMin"];
+	$xpMax = $_POST["xpMax"];
 	
 	// *******REQUETTES DE RECUPERATION DE L'ID DU TYPE************
 	try
 	{
 		//========update de membre======
 		$s_request = "SELECT * FROM type_salle WHERE libelle_type_salle='".$type."';";
-		
+
 		$statement = $db->prepare($s_request);
 		$statement->execute();
 		$result = $statement->fetch();						
@@ -44,7 +44,8 @@
 	{
 		echo ($s_erreurSQL);
 	}
-	
+	header('Location: index.php'); // TO DO
+
 	
 //header('Location:profil_view_edit.php?id_membre='.$i_idMembre);  
 

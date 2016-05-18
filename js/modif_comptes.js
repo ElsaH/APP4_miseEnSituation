@@ -109,8 +109,8 @@ function suppression(email,iduser)
 
 function xpMinOk()
 {
-	var reg = new RegExp('^[1-0]+$', 'i');
-	if (reg.test(document.getElementById("xpMin").value) && 0<=document.getElementById("xpMin").value) {
+	var reg = new RegExp('^[0-9]*$', 'i');
+	if (reg.test(document.getElementById("xpMin").value) && 0<=parseInt(document.getElementById("xpMin").value)) {
 		document.getElementById("submitCreateRoom").disabled=false;
 	} else {
 		document.getElementById("submitCreateRoom").disabled=true;
@@ -119,10 +119,11 @@ function xpMinOk()
 }
 
 function xpMaxOk(){
-	var reg = new RegExp('^[1-0]+$', 'i');
-	if (reg.test(document.getElementById("xpMin").value) && document.getElementById("xpMin").value<=document.getElementById("xpMax").value) {
+	var reg = new RegExp('^[0-9]*$', 'i');
+	if (reg.test(document.getElementById("xpMax").value) && parseInt(document.getElementById("xpMin").value)<=parseInt(document.getElementById("xpMax").value)) {
 		document.getElementById("submitCreateRoom").disabled=false;
 	} else {
+		
 		document.getElementById("submitCreateRoom").disabled=true;
 	}
 	
