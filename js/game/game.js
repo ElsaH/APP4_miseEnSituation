@@ -89,16 +89,28 @@ GAME.drawCharacters = function(canvas, ctx) {
 
 }
 
-GAME.onclick = function(x, y) {
+GAME.mouseEvents = function(event, x, y) {
 	for (var i=0; i<GAME.nbJoueurs; i++) {
 
 		var x1 = GAME.charPos[i].x;
 		var y1 = GAME.charPos[i].y;
 		var x2 = x1 + DRAW_CHARAC.pers[0].w;
 		var y2 = y1 + DRAW_CHARAC.pers[0].h;
-		//console.log("x=",x1,x2,"y=",y1,y2);
+
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
-			console.log("click on perso "+i);
+			if (event == "click") {
+				console.log("click on perso "+i);
+			}
+			else if (event == "move" || !GAME.pointer){
+				$('canvas').css("cursor","pointer");
+				GAME.pointer = true;
+			}
+		}
+		else {
+			if (GAME.pointer) {
+				$('canvas').css("cursor","default");
+				GAME.pointer = false;
+			}
 		}
 	}
 }
