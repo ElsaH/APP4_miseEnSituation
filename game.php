@@ -3,15 +3,17 @@ include("./include/header.php");
 include("./include/connexionBD.php");
 
 $pseudo = $_SESSION['pseudo'];
-$id_champion = "1";
+//$id_champion = "1";
 $nbJoueurs = 2;
-
+$id_joueur = $_SESSION['id_user'];
 
 ?>
-  <div id="game_content">
+  <div id="game_content" class="content_body">
+
 	<div id="canvas_choose_container">
   	<canvas id="canvas_choose" width="500" height="300"></canvas>
   </div>
+
 	<div id="canvas_game_container">
   	<canvas id="canvas_game" width="500" height="300"></canvas>
     <div id="choose_action">
@@ -38,7 +40,6 @@ $nbJoueurs = 2;
         </ul>
       </div>
     </div>
-  </div>
 
   <!-- Chat -->
   <h1>Chat</h1>
@@ -47,12 +48,13 @@ $nbJoueurs = 2;
   <input type="button" value="Envoyer" id="send"/><br/>
   <div id="bottom"></div> 
 
-
+  </div>
+  
   <!-- Infos cachées -->
   <input type="hidden" id="pseudo_player" value="<?php echo $pseudo ?>">
-  <input type="hidden" id="id_champion" value="<?php echo $id_champion; ?>">
+  <!-- <input type="hidden" id="id_champion" value="<?php echo $id_champion; ?>"> -->
   <input type="hidden" id="nbJoueurs" value="<?php echo $nbJoueurs; ?>"> 
-
+  <input type="hidden" id="idJoueurs" value="<?php echo $id_joueur; ?>"> 
 
   <!-- Include JS pour le game -->
   <script src="js/game/game_socket.js"></script>

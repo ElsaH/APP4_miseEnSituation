@@ -8,7 +8,10 @@ $nbJoueurs = 2;
 
 
 ?>
-  <div id="game_content">
-  	<canvas id="test_sprite" width="500" height="300"></canvas>
+  <div class="content_body"">
+  	<p><br></p>
+  	<canvas id="coinAnimation" width="500" height="300"></canvas>
   </div>
+
+<script src="./js/game/test_sprite.js"></script>
 <?php include ("./include/footer.php"); ?>

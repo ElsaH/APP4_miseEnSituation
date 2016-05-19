@@ -10,6 +10,7 @@ var ctx_game;
 
 $(document).ready(function() {
 
+	//Create canvas with a custom resolution.
 	var setHiDPICanvas = function(w, h, id) {
 	    var can = document.getElementById(id);
 	    can.width = w * RATIO;
@@ -20,16 +21,43 @@ $(document).ready(function() {
 	    return can;
 	}
 
-	//Create canvas with a custom resolution.
 	canvas_choose = setHiDPICanvas(500, 300, "canvas_choose");
 	ctx_choose = canvas_choose.getContext("2d");
 	canvas_game = setHiDPICanvas(500, 300, "canvas_game");
 	ctx_game = canvas_game.getContext("2d");
 
+	//Création de la fonction requestAnimationFrame
+	var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
+                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+ 
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+    }
+ 
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+    }
+
 	var init = function() {
 		// Gestion image du curseur
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
+
+		SOCKET.emit('changedSocket',{idUser:$('#idJoueur').val()});
 
 		// Initialisation du jeu
 		//SOCKET.init();
@@ -47,6 +75,7 @@ $(document).ready(function() {
 		GAME.draw();
 	}
 
+	// retourne les coordonnées dans un canvas
 	var getYXcanvas = function(canvas, e) {
 		var x;
 		var y;
@@ -63,6 +92,7 @@ $(document).ready(function() {
 		return {x:x, y:y};
 	}
 
+	// gestion des clicks dans canvas
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);
 	    var x = pos.x;

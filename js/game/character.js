@@ -10,7 +10,7 @@ CHARACTER.load = function(callback) {
 	}
 
 	CHARACTER.pers = new Array(4);
-	for (var i=0; i<4; i++)
+	for (var i=0; i<5; i++)
 		CHARACTER.pers[i] = {};
 
 	CHARACTER.pers[0].img = new Image();
@@ -48,6 +48,12 @@ CHARACTER.load = function(callback) {
 	CHARACTER.pers[3].name  = "Elek";
 	CHARACTER.pers[3].bonus = "précis";
 	CHARACTER.pers[3].malus = "à Cachan";
+
+	CHARACTER.coin.img = new Image();
+	CHARACTER.coin.img.src = "images/test-sprite.png";
+	CHARACTER.coin.img.onload = function() {c++; isloaded();}
+	CHARACTER.coin.w = 1000;
+	CHARACTER.coin.h = 100;
 
 }
 
@@ -192,4 +198,54 @@ CHARACTER.character3 = function(ctx, pos, sens) {
 	d.h = s.h;
 
 	ctx.drawImage(CHARACTER.pers[3].img,s.x,s.y,s.w,s.h,d.x,d.y,d.w,d.h);
+}
+
+CHARACTER.sprite = function (options) {
+	
+	var that = {};
+	var frameIndex = 0;
+	var tickCount = 0;
+	var ticksPerFrame = options.ticksPerFrame || 0;
+	var numberOfFrames = options.numberOfFrames || 1;
+	
+	that.context = options.context;
+	that.image = options.image;
+	
+	that.update = function () {
+
+        tickCount += 1;
+
+        if (tickCount > ticksPerFrame) {
+
+			tickCount = 0;
+			
+            // If the current frame index is in range
+            if (frameIndex < numberOfFrames - 1) {	
+                // Go to the next frame
+                frameIndex += 1;
+            } else {
+                frameIndex = 0;
+            }
+        }
+    };
+	
+	that.render = function () {
+	
+	  // Clear the canvas
+	  // APPELER DRAWBG avant :-)
+	  
+	  // Draw the animation
+	  that.context.drawImage(
+	    that.image,
+	    frameIndex * that.width / numberOfFrames,
+	    0,
+	    that.width / numberOfFrames,
+	    that.height,
+	    0,
+	    0,
+	    that.width / numberOfFrames,
+	    that.height);
+	};
+	
+	return that;
 }
