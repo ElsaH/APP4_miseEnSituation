@@ -26,19 +26,16 @@ $(document).ready(function() {
 		CHOOSE.pointer = false;
 
 		// Initialisation du jeu
-		GAME.init(4);
+		//GAME.init(2);
+		SOCKET.init();
 
-		// Div du choix d'action
-		
+		// choix du canvas à afficher
+		if (SOCKET.statut == "choose_perso") {
+			$('#canvas_game_container').addClass('nodisplay');
+		}
 
 		window.addEventListener('resize', updateCanvas, false);
-		DRAW_CHARAC.load(updateCanvas);
-	}
-	
-	var drawGameCanvas = function() {
-		GAME.drawBackground(canvas_game, ctx_game);
-		GAME.drawCharactersInfos(canvas_game, ctx_game);
-		GAME.drawCharacters(canvas_game, ctx_game)
+		CHARACTER.load(updateCanvas);
 	}
 
 	var drawChooseCanvas = function() {

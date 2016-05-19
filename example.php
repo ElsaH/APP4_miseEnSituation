@@ -34,6 +34,6 @@
 
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script>
-        <script src="./combat.js"></script>
+        <script src="./js/combat.js"></script>
     </body>
 </html>
