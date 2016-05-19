@@ -2,7 +2,6 @@ var GAME = {};
 
 GAME.init = function(nbJoueurs) {
 	GAME.nbJoueurs = nbJoueurs;
-	console.log("INIT", nbJoueurs);
 	// joueurs en jeu
 	GAME.player = new Array(GAME.nbJoueurs);
 	for (var i=0; i<GAME.nbJoueurs; i++) {
@@ -14,7 +13,7 @@ GAME.init = function(nbJoueurs) {
 	}
 }
 
-GAME.initJoueurs = function(joueur) {
+GAME.updateJoueurs = function(joueur) {
 	GAME.player[0].pseudo = joueur.j1.pseudo;
 	GAME.player[0].pers = joueur.j1.classe; // FIXME
 	GAME.player[0].lvl = joueur.j1.level;
@@ -55,7 +54,7 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 
 	// positions des barres
 	GAME.barresPos = new Array(GAME.nbJoueurs);
-	console.log(GAME.nbJoueurs);
+	
 	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.barresPos[i] = {};
 

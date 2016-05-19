@@ -3,15 +3,17 @@ include("./include/header.php");
 include("./include/connexionBD.php");
 
 $pseudo = $_SESSION['pseudo'];
-$id_champion = "1";
+//$id_champion = "1";
 $nbJoueurs = 2;
-
+$id_joueur = $_SESSION['id_user'];
 
 ?>
-  <div id="game_content">
+  <div id="game_content" class="content_body">
+
 	<div id="canvas_choose_container">
   	<canvas id="canvas_choose" width="500" height="300"></canvas>
   </div>
+
 	<div id="canvas_game_container">
   	<canvas id="canvas_game" width="500" height="300"></canvas>
     <div id="choose_action">
@@ -28,25 +30,33 @@ $nbJoueurs = 2;
           ));
 
           while($line = $capacite->fetch()){
-            echo"<li>".$line['nom_capacite']."</li>";
+            echo"<li><a class='sort' value='".$line['id_capacite']."'>".$line['nom_capacite']."</a></li>";
           }
           ?>
         </ul>
         <ul id="game_pass_abd">
-          <li><a>Passer</a></li>
-          <li><a>Abandonner</a></li>
+          <li><a id="passer">Passer</a></li>
+          <li><a id="abandonner">Abandonner</a></li>
         </ul>
       </div>
     </div>
-  </div>
+
+  <!-- Chat -->
   <h1>Chat</h1>
   <div id="text"></div>
   <input type="text" value="" id="message"/>
   <input type="button" value="Envoyer" id="send"/><br/>
+  <div id="bottom"></div> 
+
+  </div>
+  
+  <!-- Infos cachées -->
   <input type="hidden" id="pseudo_player" value="<?php echo $pseudo ?>">
-  <input type="hidden" id="id_champion" value="<?php echo $id_champion; ?>">
+  <!-- <input type="hidden" id="id_champion" value="<?php echo $id_champion; ?>"> -->
   <input type="hidden" id="nbJoueurs" value="<?php echo $nbJoueurs; ?>"> 
-<!--   <script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script> -->
+  <input type="hidden" id="idJoueurs" value="<?php echo $id_joueur; ?>"> 
+
+  <!-- Include JS pour le game -->
   <script src="js/game/game_socket.js"></script>
   <script src="js/game/character.js"></script>
   <script src="js/game/game.js"></script>

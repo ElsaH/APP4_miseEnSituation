@@ -9,7 +9,8 @@ if(isset($_POST['id_capacite']) && $_POST['id_capacite']!=''){
 
 	$bdd = connexion();
 
-	$sql = 'UPDATE capacite SET nom_capacite=:nom_capacite,montant_soins=:montant_soins,montant_degats=:montant_degats,cout_mana=:cout_mana,xp_requis=:xp_requis';
+	$sql = 'UPDATE capacite SET nom_capacite=:nom_capacite,montant_soins=:montant_soins,montant_degats=:montant_degats,cout_mana=:cout_mana,xp_requis=:xp_requis
+			WHERE id_capacite='.$_POST['id_capacite'];
 	$q = $bdd->prepare($sql);
 	$q->bindParam(':nom_capacite',$_POST['nom_capacite'],PDO::PARAM_STR);
 	$q->bindParam(':montant_soins',$_POST['montant_soins'],PDO::PARAM_INT);
@@ -19,7 +20,7 @@ if(isset($_POST['id_capacite']) && $_POST['id_capacite']!=''){
 	$q->execute();
 	$q->closeCursor();
 
-	$sql = 'UPDATE champion_capacite SET id_champion=:id_champion';
+	$sql = 'UPDATE champion_capacite SET id_champion=:id_champion WHERE id_capacite='.$_POST['id_capacite'];
 	$q = $bdd->prepare($sql);
 	$q->bindParam(':id_champion',$_POST['id_classe'],PDO::PARAM_INT);
 	$q->execute();
