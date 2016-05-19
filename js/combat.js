@@ -1,12 +1,9 @@
 var socket = io.connect('http://82.239.215.158:8080');
 
-// On demande le pseudo au visiteur...
-var pseudo = prompt('Quel est votre pseudo ?');
-
 var sorts = [];
 
 // Et on l'envoie avec le signal "petit_nouveau" (pour le différencier de "message")
-socket.emit('pseudo', pseudo);
+//socket.emit('pseudo', pseudo);
 socket.on('nouveau', function(message) {
      document.getElementById("text").innerHTML=document.getElementById("text").innerHTML + message + "<br/>";
 })
@@ -30,10 +27,6 @@ socket.on('disable', function(message) {
 	document.getElementById("Passer").disabled = true;
 	document.getElementById("Abandonner").disabled = true;
 })
-
-
-
-
 
 // Lorsqu'on clique sur le bouton, on envoie un "message" au serveur
 $("#message").keyup(function(event){
