@@ -98,6 +98,7 @@ INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capaci
 DROP TABLE IF EXISTS `salle`;
 CREATE TABLE `salle` (
   `id_salle` int(11) NOT NULL AUTO_INCREMENT,
+  `ouvert` tinyint(4) DEFAULT 1,
   `nb_joueurs` int(11) NOT NULL,
   `id_type_salle` int(11) NOT NULL,
   `xp_min` int(11) DEFAULT NULL,
