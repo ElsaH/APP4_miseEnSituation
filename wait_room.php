@@ -10,8 +10,7 @@
 ?>
 	<script type="text/javascript">
 		socket.on('begin',function(){
-			alert("ça marche \o/");
-		
+			document.location.href="./game.php";
 		});
 		
 		socket.on('attente',function(param){

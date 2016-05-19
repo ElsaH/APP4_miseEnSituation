@@ -68,8 +68,13 @@
 	
 	// ******* emit creation *******
 	// ******* redirection vers une page d'attente *******
+	if($type == "1 vs 1")
+		$nbPlayer = 2;
+	else
+		$nbPlayer = 4;
+		
 	echo "<script>";
-	echo "socket.emit('create',{nbJ: 2, xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
+	echo "socket.emit('create',{nbJ: ".$nbPlayer.", xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
 	echo "socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});";
 	echo "</script>";
 	
