@@ -18,36 +18,36 @@ CHARACTER.load = function(callback) {
 	CHARACTER.pers[0].img.onload = function() {c++; isloaded();}
 	CHARACTER.pers[0].w = 35;	
 	CHARACTER.pers[0].h = 55;
-	CHARACTER.name  = "";
-	CHARACTER.bonus = "adaptable"
-	CHARACTER.malus = "larvaire";
+	CHARACTER.pers[0].name  = "Info";
+	CHARACTER.pers[0].bonus = "adaptable"
+	CHARACTER.pers[0].malus = "larvaire";
 
 	CHARACTER.pers[1].img = new Image();
 	CHARACTER.pers[1].img.src = "images/characters/sprite_grey.png";
 	CHARACTER.pers[1].img.onload = function() {c++; isloaded();}
 	CHARACTER.pers[1].w = 35;	
 	CHARACTER.pers[1].h = 55;
-	CHARACTER.name  = "";
-	CHARACTER.bonus = "vigilant";
-	CHARACTER.malus = "en sous-nombre";
+	CHARACTER.pers[1].name  = "Optro";
+	CHARACTER.pers[1].bonus = "vigilant";
+	CHARACTER.pers[1].malus = "en sous-nombre";
 
 	CHARACTER.pers[2].img = new Image();
 	CHARACTER.pers[2].img.src = "images/characters/sprite_red.png";
 	CHARACTER.pers[2].img.onload = function() {c++; isloaded();}
 	CHARACTER.pers[2].w = 32;
 	CHARACTER.pers[2].h = 48;
-	CHARACTER.name  = "";
-	CHARACTER.bonus = "bourrin";
-	CHARACTER.malus = "en soirée";
+	CHARACTER.pers[2].name  = "Materio";
+	CHARACTER.pers[2].bonus = "bourrin";
+	CHARACTER.pers[2].malus = "en soirée";
 
 	CHARACTER.pers[3].img = new Image();
 	CHARACTER.pers[3].img.src = "images/characters/sprite_yellow.png";
 	CHARACTER.pers[3].img.onload = function() {c++; isloaded();}
 	CHARACTER.pers[3].w = 35;	
 	CHARACTER.pers[3].h = 52;
-	CHARACTER.name  = "";
-	CHARACTER.bonus = "précis";
-	CHARACTER.malus = "à Cachan";
+	CHARACTER.pers[3].name  = "Elek";
+	CHARACTER.pers[3].bonus = "précis";
+	CHARACTER.pers[3].malus = "à Cachan";
 
 }
 
