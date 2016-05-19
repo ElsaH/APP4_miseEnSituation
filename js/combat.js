@@ -1,3 +1,4 @@
+// coucou adrien
 var socket = io.connect('http://82.239.215.158:8080');
 
 // On demande le pseudo au visiteur...
