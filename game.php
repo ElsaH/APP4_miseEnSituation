@@ -1,4 +1,9 @@
-<?php include("./include/header.php");?>
+<?php 
+include("./include/header.php");
+include("./include/connexionBD.php");
+
+$id_champion = "1";
+?>
   <div id="game_content">
 	<div id="canvas_choose_container">
   	<canvas id="canvas_choose" width="500" height="300"></canvas>
@@ -8,10 +13,20 @@
     <div id="choose_action">
       <span>Niveau <?php echo $_SESSION['xp']; ?></span>
         <ul>
-          <li><a>Action 1</a></li>
-          <li><a>Action 2</a></li>
-          <li><a>Action 3</a></li>
-          <li><a>Action 4</a></li>
+          <?php
+          $bd = connexion();
+
+          $capacite = $bd->prepare('SELECT * FROM champion_capacite as cp, capacite as c 
+            WHERE cp.id_capacite=c.id_capacite AND cp.id_champion=:id_champion');
+
+          $capacite->execute(array(
+            'id_champion' => $id_champion
+          ));
+
+          while($line = $capacite->fetch()){
+            echo"<li>".$line['nom_capacite']."</li>";
+          }
+          ?>
         </ul>
         <ul id="game_pass_abd">
           <li><a>Passer</a></li>
