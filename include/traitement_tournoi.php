@@ -46,5 +46,5 @@
 		));
 	}
 
-	header('Location: ../tournois_planifies.php');
+	header('Location: ../creation_tournoi.php');
 ?>
