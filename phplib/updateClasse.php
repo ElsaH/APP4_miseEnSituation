@@ -11,7 +11,7 @@ if(isset($_POST['nom_classe']) && $_POST['nom_classe']!=''){
 
 	$sql = 'UPDATE capacite SET nom_classe=:nom_classe';
 	$q = $bdd->prepare($sql);
-	$q->bindParam(':nom_classe',$_POST['nom_activite'],PDO::PARAM_STR);
+	$q->bindParam(':nom_classe',$_POST['nom_classe'],PDO::PARAM_STR);
 	$q->execute();
 	$q->closeCursor();
 	echo json_encode(ok);
