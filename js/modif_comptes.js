@@ -128,15 +128,3 @@ function xpMaxOk(){
 	}
 	
 }
-
-$(document).ready(function(){
-    $('.join').click(function(){
-        var room = $(this).id();
-        var ajaxurl = 'join_room.php',
-        data =  {'room': room};
-        $.post(ajaxurl, data, function (response) {
-            alert("action performed successfully");
-        });
-    });
-
-});

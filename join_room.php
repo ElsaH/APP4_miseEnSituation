@@ -7,13 +7,24 @@
 	
 	// ====récupération et traitement des infos=====
 	
-	/*$type = $_POST["type"];
-	$i_idMembre = $_SESSION["id_user"];
-	$xpMin = $_POST["xpMin"];
-	$xpMax = $_POST["xpMax"];*/
+	$idSalle = $_POST["idSalle"];
+	$idUser = $_SESSION["id_user"];
+
+	try
+	{
+		//========update de membre======
+		$s_request = "INSERT INTO `salle_user`(`id_user`, `id_salle`) VALUES (".$idUser.",".$idSalle.")";
+
+		$statement = $db->prepare($s_request);
+		$statement->execute();
+	}
+	catch (PDOException $ex)
+	{
+		echo ($s_erreurSQL);
+	}
 	
 	// *******SEND JOIN EVENT TO SERVER************
-	echo "emit('join',{numS: ".valeur.", idUser:". valeur."});"
+	echo "<script type=\"text/javascript\">socket.emit('join',{numS:".$idSalle.", idUser: ".$idUser."});</script>";
 	
 	
 	
