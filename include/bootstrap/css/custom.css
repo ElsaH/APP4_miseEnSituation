@@ -294,3 +294,20 @@ ul#game_pass_abd li {
 	margin-top:10px;
 	width: 800px;
 }
+
+.left-resultat{
+	width: 49%;
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+
+}
+
+.right-resultat{
+	width: 49%;
+	float: right;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
