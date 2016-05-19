@@ -67,9 +67,11 @@
 							
 							<div class="row">
 								<?php if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] || $_SESSION["xp"]>$row["xp_max"] || $_SESSION["id_user"] == $row["cree_par"]){
-									echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
+									//echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
+									echo "<input type='submit' class='button btn btn-warning' name='join' value='Rejoindre' disabled='disabled' />";
 								}else{
-									echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
+									//echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
+									echo "<input type='submit' class='join btn btn-warning' name='join' value='Rejoindre' />";
 								}?>
 							</div>
 						</div>
