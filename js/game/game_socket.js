@@ -28,21 +28,7 @@ SOCKET.on('start', function(msg) {
 	SOCKET.onDebugDisplay('start', msg);
 	// class -1
 	SOCKET.state = "start";
-	var j1 = {
-		pseudo: "joueur1",
-		classe: 0,
-		level: 12,
-		mana: 50,
-		pv: 60
-	};
-	var j2 = {
-		pseudo: "joueur2",
-		classe: 1,
-		level: 10,
-		mana: 40,
-		pv: 50
-	};
-	var msg = msg || {j1:j1, j2:j2};
+	var msg = msg;
 	GAME.updateJoueurs(msg);
 	$('#canvas_choose_container').addClass('nodisplay');
 	$('#canvas_game_container').removeClass('nodisplay');
