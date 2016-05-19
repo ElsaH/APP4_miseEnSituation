@@ -21,6 +21,7 @@ include("include/header.php");
 	                <thead>
 	                	<tr>
 		                    <th>ID capacité</th>
+		                    <th>Classe associée</th>
 		                    <th>Nom capacité</th>
 		                    <th>Montant soins</th>
 		                    <th>Montant dégâts</th>
@@ -49,19 +50,25 @@ include("include/header.php");
 	                      	</div>
 	                      	<div class="col-md-4">
 	                        	<div class="form-group">
-	                          		<label for="montant_soins" class="control-label">Montant de soins</label>
-	                          		<input class="form-control input-sm" id="montant_soins" name="montant_soins" />
+	                          		<label for="id_classe" class="control-label">Classe associée</label>
+	                          		<select class="form-control input-sm" id="id_classe" name="id_classe"></select>
 	                        	</div>
 	                      	</div>
 	                      	<div class="col-md-4">
 	                        	<div class="form-group">
-	                          		<label for="montant_degats" class="control-label">Montant de dégâts</label>
-	                          		<input class="form-control input-sm" id="montant_degats" name="montant_degats" />
+	                          		<label for="montant_soins" class="control-label">Montant de soins</label>
+	                          		<input class="form-control input-sm" id="montant_soins" name="montant_soins" />
 	                        	</div>
 	                      	</div>
 	                  	</div>
 
 	                  	<div class="row">
+	                  		<div class="col-md-4">
+	                        	<div class="form-group">
+	                          		<label for="montant_degats" class="control-label">Montant de dégâts</label>
+	                          		<input class="form-control input-sm" id="montant_degats" name="montant_degats" />
+	                        	</div>
+	                      	</div>
 	                      	<div class="col-md-4">
 	                        	<div class="form-group">
 	                          		<label for="cout_mana" class="control-label">Coût en mana</label>

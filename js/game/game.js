@@ -2,21 +2,34 @@ var GAME = {};
 
 GAME.init = function(nbJoueurs) {
 	GAME.nbJoueurs = nbJoueurs;
-	GAME.pers = new Array(GAME.nbJoueurs);
+	// joueurs en jeu
+	GAME.player = new Array(GAME.nbJoueurs);
 	for (var i=0; i<GAME.nbJoueurs; i++) {
-		GAME.pers[i] = {};
+		GAME.player[i] = {};
+		GAME.player[i].pers = null;
 		// infos des perso en base 1
-		GAME.pers[i].life = 0.75;
-		GAME.pers[i].mana = 0.5;
+		GAME.player[i].life = 0.75;
+		GAME.player[i].mana = 0.5;
 	}
-	GAME.pers[0].bonus = "adaptable";
-	GAME.pers[0].malus = "larvaire";
-	GAME.pers[1].bonus = "vigilant";
-	GAME.pers[1].malus = "en sous-nombre";
-	GAME.pers[2].bonus = "bourrin";
-	GAME.pers[2].malus = "en soirée";
-	GAME.pers[3].bonus = "précis";
-	GAME.pers[3].malus = "à Cachan";
+}
+
+GAME.updateJoueurs = function(joueur) {
+	GAME.player[0].pseudo = joueur.j1.pseudo;
+	GAME.player[0].pers = joueur.j1.classe; // FIXME
+	GAME.player[0].lvl = joueur.j1.level;
+	GAME.player[0].mana = joueur.j1.mana;
+	GAME.player[0].pv = joueur.j1.pv;
+	GAME.player[1].pseudo = joueur.j2.pseudo;
+	GAME.player[1].pers = joueur.j2.classe; // FIXME
+	GAME.player[1].lvl = joueur.j2.level;
+	GAME.player[1].mana = joueur.j2.mana;
+	GAME.player[1].pv = joueur.j2.pv;
+}
+
+GAME.draw = function() {
+	GAME.drawBackground(canvas_game, ctx_game);
+	GAME.drawPersosInfos(canvas_game, ctx_game);
+	GAME.drawPersos(canvas_game, ctx_game);
 }
 
 GAME.drawBackground = function(canvas, ctx) {
@@ -25,7 +38,7 @@ GAME.drawBackground = function(canvas, ctx) {
 	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 }
 
-GAME.drawCharactersInfos = function(canvas, ctx) {
+GAME.drawPersosInfos = function(canvas, ctx) {
 	// marges
 	var mx = 10; 
 	var my = 10;
@@ -41,28 +54,32 @@ GAME.drawCharactersInfos = function(canvas, ctx) {
 
 	// positions des barres
 	GAME.barresPos = new Array(GAME.nbJoueurs);
-
-	for (var i=0; i<4; i++)
+	
+	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.barresPos[i] = {};
 
 	GAME.barresPos[0].x = mx;
 	GAME.barresPos[0].y = my;
+	GAME.drawInfos(ctx, GAME.barresPos[0], style, 0);
 	GAME.barresPos[1].x = CANVAS_WIDTH - style.len - mx;
 	GAME.barresPos[1].y = my;
-	GAME.barresPos[2].x = mx;
-	GAME.barresPos[2].y = CANVAS_HEIGHT - my - style.mbetween;
-	GAME.barresPos[3].x = CANVAS_WIDTH - style.len - mx;
-	GAME.barresPos[3].y = CANVAS_HEIGHT - my - style.mbetween;
+	GAME.drawInfos(ctx, GAME.barresPos[1], style, 1);
 
-	for (var i=0; i<4; i++)
-		GAME.drawInfos(ctx, GAME.barresPos[i], style, i);
+	if (GAME.nbJoueurs == 4) {
+		GAME.barresPos[2].x = mx;
+		GAME.barresPos[2].y = CANVAS_HEIGHT - my - style.mbetween;
+		GAME.drawInfos(ctx, GAME.barresPos[2], style, 2);
+		GAME.barresPos[3].x = CANVAS_WIDTH - style.len - mx;
+		GAME.barresPos[3].y = CANVAS_HEIGHT - my - style.mbetween;
+		GAME.drawInfos(ctx, GAME.barresPos[3], style, 3);
+	}
 }
 
 GAME.drawInfos = function(ctx, pos, style, i) {
 	// dessin du mana
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y);
-	ctx.lineTo(pos.x+style.len*GAME.pers[i].mana, pos.y);
+	ctx.lineTo(pos.x+style.len*GAME.player[i].mana, pos.y);
 	ctx.lineWidth = style.width;
 	ctx.strokeStyle = style.mana_color;
 	ctx.lineCap = style.cap;
@@ -71,7 +88,7 @@ GAME.drawInfos = function(ctx, pos, style, i) {
 	// dessin de la vie
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y+style.mbetween);
-	ctx.lineTo(pos.x+style.len*GAME.pers[i].life, pos.y+style.mbetween);
+	ctx.lineTo(pos.x+style.len*GAME.player[i].life, pos.y+style.mbetween);
 	ctx.lineWidth = style.width;
 	ctx.strokeStyle = style.life_color;
 	ctx.lineCap = style.cap;
@@ -100,7 +117,7 @@ GAME.drawInfos = function(ctx, pos, style, i) {
 	ctx.globalAlpha = 1;
 }
 
-GAME.drawCharacters = function(canvas, ctx) {
+GAME.drawPersos = function(canvas, ctx) {
 	// positions des personnages
 	GAME.charPos = new Array(GAME.nbJoueurs);
 
@@ -109,16 +126,14 @@ GAME.drawCharacters = function(canvas, ctx) {
 
 	GAME.charPos[0] = {x:100, y:100};
 	GAME.charPos[1] = {x:350, y:100};
+	CHARACTER.draw(ctx, GAME.charPos[0], false, GAME.player[0].pers);
+	CHARACTER.draw(ctx, GAME.charPos[1], false, GAME.player[1].pers);
+
 	if (GAME.nbJoueurs == 4) {
 		GAME.charPos[2] = {x:50, y:160};
 		GAME.charPos[3] = {x:400, y:160};
-	}
-	
-	DRAW_CHARAC.character0(ctx,GAME.charPos[0],false);
-	DRAW_CHARAC.character0(ctx,GAME.charPos[1],true);
-	if (GAME.nbJoueurs == 4) {
-		DRAW_CHARAC.character0(ctx,GAME.charPos[2],false);
-		DRAW_CHARAC.character0(ctx,GAME.charPos[3],true);
+		CHARACTER.draw(ctx, GAME.charPos[2], false, GAME.player[2].pers);
+		CHARACTER.draw(ctx, GAME.charPos[3], false, GAME.player[3].pers);
 	}
 
 }
@@ -130,8 +145,8 @@ GAME.mouseEvents = function(event,x, y) {
 
 		var x1 = GAME.charPos[i].x;
 		var y1 = GAME.charPos[i].y;
-		var x2 = x1 + DRAW_CHARAC.pers[0].w;
-		var y2 = y1 + DRAW_CHARAC.pers[0].h;
+		var x2 = x1 + CHARACTER.pers[GAME.player[i].pers].w;
+		var y2 = y1 + CHARACTER.pers[GAME.player[i].pers].h;
 
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
@@ -152,3 +167,5 @@ GAME.mouseEvents = function(event,x, y) {
 		GAME.pointer = true;
 	}
 }
+
+// Ajouter events des actions

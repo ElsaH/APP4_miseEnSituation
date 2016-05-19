@@ -1,5 +1,10 @@
 var CHOOSE = {};
 
+CHOOSE.draw = function() {
+	CHOOSE.drawBackground(canvas_choose, ctx_choose);
+	CHOOSE.drawMenu(canvas_choose, ctx_choose);
+}
+
 CHOOSE.drawBackground = function(canvas, ctx) {
 	// fond
 	ctx.fillStyle="#DDE3FF";
@@ -37,13 +42,13 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 		CHOOSE.opt[i].py = CHOOSE.opt[i].ry + 30;
 	}
 
-	CHOOSE.drawOption(canvas, ctx, 0, "Info");
-	CHOOSE.drawOption(canvas, ctx, 1, "Optro");
-	CHOOSE.drawOption(canvas, ctx, 2, "Materio");
-	CHOOSE.drawOption(canvas, ctx, 3, "Elek");
+	CHOOSE.drawOption(canvas, ctx, 0);
+	CHOOSE.drawOption(canvas, ctx, 1);
+	CHOOSE.drawOption(canvas, ctx, 2);
+	CHOOSE.drawOption(canvas, ctx, 3);
 }
 
-CHOOSE.drawOption = function(canvas, ctx, num, perso) {
+CHOOSE.drawOption = function(canvas, ctx, num) {
 	var opt = CHOOSE.opt[num];
 	var pos = {x: opt.px, y:opt.py};
 
@@ -51,15 +56,17 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 	ctx.fillStyle = "#B5C2FF";
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
+	// portrait du perso
+	CHARACTER.draw(ctx, pos, true, num);
+
 	// infos personnage
-	DRAW_CHARAC.character(perso,ctx,pos,true);
 	ctx.fillStyle = "#000000";
 	ctx.font = "bold 12px Arial";
-	ctx.fillText(perso, pos.x+40, pos.y-10);
+	ctx.fillText(CHARACTER.pers[num].name, pos.x+40, pos.y-10);
 	ctx.font = "12px Arial";
-	var txt = " (+) "+GAME.pers[num].bonus;
+	var txt = " (+) "+CHARACTER.pers[num].bonus;
 	ctx.fillText(txt, pos.x+40, pos.y+20);;
-	txt = " (-) "+GAME.pers[num].malus;
+	txt = " (-) "+CHARACTER.pers[num].malus;
 	ctx.fillText(txt, pos.x+40, pos.y+40);
 }
 
@@ -76,6 +83,16 @@ CHOOSE.mouseEvents = function(event,x, y) {
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
 				console.log("click on choice "+i);
+				SOCKET.emit("select", {numChampion: i});
+				//FIXME avec id des personnages!!
+				/*SOCKET.on("confirm_pers", function() {
+				});*/
+				/*SOCKET.statut = "game";
+				SOCKET.on('infos', function(joueur) {
+					GAME.init(joueur);
+					$('#canvas_choose_container').addClass('nodisplay');
+					$('#canvas_game_container').removeClass('nodisplay');
+				});*/
 			}
 			pointer = true;
 		}

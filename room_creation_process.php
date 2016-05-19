@@ -1,6 +1,7 @@
 <?php	
-	session_start();
-
+	//session_start();
+	include ("./include/header.php");
+	
 	// ====connexion base de données====
 	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
 	
@@ -35,7 +36,11 @@
 		$statement = $db->prepare($select_max_id);
 		$statement->execute();
 		$res_id_salle = $statement->fetch();
-		$id_salle = $res_id_salle["id"]+1;
+		
+		if($statement->rowCount()==0)
+			$id_salle = 1;
+		else
+			$id_salle = $res_id_salle["id"]+1;
 		
 		//========creation de la salle en base de données======
 		$s_insert = "INSERT INTO `salle`(`id_salle`,`nb_joueurs`, `id_type_salle`, `xp_min`, `xp_max`, `cree_par`, `cree_le`) VALUES ";
@@ -60,9 +65,14 @@
 	{
 		echo ($s_erreurSQL);
 	}
-	header('Location: index.php'); // TO DO
-
 	
-//header('Location:profil_view_edit.php?id_membre='.$i_idMembre);  
-
+	// ******* emit creation *******
+	// ******* redirection vers une page d'attente *******
+	echo "<script>";
+	echo "socket.emit('create',{nbJ: 2, xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
+	echo "socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});";
+	echo "</script>";
+	
+	
+	include ("./include/footer.php");
 ?>

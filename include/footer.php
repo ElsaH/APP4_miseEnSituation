@@ -1,18 +1,15 @@
 ﻿
 </div>
-</div>
+
 <div class="row"> <!-- container du pied de page -->
 	<div id="footer" class="clearfix">
 		<div id="footer-widgets" >
 		﻿	<div id="footer-wrapper" > <!-- 1ere partie du footer, contient le logo et quelques liens -->
 				<div class="row">
 					<div class="col-sm-1 col-md-2"> <!-- logo de l'universite et de polytech -->
-						<div id="meta-3" class="widget widgetFooter widget-meta">
+						<div id="meta-3" class="widget widgetFooter widget-meta">			
 							<div class="row">
-								<img class="logo_uni" src="/APP4_miseEnSituation/images/logo_universite.png" alt="logo-universite" />
-							</div>				
-							<div class="row">
-								<img class="logo_poly"  src="/APP4_miseEnSituation/images/logo_polytech.png" alt="logo-polytech" />
+								<img class="logo_poly"  src="/APP4_miseEnSituation/images/logo_polytech_full.png" alt="logo-polytech" />
 							</div>
 						</div>
 					</div>

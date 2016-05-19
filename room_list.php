@@ -49,7 +49,7 @@
 	}
 ?>
 	<div class='row'>
-		<form class="content_body" method="post" action="create_room_form.php">
+		<div class="content_body">
 			<h1>Liste des salles de type <?php echo $type?></h1>
 			
 			
@@ -65,13 +65,24 @@
 								<?php echo $type?>
 							</div>
 							
-							<div class="row">
-								<?php if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] || $_SESSION["xp"]>$row["xp_max"] || $_SESSION["id_user"] == $row["cree_par"]){
-									echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
-								}else{
-									echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
-								}?>
-							</div>
+							<form method="post" action="join_room.php">
+								<div class="row">
+									<p hidden>
+										<input id='idSalle' name='idSalle' type="number" value="<?php echo $row["id_salle"];?>"/>
+									</p>
+									<?php 
+									// disabled si créateur ou xp not in [xpMin, xpMax] ou room pleine ou déjà dans la salle ou pas connecté
+									if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] 
+									|| $_SESSION["xp"]>$row["xp_max"] 
+									|| $_SESSION["id_user"] == $row["cree_par"]){
+										//echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
+										echo "<input type='submit' class='button btn btn-warning' name='join' value='Rejoindre' disabled='disabled' />";
+									}else{
+										//echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
+										echo "<input type='submit' class='join btn btn-warning' name='join' value='Rejoindre' />";
+									}?>
+								</div>
+							</form>
 						</div>
 						
 						<div class='col-xs-2'>
@@ -107,20 +118,23 @@
 			<?php	}
 			}?>
 		
-			<!-- données additionelles cachées pour la creation -->
-			<p hidden>
-				<input id='idMembre' type='text' name='idMembre' value="<?php echo $_SESSION["id_user"];?>"
-				<input id='idtype' type='text' name='idtpe' value="<?php echo $type;?>">
-			</p>
-	
-				
-			<!-- Bonton creer salle -->
-			<?php if(!isset($_SESSION["login"]))
-				echo "<input id='submit' class='btn btn-success btn-lg' type='submit' disabled='disabled' value='Crée une salle'>";
-			else
-				echo "<input id='submit' class='btn btn-success btn-lg' type='submit' value='Crée une salle'>";
-			?>
-		</form>
+			<form class="content_body" method="post" action="create_room_form.php">
+
+				<!-- données additionelles cachées pour la creation -->
+				<p hidden>
+					<input id='idMembre' type='text' name='idMembre' value="<?php echo $_SESSION["id_user"];?>"
+					<input id='idtype' type='text' name='idtpe' value="<?php echo $type;?>">
+				</p>
+		
+					
+				<!-- Bonton creer salle -->
+				<?php if(!isset($_SESSION["login"]))
+					echo "<input id='submit' class='btn btn-success btn-lg' type='submit' disabled='disabled' value='Crée une salle'>";
+				else
+					echo "<input id='submit' class='btn btn-success btn-lg' type='submit' value='Crée une salle'>";
+				?>
+			</form>
+		</div>
 </div> <!-- row -->
 
 
