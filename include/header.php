@@ -60,7 +60,7 @@
 	    <script src="plugins/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script>
 		
 		<script src="http://82.239.215.158:8080/socket.io/socket.io.js" type="text/javascript"></script>
-		<!--<script src="js/combat.js" type="text/javascript"></script>-->
+		<script src="js/combat.js" type="text/javascript"></script>
 	</head>
 	<body>
 			<!-- En tête du site à inclure sur les autres pages -->
