@@ -206,8 +206,10 @@ div.nodisplay {
 	padding-bottom: 20px;
 }
 
-#canvas_game, #choose_action {
+#choose_action {
 	position: absolute;
+	top:0;
+	left:220px;
 }
 
 #choose_action {

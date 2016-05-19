@@ -82,8 +82,9 @@ CHOOSE.mouseEvents = function(event,x, y) {
 
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
-				console.log("click on choice "+i);
+				//console.log("click on choice "+i);
 				SOCKET.emit("select", {numChampion: i});
+				getPlayerSpells(i);
 				//FIXME avec id des personnages!!
 				/*SOCKET.on("confirm_pers", function() {
 				});*/

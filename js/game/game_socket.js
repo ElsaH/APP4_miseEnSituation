@@ -25,8 +25,24 @@ SOCKET.onDebugDisplay = function(tag, msg) {
 }
 
 SOCKET.on('start', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('start', msg);
+	// class -1
 	SOCKET.state = "start";
+	var j1 = {
+		pseudo: "joueur1",
+		classe: 0,
+		level: 12,
+		mana: 50,
+		pv: 60
+	};
+	var j2 = {
+		pseudo: "joueur2",
+		classe: 1,
+		level: 10,
+		mana: 40,
+		pv: 50
+	};
+	var msg = msg || {j1:j1, j2:j2};
 	GAME.updateJoueurs(msg);
 	$('#canvas_choose_container').addClass('nodisplay');
 	$('#canvas_game_container').removeClass('nodisplay');
@@ -84,13 +100,13 @@ SOCKET.on('loose', function(msg) {
 
 $('.sort').click(function() {
 	var id = this.attr('value');
-	socket.emit('sort', {numSort : id});
+	SOCKET.emit('sort', {numSort : id});
 })
 $('#passer').click(function() {
-	socket.emit('passer');
+	SOCKET.emit('passer');
 })
 $('#abandonner').click(function() {
-	socket.emit('abandonner');
+	SOCKET.emit('abandonner');
 })
 
 /* CHAT */

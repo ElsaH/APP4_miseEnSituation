@@ -7,6 +7,7 @@ var canvas_choose;
 var ctx_choose;
 var canvas_game;
 var ctx_game;
+var getPlayerSpells;
 
 $(document).ready(function() {
 
@@ -56,7 +57,6 @@ $(document).ready(function() {
 		// Gestion image du curseur
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
-
 		SOCKET.emit('changedSocket',{idUser:$('#idJoueur').val()});
 
 		// Initialisation du jeu
@@ -75,6 +75,26 @@ $(document).ready(function() {
 		GAME.draw();
 	}
 
+	getPlayerSpells = function(i) {
+		console.log("getPlayerSpells ",i);
+		$.getJSON("get_capacites.php?id_champion="+ (i+1), 
+			{},
+			function (res) {
+				SOCKET.emit('capacites', res);
+				for (var i=0; i<res.length; i++) {
+					//console.log(res[i].id_capacite, res[i].nom_capacite);
+					var idS = res[i].id_capacite;
+					var li = "<li><a id='"+idS+"'>";
+					li += res[i].nom_capacite;
+					li += "</a></li>";
+					$(li).appendTo('#choose_spells');
+					$('a#'+idS).click(function(){
+						SOCKET.emit('sort', {numSort:idS});
+					});
+				}
+			});
+	}
+	
 	// retourne les coordonnées dans un canvas
 	var getYXcanvas = function(canvas, e) {
 		var x;
@@ -84,18 +104,19 @@ $(document).ready(function() {
 		  y = e.pageY;
 		}
 		else { 
+			console.log(document.body.scrollLeft, document.documentElement.scrollLeft);
 		  x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
 		  y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
 		} 
 		x -= canvas.offsetLeft;
 		y -= canvas.offsetTop;
-		return {x:x, y:y};
+		return {x:x-37, y:y-150};
 	}
 
 	// gestion des clicks dans canvas
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);
-	    var x = pos.x;
+	  var x = pos.x;
 		var y = pos.y;
 		if (this.id == "canvas_choose") 
 			CHOOSE.mouseEvents("move",x,y);
@@ -105,7 +126,7 @@ $(document).ready(function() {
 
 	$('canvas').click(function(e){
 		var pos = getYXcanvas(this, e);
-	    var x = pos.x;
+	  var x = pos.x;
 		var y = pos.y;
 		if (this.id == "canvas_choose") 
 			CHOOSE.mouseEvents("click",x,y);

@@ -10,7 +10,7 @@ CHARACTER.load = function(callback) {
 	}
 
 	CHARACTER.pers = new Array(4);
-	for (var i=0; i<5; i++)
+	for (var i=0; i<4; i++)
 		CHARACTER.pers[i] = {};
 
 	CHARACTER.pers[0].img = new Image();
@@ -49,11 +49,11 @@ CHARACTER.load = function(callback) {
 	CHARACTER.pers[3].bonus = "précis";
 	CHARACTER.pers[3].malus = "à Cachan";
 
-	CHARACTER.coin.img = new Image();
+	/*CHARACTER.coin.img = new Image();
 	CHARACTER.coin.img.src = "images/test-sprite.png";
 	CHARACTER.coin.img.onload = function() {c++; isloaded();}
 	CHARACTER.coin.w = 1000;
-	CHARACTER.coin.h = 100;
+	CHARACTER.coin.h = 100;*/
 
 }
 
