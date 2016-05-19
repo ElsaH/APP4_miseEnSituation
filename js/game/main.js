@@ -57,6 +57,7 @@ $(document).ready(function() {
 		// Gestion image du curseur
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
+		CHOOSE.init();
 		SOCKET.emit('changedSocket',{idUser:$('#idJoueur').val()});
 
 		// Initialisation du jeu
@@ -72,7 +73,7 @@ $(document).ready(function() {
 
 	var draw = function() {
 		CHOOSE.draw();
-		GAME.draw();
+		//GAME.draw();
 	}
 
 	getPlayerSpells = function(i) {
@@ -81,14 +82,17 @@ $(document).ready(function() {
 			function (res) {
 				SOCKET.emit('capacites', res);
 				for (var i=0; i<res.length; i++) {
+
 					console.log(res[i].id_capacite, res[i].nom_capacite);
 					var idS = res[i].id_capacite;
-					var li = "<li><a id='"+idS+"'>";
+
+					var li = "<li><a id='"+res[i].id_capacite+"'>";
 					li += res[i].nom_capacite;
 					li += "</a></li>";
+
 					$(li).appendTo('#choose_spells');
-					$('a#'+idS).click(function(){
-						SOCKET.emit('sort', {numSort:idS});
+					$('a#'+res[i].id_capacite).click(function(){
+						SOCKET.emit('sort', {numSort:this.id});
 					});
 				}
 			});

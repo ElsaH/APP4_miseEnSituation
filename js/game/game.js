@@ -16,13 +16,14 @@ GAME.updateJoueurs = function(msg) {
 		console.log("coucou", msg.joueur[i]);
 		GAME.player[i].pseudo = msg.joueur[i].pseudo;
 		GAME.player[i].pers = msg.joueur[i].champion;
-		GAME.player[i].manatot = msg.joueur[i].manatot;
+		GAME.player[i].manatot = msg.joueur[i].manaTot;
 		GAME.player[i].mana = msg.joueur[i].mana;
-		GAME.player[i].pvtot = msg.joueur[i].pvtot;
+		GAME.player[i].pvtot = msg.joueur[i].pvTot;
 		GAME.player[i].pv = msg.joueur[i].pv;
 		GAME.player[i].id = msg.joueur[i].id;
 		GAME.player[i].xp = msg.joueur[i].xp;
 	}
+	GAME.draw();
 }
 
 GAME.draw = function() {
@@ -75,6 +76,7 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 }
 
 GAME.drawInfos = function(ctx, pos, style, i) {
+
 	// dessin du mana courant
 	var cur_mana = GAME.player[i].mana/GAME.player[i].manatot;
 	ctx.beginPath();
@@ -127,14 +129,15 @@ GAME.drawPersos = function(canvas, ctx) {
 
 	GAME.charPos[0] = {x:100, y:100};
 	GAME.charPos[1] = {x:350, y:100};
+	console.log(GAME.player[0].pers);
 	CHARACTER.draw(ctx, GAME.charPos[0], false, GAME.player[0].pers);
-	CHARACTER.draw(ctx, GAME.charPos[1], false, GAME.player[1].pers);
+	CHARACTER.draw(ctx, GAME.charPos[1], true, GAME.player[1].pers);
 
 	if (GAME.nbJoueurs == 4) {
 		GAME.charPos[2] = {x:50, y:160};
 		GAME.charPos[3] = {x:400, y:160};
 		CHARACTER.draw(ctx, GAME.charPos[2], false, GAME.player[2].pers);
-		CHARACTER.draw(ctx, GAME.charPos[3], false, GAME.player[3].pers);
+		CHARACTER.draw(ctx, GAME.charPos[3], true, GAME.player[3].pers);
 	}
 
 }

@@ -24,25 +24,27 @@ CHARACTER.load = function(callback) {
 	CHARACTER.pers[0].malus = "larvaire";
 
 	CHARACTER.pers[1].img = new Image();
-	CHARACTER.pers[1].img.src = "images/characters/sprite_greyN.png";
+	CHARACTER.pers[1].img.src = "images/characters/sprite_redN.png";
 	CHARACTER.pers[1].img.onload = function() {c++; isloaded();}
-	CHARACTER.pers[1].name  = "Optro";
-	CHARACTER.pers[1].bonus = "vigilant";
-	CHARACTER.pers[1].malus = "en sous-nombre";
+	CHARACTER.pers[1].name  = "Materio";
+	CHARACTER.pers[1].bonus = "bourrin";
+	CHARACTER.pers[1].malus = "en soirée";
 
 	CHARACTER.pers[2].img = new Image();
-	CHARACTER.pers[2].img.src = "images/characters/sprite_redN.png";
+	CHARACTER.pers[2].img.src = "images/characters/sprite_yellowN.png";
 	CHARACTER.pers[2].img.onload = function() {c++; isloaded();}
-	CHARACTER.pers[2].name  = "Materio";
-	CHARACTER.pers[2].bonus = "bourrin";
-	CHARACTER.pers[2].malus = "en soirée";
+	CHARACTER.pers[2].name  = "Elek";
+	CHARACTER.pers[2].bonus = "précis";
+	CHARACTER.pers[2].malus = "à Cachan";
 
 	CHARACTER.pers[3].img = new Image();
-	CHARACTER.pers[3].img.src = "images/characters/sprite_yellowN.png";
+	CHARACTER.pers[3].img.src = "images/characters/sprite_greyN.png";
 	CHARACTER.pers[3].img.onload = function() {c++; isloaded();}
-	CHARACTER.pers[3].name  = "Elek";
-	CHARACTER.pers[3].bonus = "précis";
-	CHARACTER.pers[3].malus = "à Cachan";
+	CHARACTER.pers[3].name  = "Optro";
+	CHARACTER.pers[3].bonus = "vigilant";
+	CHARACTER.pers[3].malus = "en sous-nombre";
+
+	
 
 	/*CHARACTER.coin.img = new Image();
 	CHARACTER.coin.img.src = "images/test-sprite.png";
@@ -52,15 +54,25 @@ CHARACTER.load = function(callback) {
 
 }
 
-CHARACTER.draw = function(ctx, pos, sens, id) {
+CHARACTER.draw = function(ctx, pos, sens, id, emotion) {
+	
+	if (typeof emotion == 'undefined') {
+		emotion = "";
+	}
+
 	// source = decoupage de l'image
 	var s = {};
 
 	// sens true = orienté droite
-	s.x = (sens) ? 0 : 200;
-	s.y = 0;
+	s.x = 0;
+	s.y = (sens) ? 0 : 200;
 	s.w = CHARACTER.width;
 	s.h = CHARACTER.height;
+
+	if (emotion == "happy")
+		s.x += 100;
+	else if (emotion == "afraid")
+		s.x += 300;
 	
 	// destination = canvas
 	var d = {};

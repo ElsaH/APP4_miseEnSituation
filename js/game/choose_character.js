@@ -1,17 +1,6 @@
 var CHOOSE = {};
 
-CHOOSE.draw = function() {
-	CHOOSE.drawBackground(canvas_choose, ctx_choose);
-	CHOOSE.drawMenu(canvas_choose, ctx_choose);
-}
-
-CHOOSE.drawBackground = function(canvas, ctx) {
-	// fond
-	ctx.fillStyle="#DDE3FF";
-	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-}
-
-CHOOSE.drawMenu = function(canvas, ctx) {
+CHOOSE.init = function() {
 	var marge = 20;
 	var dw = CANVAS_WIDTH/2;
 	var dh = CANVAS_HEIGHT/2;
@@ -24,6 +13,7 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 		CHOOSE.opt[i] = {};
 		CHOOSE.opt[i].rw = dw-marge*1.5;
 		CHOOSE.opt[i].rh = dh-marge*1.5;
+		CHOOSE.opt[i].emotion = "";
 	}
 
 	// coordonnées des rectangles
@@ -41,7 +31,20 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 		CHOOSE.opt[i].px = CHOOSE.opt[i].rx + 10;
 		CHOOSE.opt[i].py = CHOOSE.opt[i].ry + 30;
 	}
+}
 
+CHOOSE.draw = function(emotion) {
+	CHOOSE.drawBackground(canvas_choose, ctx_choose);
+	CHOOSE.drawMenu(canvas_choose, ctx_choose);
+}
+
+CHOOSE.drawBackground = function(canvas, ctx) {
+	// fond
+	ctx.fillStyle="#DDE3FF";
+	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+}
+
+CHOOSE.drawMenu = function(canvas, ctx) {
 	CHOOSE.drawOption(canvas, ctx, 0);
 	CHOOSE.drawOption(canvas, ctx, 1);
 	CHOOSE.drawOption(canvas, ctx, 2);
@@ -57,7 +60,7 @@ CHOOSE.drawOption = function(canvas, ctx, num) {
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
 	// portrait du perso
-	CHARACTER.draw(ctx, pos, true, num);
+	CHARACTER.draw(ctx, pos, true, num, CHOOSE.opt[num].emotion);
 
 	// infos personnage
 	ctx.fillStyle = "#000000";
@@ -72,6 +75,7 @@ CHOOSE.drawOption = function(canvas, ctx, num) {
 
 CHOOSE.mouseEvents = function(event,x, y) {
 	var pointer = false;
+	var choix = null;
 
 	for (var i=0; i<4; i++) {
 
@@ -82,21 +86,30 @@ CHOOSE.mouseEvents = function(event,x, y) {
 
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
-				SOCKET.emit("select", {numChampion: i});
 				getPlayerSpells(i);
+				SOCKET.emit("select", {numChampion: i});
 			}
 			pointer = true;
+			choix = i;
 		}
 		else {
 			pointer = pointer || false;
 		}
 	}
+	// on ne pointe pas un choix
 	if (CHOOSE.pointer && !pointer) {
 		$('canvas').removeClass("pointer");
 		CHOOSE.pointer = false;
+		for (var i=0; i<4; i++)
+			CHOOSE.opt[i].emotion = "";
 	}
-	else if (!GAME.pointer && pointer) {
+	// on pointe un choix
+	else if (!CHOOSE.pointer && pointer) {
 		$('canvas').addClass("pointer");
 		CHOOSE.pointer = true;
+		for (var i=0; i<4; i++)
+			CHOOSE.opt[i].emotion = "";
+		CHOOSE.opt[choix].emotion = "happy";
+		CHOOSE.draw();
 	}
 }
