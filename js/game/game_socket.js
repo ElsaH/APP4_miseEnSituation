@@ -28,7 +28,6 @@ SOCKET.on('start', function(msg) {
 	SOCKET.onDebugDisplay('start', msg);
 	// class -1
 	SOCKET.state = "start";
-	var msg = msg;
 	GAME.updateJoueurs(msg);
 	$('#canvas_choose_container').addClass('nodisplay');
 	$('#canvas_game_container').removeClass('nodisplay');
