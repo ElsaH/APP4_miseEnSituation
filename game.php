@@ -28,13 +28,13 @@ $nbJoueurs = 2;
           ));
 
           while($line = $capacite->fetch()){
-            echo"<li>".$line['nom_capacite']."</li>";
+            echo"<li><a class='sort' value='".$line['id_capacite']."'>".$line['nom_capacite']."</a></li>";
           }
           ?>
         </ul>
         <ul id="game_pass_abd">
-          <li><a>Passer</a></li>
-          <li><a>Abandonner</a></li>
+          <li><a id="passer">Passer</a></li>
+          <li><a id="abandonner">Abandonner</a></li>
         </ul>
       </div>
     </div>

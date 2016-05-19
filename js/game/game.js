@@ -14,7 +14,7 @@ GAME.init = function(nbJoueurs) {
 	}
 }
 
-GAME.initJoueurs = function(joueur) {
+GAME.updateJoueurs = function(joueur) {
 	GAME.player[0].pseudo = joueur.j1.pseudo;
 	GAME.player[0].pers = joueur.j1.classe; // FIXME
 	GAME.player[0].lvl = joueur.j1.level;

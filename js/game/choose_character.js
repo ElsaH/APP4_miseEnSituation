@@ -83,16 +83,16 @@ CHOOSE.mouseEvents = function(event,x, y) {
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
 				console.log("click on choice "+i);
-				SOCKET.emit("choix_pers", i);
-				// FIXME avec id des personnages!!
+				SOCKET.emit("select", {numChampion: i});
+				//FIXME avec id des personnages!!
 				/*SOCKET.on("confirm_pers", function() {
 				});*/
-				SOCKET.statut = "game";
+				/*SOCKET.statut = "game";
 				SOCKET.on('infos', function(joueur) {
 					GAME.init(joueur);
 					$('#canvas_choose_container').addClass('nodisplay');
 					$('#canvas_game_container').removeClass('nodisplay');
-				});
+				});*/
 			}
 			pointer = true;
 		}

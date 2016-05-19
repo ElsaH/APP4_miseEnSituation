@@ -32,14 +32,12 @@ $(document).ready(function() {
 		CHOOSE.pointer = false;
 
 		// Initialisation du jeu
-		SOCKET.init();
+		//SOCKET.init();
 		var nbJoueurs = $('#nbJoueurs').val();
 		GAME.init(nbJoueurs);
 
 		// choix du canvas à afficher
-		if (SOCKET.statut == "choose_perso") {
-			$('#canvas_game_container').addClass('nodisplay');
-		}
+		$('#canvas_game_container').addClass('nodisplay');
 
 		CHARACTER.load(draw);
 	}
