@@ -78,24 +78,28 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 GAME.drawInfos = function(ctx, pos, style, i) {
 
 	// dessin du mana courant
-	var cur_mana = GAME.player[i].mana/GAME.player[i].manatot;
-	ctx.beginPath();
-	ctx.moveTo(pos.x, pos.y);
-	ctx.lineTo(pos.x+style.len*cur_mana, pos.y);
-	ctx.lineWidth = style.width;
-	ctx.strokeStyle = style.mana_color;
-	ctx.lineCap = style.cap;
-	ctx.stroke();
+	if (GAME.player[i].mana > 0) {
+		var cur_mana = GAME.player[i].mana/GAME.player[i].manatot;
+		ctx.beginPath();
+		ctx.moveTo(pos.x, pos.y);
+		ctx.lineTo(pos.x+style.len*cur_mana, pos.y);
+		ctx.lineWidth = style.width;
+		ctx.strokeStyle = style.mana_color;
+		ctx.lineCap = style.cap;
+		ctx.stroke();
+	}
 
 	// dessin de la vie courante
-	var cur_pv = GAME.player[i].pv/GAME.player[i].pvtot;
-	ctx.beginPath();
-	ctx.moveTo(pos.x, pos.y+style.mbetween);
-	ctx.lineTo(pos.x+style.len*cur_pv, pos.y+style.mbetween);
-	ctx.lineWidth = style.width;
-	ctx.strokeStyle = style.life_color;
-	ctx.lineCap = style.cap;
-	ctx.stroke();
+	if (GAME.player[i].pv > 0) {
+		var cur_pv = GAME.player[i].pv/GAME.player[i].pvtot;
+		ctx.beginPath();
+		ctx.moveTo(pos.x, pos.y+style.mbetween);
+		ctx.lineTo(pos.x+style.len*cur_pv, pos.y+style.mbetween);
+		ctx.lineWidth = style.width;
+		ctx.strokeStyle = style.life_color;
+		ctx.lineCap = style.cap;
+		ctx.stroke();
+	}
 
 	ctx.globalAlpha = 0.2;
 

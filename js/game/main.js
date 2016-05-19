@@ -99,28 +99,32 @@ $(document).ready(function() {
 	}
 	
 	// retourne les coordonnées dans un canvas
-	var getYXcanvas = function(canvas, e) {
-		var x;
-		var y;
-		if (e.pageX || e.pageY) { 
-		  x = e.pageX;
-		  y = e.pageY;
+	function relMouseCoords(event){
+		var totalOffsetX = 0;
+		var totalOffsetY = 0;
+		var canvasX = 0;
+		var canvasY = 0;
+		var currentElement = this;
+
+		do{
+		    totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+		    totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
 		}
-		else { 
-			console.log(document.body.scrollLeft, document.documentElement.scrollLeft);
-		  x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
-		  y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
-		} 
-		x -= canvas.offsetLeft;
-		y -= canvas.offsetTop;
-		return {x:x-37, y:y-150};
+		while(currentElement = currentElement.offsetParent)
+
+		canvasX = event.pageX - totalOffsetX;
+		canvasY = event.pageY - totalOffsetY;
+
+		return {x:canvasX, y:canvasY};
 	}
+	
+	HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
 
 	// gestion des clicks dans canvas
 	$('canvas').mousemove(function(e) {
-		var pos = getYXcanvas(this, e);
-	  var x = pos.x;
-		var y = pos.y;
+		var coords = this.relMouseCoords(e);
+		var x = coords.x;
+		var y = coords.y;
 		if (this.id == "canvas_choose") 
 			CHOOSE.mouseEvents("move",x,y);
 		else if (this.id == "canvas_game")
@@ -128,9 +132,10 @@ $(document).ready(function() {
 	});
 
 	$('canvas').click(function(e){
-		var pos = getYXcanvas(this, e);
-	  var x = pos.x;
-		var y = pos.y;
+		var coords = this.relMouseCoords(e);
+		var x = coords.x;
+		var y = coords.y;
+		console.log(x, y);
 		if (this.id == "canvas_choose") 
 			CHOOSE.mouseEvents("click",x,y);
 		else if (this.id == "canvas_game")
