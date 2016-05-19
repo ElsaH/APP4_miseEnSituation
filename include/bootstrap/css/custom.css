@@ -79,7 +79,12 @@ img.logo_header
 #connexion_link
 {
 	float:right;
-	margin-right: 50px;
+}
+
+#connexion_link.col-lg-2
+{
+	float:right;
+	width:300px;
 }
 
 div.user-choice
