@@ -3,12 +3,14 @@ include("./include/header.php");
 ?>
 
 <div class='container content_body'>
+	<h1>Bienvenue sur PolyQuest</h1>
 	<div class='row'>
 		<div class='col-md-2'>
 			<button id='guide' type="button" class="btn btn-default">Guide du jeu</button>
 		</div>
 	</div>
 		<?php if((isset($_SESSION['admin'])) && $_SESSION['admin']==1){ ?>
+		<h2>Partie administration</h2>
 		<div class='row'>
 			<div class='col-md-3'>
 				<button id='admin_comptes' type="button" class="btn btn-default">Gestion des comptes</button>
