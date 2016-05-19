@@ -70,7 +70,7 @@
 	// ******* redirection vers une page d'attente *******
 	echo "<script>";
 	echo "socket.emit('create',{nbJ: 2, xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
-	echo "socket.on('roomCreated', function() {document.location.href=\"./index.php\"});";
+	echo "socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});";
 	echo "</script>";
 	
 	

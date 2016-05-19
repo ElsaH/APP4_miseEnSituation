@@ -70,7 +70,11 @@
 									<p hidden>
 										<input id='idSalle' name='idSalle' type="number" value="<?php echo $row["id_salle"];?>"/>
 									</p>
-									<?php if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] || $_SESSION["xp"]>$row["xp_max"] || $_SESSION["id_user"] == $row["cree_par"]){
+									<?php 
+									// disabled si créateur ou xp not in [xpMin, xpMax] ou room pleine ou déjà dans la salle ou pas connecté
+									if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] 
+									|| $_SESSION["xp"]>$row["xp_max"] 
+									|| $_SESSION["id_user"] == $row["cree_par"]){
 										//echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
 										echo "<input type='submit' class='button btn btn-warning' name='join' value='Rejoindre' disabled='disabled' />";
 									}else{

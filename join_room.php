@@ -24,8 +24,9 @@
 	}
 	
 	// *******SEND JOIN EVENT TO SERVER************
-	echo "<script type=\"text/javascript\">socket.emit('join',{numS:".$idSalle.", idUser: ".$idUser."});</script>";
-	
+	//echo "<script type=\"text/javascript\">socket.emit('join',{numS:".$idSalle.", idUser: ".$idUser."});</script>";
+	echo "<script type=\"text/javascript\">document.location.href=\"./wait_room.php?numS=".$idSalle."&idUser=".$idUser."\";</script>";
+
 	
 	
 
