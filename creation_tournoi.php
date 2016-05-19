@@ -111,17 +111,32 @@
 			?>
 
 			<h1>Tournois en cours</h1>
-			<?php echo $tCours; ?>
+			<?php
+				if($tCours != '')
+					echo $tCours;
+				else
+					echo 'Aucun tournoi en cours.';
+			?>
 		</div>
 
 		<div id='passes' class='tab-pane fade'>
 			<h1>Tournois passés</h1>
-			<?php echo $tPasse; ?>
+			<?php
+				if($tPasse != '')
+					echo $tPasse;
+				else
+					echo 'Aucun tournoi passé.';
+			?>
 		</div>
 
 		<div id='prevus' class='tab-pane fade'>
 			<h1>Tournois prévus</h1>
-			<?php echo $tVenir; ?>
+			<?php
+				if($tVenir!='')
+					echo $tVenir;
+				else
+					echo 'Aucun tournoi prévu.';
+			?>
 		</div>
 	</div>
 </div>
