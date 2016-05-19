@@ -2,7 +2,7 @@
 var socket = io.connect('http://82.239.215.158:8080');
 
 // On demande le pseudo au visiteur...
-var pseudo = prompt('Quel est votre pseudo ?');
+// var pseudo = prompt('Quel est votre pseudo ?');
 
 var sorts = [];
 
