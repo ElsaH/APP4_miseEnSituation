@@ -77,7 +77,10 @@
 		
 	echo "<script>";
 	echo "socket.emit('create',{nbJ: ".$nbPlayer.", xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle.", pseudo:'".$_SESSION["pseudo"]."', xp:".$_SESSION["xp"]."});";
-	echo "socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});";
+	echo "setTimeout(function() {
+		socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});
+		}, 1000);
+		";
 	echo "</script>";
 	
 	
