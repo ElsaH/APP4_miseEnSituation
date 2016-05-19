@@ -178,7 +178,8 @@ img.logo_footer
 	height:100px;
 }
 
-#div_for_background{
+#div_for_background
+{
 	width: 950px;
 	margin : 0 auto;
     position: relative;
@@ -369,5 +370,6 @@ ul#game_pass_abd li {
 #background
 {
 	width: 950px;
+	height: 800px;
 	content: center;
 }
