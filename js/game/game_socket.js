@@ -72,6 +72,7 @@ SOCKET.on('win', function(msg) {
 	SOCKET.onDebugDisplay('win', msg);
 	SOCKET.state = "win";
 	GAME.updateJoueurs(msg);
+	windows.alert("Vous avez gagné");
 	// redirection POST vers resultat.php
 });
 
@@ -79,6 +80,7 @@ SOCKET.on('loose', function(msg) {
 	SOCKET.onDebugDisplay('loose', msg);
 	SOCKET.state = "loose";
 	GAME.updateJoueurs(msg);
+	windows.alert("Vous avez perdu !");
 	// redirection POST vers resultat.php
 });
 
