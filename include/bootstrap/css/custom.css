@@ -4,7 +4,6 @@ html, body
 	font: 14px/18px Calibri,Helvetica,Arial,sans-serif;
 	background-color: #ECAD71;
 	color: #B06B4F;
-	margin: 0px;
 	padding: 0px;
 	cursor: default;
 	font-weight: bold;
@@ -66,12 +65,6 @@ div.header
 	width: 1000px;
 	margin: 0 auto;
 	background-repeat: no-repeat;
-	min-width: 1000px;
-}
-
-#connexion_link
-{
-	margin-left: 130px;
 }
 
 img.logo_header
@@ -82,9 +75,24 @@ img.logo_header
 	margin-left: 25px;
 }
 
+#connexion_link
+{
+	float:right;
+	margin-right: 50px;
+}
 
+div.user-choice
+{
+	float:right;
+	width: 700px;
+	margin-right: 50px;
+	margin-top: 20px;
+}
 
-
+div.user-choice *
+{
+	height: 80px;
+}
 
 div#footer
 {
@@ -123,16 +131,6 @@ img.logo_poly{
 	margin-top:20px;
 }
 
-div.user-choice
-{
-	margin-left:280px;
-	margin-top: 20px;
-}
-
-div.user-choice *
-{
-	height: 80px;
-}
 
 .logo_menu{
 	height:100px;
