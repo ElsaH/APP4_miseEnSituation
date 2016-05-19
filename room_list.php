@@ -1,6 +1,7 @@
-<?php include("./include/header.php"); ?>
-
-<?php
+<?php include("./include/header.php"); 
+include('include/connexionBD.php');
+	
+	
 	if(!isset($_GET["type"])){
 		//ERREUR si non connecté 
 		echo "<script>";
@@ -19,7 +20,9 @@
 	$s_erreurSQL = "Erreur : impossible d'effectuer la requete SQL.";
 	
 	// connexion à la base de données
-	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	$db = connexion();
+
 	// récupération de l'ID User pour le profil
 	$type = $_GET["type"];
 	

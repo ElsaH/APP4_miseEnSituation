@@ -1,4 +1,6 @@
-<?php include("./include/header.php"); ?>
+<?php include("./include/header.php");
+include('include/connexionBD.php');
+ ?>
 <script type="text/javascript">
     $(window).load(function(){
         $('#modal-create_room').modal('show');
@@ -9,7 +11,8 @@
 	// get all room type
 	try
 	{
-		$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+		//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+		$db = connexion();
 		
 		$s_select = "SELECT * ";
 		$s_from = "FROM type_salle ";

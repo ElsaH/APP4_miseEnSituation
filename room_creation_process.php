@@ -1,9 +1,11 @@
 <?php	
 	//session_start();
 	include ("./include/header.php");
+	include('include/connexionBD.php');
 	
 	// ====connexion base de données====
-	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	$db = connexion();
 	
 	// ====récupération et traitement des infos=====
 	
@@ -74,7 +76,7 @@
 		$nbPlayer = 4;
 		
 	echo "<script>";
-	echo "socket.emit('create',{nbJ: ".$nbPlayer.", xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
+	echo "socket.emit('create',{nbJ: ".$nbPlayer.", xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle.", pseudo:'".$_SESSION["pseudo"]."', xp:".$_SESSION["xp"]."});";
 	echo "socket.on('roomCreated', function() {document.location.href=\"./wait_room.php\"});";
 	echo "</script>";
 	

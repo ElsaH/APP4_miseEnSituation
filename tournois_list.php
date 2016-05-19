@@ -1,6 +1,7 @@
-<?php include("./include/header.php"); ?>
+<?php include("./include/header.php"); 
+include('include/connexionBD.php');
 
-<?php		
+
 	// ===variables "globales"===
 	$s_select;
 	$s_from;
@@ -12,8 +13,9 @@
 	$s_erreurSQL = "Erreur : impossible d'effectuer la requete SQL.";
 	
 	// connexion à la base de données
-	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');	
-		
+	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');	
+	$db = connexion();
+
 
 	try
 	{
@@ -96,7 +98,13 @@
 						</div>
 						
 						<div class='col-xs-4'>
-							<label for='xpRquest'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							<div class="row">
+								<label for='xpRquest'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							</div>
+							
+							<div class="row">
+								<label for='dates_tournoi'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							</div>
 						</div>
 						
 					</div>
