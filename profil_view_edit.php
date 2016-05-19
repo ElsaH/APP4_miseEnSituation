@@ -1,6 +1,7 @@
 <!-- Page de modification du profil 
 @GET : id_membre : id du membre a qui on modifie le profil -->
 <?php include("./include/header.php"); 
+include('include/connexionBD.php');
 
 if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 		//ERREUR si non connecté 
@@ -36,7 +37,8 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 
 		
 		// connexion à la base de données
-		$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+		//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+		$db = connexion();
 		// récupération de l'ID User pour le profil
 		$i_idMembre = $_GET["id_user"];
 		
