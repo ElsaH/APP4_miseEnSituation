@@ -86,7 +86,6 @@
 			var $form 	= $(e.target);
             switch (mybutton) {
                 case 'create':
-                alert('creation');
                     $.ajax({
 				        dataType:   'json',
 				        type: 		'post',
