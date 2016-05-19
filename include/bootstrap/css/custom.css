@@ -380,3 +380,32 @@ ul#game_pass_abd li {
 	height: 800px;
 	content: center;
 }
+
+/** GUIDE DU JEU **/
+
+div#guide-container
+{
+	background-color: purple;
+	width: 900px;
+	height: 500px;
+	position: center;
+
+}
+
+div#guide-gauche
+{
+	background-color:pink;
+	margin-top: 50px;
+	width: 300px;
+	position:absolute;	
+}
+
+div#guide-droit
+{
+	background-color:grey;
+	float: right;
+	padding-left:100px;
+	margin-top: 50px;
+	margin-right:100px;
+	width: 500px;
+}
