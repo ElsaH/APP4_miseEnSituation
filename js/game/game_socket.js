@@ -7,18 +7,12 @@ SOCKET.init = function() {
 }
 
 SOCKET.emit = function(tag, msg) {
-	SOCKET.canal.emit(tag, msg);
+		SOCKET.canal.emit(tag, msg);
 }
 
 SOCKET.on = function(tag, callback) {
 	SOCKET.canal.on(tag, callback);
 }
-
-SOCKET.on('begin', function(msg) {
-	SOCKET.state = "begin";
-	GAME.init(msg.nbJoueurs);
-	// msg.champions
-});
 
 SOCKET.on('start', function(msg) {
 	SOCKET.state = "start";

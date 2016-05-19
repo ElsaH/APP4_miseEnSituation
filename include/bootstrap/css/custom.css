@@ -292,6 +292,22 @@ ul#game_pass_abd li {
 	width: 800px;
 }
 
+.left-resultat{
+	width: 49%;
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+
+}
+
+.right-resultat{
+	width: 49%;
+	float: right;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+
 #background
 {
 	width: 950px;
