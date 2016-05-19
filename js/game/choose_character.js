@@ -14,6 +14,7 @@ CHOOSE.init = function() {
 		CHOOSE.opt[i].rw = dw-marge*1.5;
 		CHOOSE.opt[i].rh = dh-marge*1.5;
 		CHOOSE.opt[i].emotion = "";
+		CHOOSE.opt[i].picked = false;
 	}
 
 	// coordonnées des rectangles
@@ -25,6 +26,8 @@ CHOOSE.init = function() {
 	CHOOSE.opt[2].ry = dh+marge/2;
 	CHOOSE.opt[3].rx = marge;
 	CHOOSE.opt[3].ry = dh+marge/2;
+
+	CHOOSE.picked = false;
 
 	// coordonnées du personnage
 	for (var i=0; i<4; i++) {
@@ -52,11 +55,15 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 }
 
 CHOOSE.drawOption = function(canvas, ctx, num) {
+	console.log("drawOption",CHOOSE.picked);
 	var opt = CHOOSE.opt[num];
 	var pos = {x: opt.px+20, y:opt.py+20};
 
 	// dessin du rectangle
-	ctx.fillStyle = "#B5C2FF";
+	if (CHOOSE.opt[num].picked)
+		ctx.fillStyle = "blue";
+	else
+		ctx.fillStyle = "#B5C2FF";
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
 	// portrait du perso
@@ -87,6 +94,11 @@ CHOOSE.mouseEvents = function(event,x, y) {
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
 				getPlayerSpells(i);
+				if (!CHOOSE.picked) {
+					CHOOSE.opt[i].picked = true;
+					CHOOSE.picked = true;
+					CHOOSE.draw();
+				}
 				SOCKET.emit("select", {numChampion: i});
 			}
 			pointer = true;
