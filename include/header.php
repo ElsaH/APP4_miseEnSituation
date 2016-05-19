@@ -34,7 +34,7 @@
 		<script src="./include/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script src="./include/bootstrap/js/bootstrap.min.js"></script>
 		<script src="./js/modif_comptes.js"></script>
-		<script src="./js/admin_classes.js"></script>
+		
 
 		<!-- Liens, a nettoyer -->
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />

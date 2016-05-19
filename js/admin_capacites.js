@@ -115,7 +115,7 @@
                     $.ajax({
 				        dataType:   'json',
 				        type: 		'post',
-				        data: 		$('#polyform').serialize()+'&id_classe='+id_classe,
+				        data: 		$('#polyform').serialize()+'&id_capacite='+id_capacite,
 				        url:        'phplib/updateCapacite.php',
 				        success:    function(data){
 				                        if(data!='nok'){
@@ -147,7 +147,7 @@
 
 	    //Bouton cancel
 	    $(document).on('click','#cancel',function(e){
-	    	table_classes.$('.selected-row').removeClass('selected-row');
+	    	table_capacites.$('.selected-row').removeClass('selected-row');
 	    	clear_form();
 	    });
 
@@ -176,7 +176,7 @@
 					        data: 		{'id_capacite':id_capacite},
 					        url:        'phplib/deleteCapacite.php',
 					        success:    function(data){
-					        				if(data=='ok'){
+					        				if(data!='nok'){
 					        					table_capacites.ajax.reload(null,false);
 	    										clear_form();
 	    									}
@@ -205,6 +205,16 @@
 	    });
 	    
 	    function clear_form(){
+	    	$('#nom_capacite').val('');
+	    	$('#id_classe').val();
+	    	$('#montant_degats').val('');
+	    	$('#montant_soins').val('');
+	    	$('#cout_mana').val('');
+	    	$('#xp_requis').val('');
+	    	$('#create').removeClass('disabled');
+	    	$('#cancel').addClass('disabled');
+	    	$('#update').addClass('disabled');
+	    	$('#delete').addClass('disabled');
 	    }
 	});
 

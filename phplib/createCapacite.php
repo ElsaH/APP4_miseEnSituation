@@ -4,8 +4,8 @@ header('Content-Type: application/json; charset=utf-8');
         header('Location:../logout.php');
 }*/
 
-if(isset($_POST['nom_capacite']) && $_POST['nom_capacite']!='' && isset($_POST['id_classe']) && $_POST['id_classe']!='' isset($_POST['montant_soins']) && $_POST['montant_soins']!=''
-	isset($_POST['montant_degats']) && $_POST['montant_degats']!='' isset($_POST['cout_mana']) && $_POST['cout_mana']!='' isset($_POST['xp_requis']) && $_POST['xp_requis']!=''){
+if(isset($_POST['nom_capacite']) && $_POST['nom_capacite']!='' && isset($_POST['id_classe']) && $_POST['id_classe']!='' && isset($_POST['montant_soins']) && $_POST['montant_soins']!=''
+	&& isset($_POST['montant_degats']) && $_POST['montant_degats']!='' && isset($_POST['cout_mana']) && $_POST['cout_mana']!='' && isset($_POST['xp_requis']) && $_POST['xp_requis']!=''){
 	require_once("../include/connexionBD.php");
 
 	$bdd = connexion();
@@ -22,12 +22,12 @@ if(isset($_POST['nom_capacite']) && $_POST['nom_capacite']!='' && isset($_POST['
 	$q->closeCursor();
 
 	$sql_c = 'INSERT INTO champion_capacite (id_champion,id_capacite) VALUES (:id_champion,:id_capacite)';
-	$q = $bdd->prepare($sql_c);
-	$q->bindParam(':id_champion',$_POST['id_classe'],PDO::PARAM_INT);
-	$q->bindParam(':id_capacite',$id_capacite,PDO::PARAM_INT);
-	$q->execute();
+	$q_c = $bdd->prepare($sql_c);
+	$q_c->bindParam(':id_champion',$_POST['id_classe'],PDO::PARAM_INT);
+	$q_c->bindParam(':id_capacite',$id_capacite,PDO::PARAM_INT);
+	$q_c->execute();
 	$id_champion_capacite = $bdd->lastInsertId();
-	$q->closeCursor();
+	$q_c->closeCursor();
 
 	$data['id_capacite']=$id_capacite;
 	$data['id_champion_capacite']=$id_champion_capacite;
