@@ -27,8 +27,6 @@ img.img-circle
 	margin-right:1em;
 }
 
-
-
 h1
 {
 	text-align:center;
@@ -39,15 +37,13 @@ h1
 h2
 {
 	text-align:center;
-	font-style: italic;
-	
+	font-style: italic;	
 }
 
 h4
 {
 	text-decoration: underline;
 }
-
 
 .nom_org
 {
@@ -56,11 +52,39 @@ h4
 	size:20px;
 }
 
-
 small.date_comm
 {
 	float:right;
 }
+
+div.header
+{
+
+	background-image:url(/APP4_miseEnSituation/images/header_background.png);
+	background-position: center; 
+	height: 150px;
+	width: 1000px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	min-width: 1000px;
+}
+
+#connexion_link
+{
+	margin-left: 130px;
+}
+
+img.logo_header
+{
+	position : absolute;
+	width: 300px;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+
+
+
 
 div#footer
 {
@@ -75,35 +99,6 @@ div#footer
 	color: #733C2F;
 	padding-bottom: 25px;
 }
-
-
-
-div.header
-{
-
-	background-image:url(/APP4_miseEnSituation/images/header_background.png);
-	background-position: center; 
-	height: 150px;
-	width: 1000px;
-	margin: 0 auto;
-	background-repeat: no-repeat;
-	min-width: 1000px;
-}
-
-img.logo_header
-{
-	position : absolute;
-	width: 300px;
-	margin-top: 25px;
-	margin-left: 25px;
-}
-
-#connexion_link
-{
-	margin-left: 130px;
-}
-
-
 
 img.logo_footer
 {
@@ -183,8 +178,18 @@ canvas.pointer {
 	cursor: pointer;
 }
 
-#canvas_game_container {
+div.nodisplay {
+	display: none;
+}
+
+/*#canvas_game_container {
 	position: relative;
+}*/
+
+#canvas_choose_container, #canvas_game_container {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 #canvas_game, #choose_action {
@@ -194,14 +199,14 @@ canvas.pointer {
 #choose_action {
 	width: 300px;
     height: 110px;
-	margin: 100px 0 0 100px;
+	margin: 80px 0 0 100px;
 	padding: 0;
 	z-index: 2;
 	text-align: center;
 }
 
 #game_content {
-	height: 700px;
+	height: 300px;
 }
 
 #choose_action span {
@@ -219,6 +224,13 @@ canvas.pointer {
 	list-style: none;
 	padding: 0;
   	margin: 0;
+  	margin-bottom: 10px;
+}
+
+ul#game_pass_abd li {
+	display:block;
+	float:left;
+	width:50%;
 }
 
 #choose_action a {
@@ -263,7 +275,8 @@ canvas.pointer {
 
 }
 
-.room{
+.room
+{
 	display: inline-block;
 	background-color:#FED09B;
 	padding: 5px 5px 5px 5px;
@@ -272,8 +285,15 @@ canvas.pointer {
 	margin : 0 auto;
 }
 
-.content_body{
+.content_body
+{
 	margin : 0 auto;
 	margin-top:10px;
 	width: 800px;
+}
+
+#background
+{
+	width: 950px;
+	content: center;
 }

@@ -52,7 +52,7 @@ CHOOSE.drawOption = function(canvas, ctx, num, perso) {
 	ctx.fillRect(opt.rx, opt.ry, opt.rw, opt.rh);
 
 	// infos personnage
-	DRAW_CHARAC.character(perso,ctx,pos,true);
+	CHARACTER.character(perso,ctx,pos,true);
 	ctx.fillStyle = "#000000";
 	ctx.font = "bold 12px Arial";
 	ctx.fillText(perso, pos.x+40, pos.y-10);
@@ -76,6 +76,16 @@ CHOOSE.mouseEvents = function(event,x, y) {
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
 				console.log("click on choice "+i);
+				SOCKET.emit("choix_pers", i);
+				// FIXME avec id des personnages!!
+				/*SOCKET.on("confirm_pers", function() {
+				});*/
+				SOCKET.statut = "game";
+				SOCKET.on('infos', function(joueur) {
+					GAME.init(joueur);
+					$('#canvas_choose_container').addClass('nodisplay');
+					$('#canvas_game_container').removeClass('nodisplay');
+				});
 			}
 			pointer = true;
 		}

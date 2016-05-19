@@ -30,6 +30,7 @@
 			"order": [[1, "asc"]],
 			"columns": [
 				{ "name": "id_capacite", "data": "id_capacite", "visible": false, "searchable": false },
+				{ "name": "id_classe", "data": "classe" },
 				{ "name": "nom_capacite", "data": "nom_capacite" },
 				{ "name": "montant_soins", "data": "montant_soins" },
 				{ "name": "montant_degats", "data": "montant_degats" },
@@ -57,6 +58,7 @@
 		                        if(data){
 		                        	//clear_form();
 	                        		$('#nom_capacite').val(data.nom_capacite);
+	                        		$('#id_classe').val(data.id_champion);
 	                        		$('#montant_soins').val(data.montant_soins);
 	                        		$('#montant_degats').val(data.montant_degats);
 	                        		$('#cout_mana').val(data.cout_mana);
@@ -99,11 +101,11 @@
 				        dataType:   'json',
 				        type: 		'post',
 				        data: 		$('#polyform').serialize(),
-				        url:        'phplib/createClasse.php',
+				        url:        'phplib/createCapacite.php',
 				        success:    function(data){
 				                        if(data!='nok'){
 			                        		table_capacites.ajax.reload(null,false);
-								        	bootbox.dialog({message:'Classe créée avec succès.', title: '<span class="text-green">Création validée <i class="ion ion-checkmark-circled"></i></span>'});
+								        	bootbox.dialog({message:'Capacite créée avec succès.', title: '<span class="text-green">Création validée <i class="ion ion-checkmark-circled"></i></span>'});
 								        	clear_form();
 				                        }
 				                    }
@@ -114,11 +116,11 @@
 				        dataType:   'json',
 				        type: 		'post',
 				        data: 		$('#polyform').serialize()+'&id_classe='+id_classe,
-				        url:        'phplib/updateClasse.php',
+				        url:        'phplib/updateCapacite.php',
 				        success:    function(data){
 				                        if(data!='nok'){
 			                        		table_capacites.ajax.reload(null,false);
-								        	bootbox.dialog({message:'Classe mise à jour avec succès.',title:'<span class="text-green">Mise à jour validée <i class="ion ion-checkmark-circled"></i></span>'});
+								        	bootbox.dialog({message:'Capacite mise à jour avec succès.',title:'<span class="text-green">Mise à jour validée <i class="ion ion-checkmark-circled"></i></span>'});
 								        	if($('#valide').prop('checked') || $('#non_valide').prop('checked')){
 								        		clear_form();
 								        	}
@@ -152,7 +154,7 @@
 	    //Bouton Supprimer
 	    $(document).on('click','#delete',function(e){
 	    	bootbox.confirm({
-	    		title: 		'<span class="text-yellow"><i class="ion ion-trash-b"></i> Suppression Classe <i class="ion ion-help-circled"></i></span>',
+	    		title: 		'<span class="text-yellow"><i class="ion ion-trash-b"></i> Suppression Capacite <i class="ion ion-help-circled"></i></span>',
 	    		closeButton: true,
 	    		animate: 	true,
 	    		buttons: 	{
@@ -165,17 +167,17 @@
 	    				className: "btn-danger",
 	    			}
 	    		},
-	    		message: 	'Confirmez-vous la suppression de la classe '+$('#id_classe option:selected').text()+' ?',
+	    		message: 	'Confirmez-vous la suppression de la capacite '+$('#id_capacite option:selected').text()+' ?',
 	    		callback: 	function(answer){
 	    			if(answer){
 		    			$.ajax({
 					        dataType:   'html',
 					        type: 		'post',
-					        data: 		{'id_classe':id_classe},
-					        url:        'phplib/deleteClasse.php',
+					        data: 		{'id_capacite':id_capacite},
+					        url:        'phplib/deleteCapacite.php',
 					        success:    function(data){
 					        				if(data=='ok'){
-					        					table_classes.ajax.reload(null,false);
+					        					table_capacites.ajax.reload(null,false);
 	    										clear_form();
 	    									}
 					                    }
@@ -188,6 +190,19 @@
 		$('#polyform').on('change',function(e){
 			$('#cancel').removeClass('disabled');
 		});
+
+
+		//Chargement des classes
+		$.ajax({
+	        dataType:   'json',
+	        url:        'phplib/loadClasses.php',
+	        success:    function(data){
+	                        $('#id_classe').append($('<option />'));
+	                        $.each(data, function(index,object){
+						    	$('#id_classe').append($('<option />').val(data[index].id_champion).text(data[index].classe));
+						    });
+	                    }
+	    });
 	    
 	    function clear_form(){
 	    }
