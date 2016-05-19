@@ -34,47 +34,49 @@ SOCKET.on('start', function(msg) {
 });
 
 SOCKET.on('error', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('error', msg);
 	window.alert(msg.txt);
 });
 
 SOCKET.on('go', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('go', msg);
 	SOCKET.state = "go";
+	$('#choose_action').removeClass('nodisplay');
 });
 
 SOCKET.on('update', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('update', msg);
 	SOCKET.state = "update";
 	GAME.updateJoueurs(msg);
 });
 
 SOCKET.on('alert_mana', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('alert_mana', msg);
 	SOCKET.state = "alert_mana";
 	window.alert(msg.txt);
 });
 
 SOCKET.on('wait', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('wait', msg);
 	SOCKET.state = "wait";
+	$('#choose_action').addClass('nodisplay');
 });
 
 SOCKET.on('action', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('action', msg);
 	SOCKET.state = "action";
 	window.alert(msg.txt);
 });
 
 SOCKET.on('win', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('win', msg);
 	SOCKET.state = "win";
 	GAME.updateJoueurs(msg);
 	// redirection POST vers resultat.php
 });
 
 SOCKET.on('loose', function(msg) {
-	SOCKET.onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay('loose', msg);
 	SOCKET.state = "loose";
 	GAME.updateJoueurs(msg);
 	// redirection POST vers resultat.php

@@ -50,7 +50,7 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 
 CHOOSE.drawOption = function(canvas, ctx, num) {
 	var opt = CHOOSE.opt[num];
-	var pos = {x: opt.px, y:opt.py};
+	var pos = {x: opt.px+20, y:opt.py+20};
 
 	// dessin du rectangle
 	ctx.fillStyle = "#B5C2FF";
@@ -66,7 +66,7 @@ CHOOSE.drawOption = function(canvas, ctx, num) {
 	ctx.font = "12px Arial";
 	var txt = " (+) "+CHARACTER.pers[num].bonus;
 	ctx.fillText(txt, pos.x+40, pos.y+20);;
-	txt = " (-) "+CHARACTER.pers[num].malus;
+	txt = " (-)  "+CHARACTER.pers[num].malus;
 	ctx.fillText(txt, pos.x+40, pos.y+40);
 }
 
@@ -82,18 +82,8 @@ CHOOSE.mouseEvents = function(event,x, y) {
 
 		if (x>=x1 && x<=x2 && y>=y1 && y<=y2) {
 			if (event == "click") {
-				//console.log("click on choice "+i);
 				SOCKET.emit("select", {numChampion: i});
 				getPlayerSpells(i);
-				//FIXME avec id des personnages!!
-				/*SOCKET.on("confirm_pers", function() {
-				});*/
-				/*SOCKET.statut = "game";
-				SOCKET.on('infos', function(joueur) {
-					GAME.init(joueur);
-					$('#canvas_choose_container').addClass('nodisplay');
-					$('#canvas_game_container').removeClass('nodisplay');
-				});*/
 			}
 			pointer = true;
 		}

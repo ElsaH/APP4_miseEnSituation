@@ -9,27 +9,20 @@ GAME.init = function(nbJoueurs) {
 	}
 }
 
-GAME.updateJoueurs = function(joueur) {
-	console.log(joueur);
+GAME.updateJoueurs = function(msg) {
+	console.log("bonjour", msg);
 
 	for (var i=0; i<GAME.nbJoueurs; i++ ) {
-		GAME.player[i].pseudo = joueur[i].pseudo;
-		GAME.player[i].pers = joueur[i].classe; 
-		GAME.player[i].lvl = joueur[i].level;
-		GAME.player[i].mana = joueur[i].mana;
-		GAME.player[i].pv = joueur[i].pv;
-		GAME.player[i].id = joueur[i].id;
-		GAME.player[i].xp = joueur[i].xp;
-
+		console.log("coucou", msg.joueur[i]);
+		GAME.player[i].pseudo = msg.joueur[i].pseudo;
+		GAME.player[i].pers = msg.joueur[i].champion;
+		GAME.player[i].manatot = msg.joueur[i].manatot;
+		GAME.player[i].mana = msg.joueur[i].mana;
+		GAME.player[i].pvtot = msg.joueur[i].pvtot;
+		GAME.player[i].pv = msg.joueur[i].pv;
+		GAME.player[i].id = msg.joueur[i].id;
+		GAME.player[i].xp = msg.joueur[i].xp;
 	}
-
-	GAME.player[1].pseudo = joueur.j2.pseudo;
-	GAME.player[1].pers = joueur.j2.classe; 
-	GAME.player[1].lvl = joueur.j2.level;
-	GAME.player[1].mana = joueur.j2.mana;
-	GAME.player[1].mana_tmp = joueur.j2.mana;
-	GAME.player[1].pv = joueur.j2.pv;
-	GAME.player[1].pv_tmp = joueur.j2.pv;
 }
 
 GAME.draw = function() {
@@ -83,7 +76,7 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 
 GAME.drawInfos = function(ctx, pos, style, i) {
 	// dessin du mana courant
-	var cur_mana = GAME.player[i].mana_tmp/GAME.player[i].mana;
+	var cur_mana = GAME.player[i].mana/GAME.player[i].manatot;
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y);
 	ctx.lineTo(pos.x+style.len*cur_mana, pos.y);
@@ -93,7 +86,7 @@ GAME.drawInfos = function(ctx, pos, style, i) {
 	ctx.stroke();
 
 	// dessin de la vie courante
-	var cur_pv = GAME.player[i].pv_tmp/GAME.player[i].pv;
+	var cur_pv = GAME.player[i].pv/GAME.player[i].pvtot;
 	ctx.beginPath();
 	ctx.moveTo(pos.x, pos.y+style.mbetween);
 	ctx.lineTo(pos.x+style.len*cur_pv, pos.y+style.mbetween);

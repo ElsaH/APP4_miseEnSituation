@@ -76,13 +76,12 @@ $(document).ready(function() {
 	}
 
 	getPlayerSpells = function(i) {
-		console.log("getPlayerSpells ",i);
 		$.getJSON("get_capacites.php?id_champion="+ (i+1), 
 			{},
 			function (res) {
 				SOCKET.emit('capacites', res);
 				for (var i=0; i<res.length; i++) {
-					//console.log(res[i].id_capacite, res[i].nom_capacite);
+					console.log(res[i].id_capacite, res[i].nom_capacite);
 					var idS = res[i].id_capacite;
 					var li = "<li><a id='"+idS+"'>";
 					li += res[i].nom_capacite;

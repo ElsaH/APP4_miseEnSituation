@@ -8,7 +8,7 @@ if (isset($_GET['id_champion'])) {
 
 	$id_champion = $_GET['id_champion'];
 	$capacite = $bd->prepare(
-			'SELECT c.nom_capacite,c.montant_degats,c.montant_soins,c.cout_mana,c.xp_requis FROM champion_capacite cp, capacite c 
+			'SELECT c.id_capacite, c.nom_capacite,c.montant_degats,c.montant_soins,c.cout_mana,c.xp_requis FROM champion_capacite cp, capacite c 
 			WHERE cp.id_capacite=c.id_capacite AND cp.id_champion=:id_champion'
 		);
 
