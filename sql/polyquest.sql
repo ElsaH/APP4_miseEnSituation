@@ -98,6 +98,7 @@ INSERT INTO `champion_capacite` (`id_champion_capacite`,`id_champion`,`id_capaci
 DROP TABLE IF EXISTS `salle`;
 CREATE TABLE `salle` (
   `id_salle` int(11) NOT NULL AUTO_INCREMENT,
+  `ouvert` tinyint(4) DEFAULT 1,
   `nb_joueurs` int(11) NOT NULL,
   `id_type_salle` int(11) NOT NULL,
   `xp_min` int(11) DEFAULT NULL,
@@ -211,11 +212,12 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (1,1,'leon',NULL,'leon','leon@gamil.com',20,1,1);
-INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (2,0,'tofuw',NULL,'tofuw','tofuw@gmail.com',40,2,1);
-INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (3,0,'adri',NULL,'adri','adri@gmail.com',5,0,0);
-INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (4,1,'test',NULL,'test','test@gmail.com',0,0,0);
-INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (5,0,'test2',NULL,'test2','test2@gmail.com',0,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (1,1,'leon',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','leon@gamil.com',20,1,1);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (2,0,'tofuw',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','tofuw@gmail.com',40,2,1);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (3,0,'adri',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','adri@gmail.com',5,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (4,1,'test',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','test@gmail.com',0,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (5,0,'test2',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','test2@gmail.com',0,0,0);
+INSERT INTO `user` (`id_user`,`admin`,`pseudo`,`photo`,`password`,`mail_user`,`xp`,`combats_joues`,`combats_gagnes`) VALUES (6,0,'annoa',NULL,'$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG','annoa@yopmail.com',0,0,0);
 
 -- ----------------------------
 -- Table structure for `historique`

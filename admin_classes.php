@@ -59,7 +59,6 @@ include("include/header.php");
         </div>
     </div>
     <script src="./js/admin_classes.js"></script>
-</body>
 
 <?php
 include("include/footer.php");
