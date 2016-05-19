@@ -26,6 +26,14 @@ GAME.updateJoueurs = function(msg) {
 	GAME.draw();
 }
 
+GAME.whoAreYou = function() {
+	for (var i=0; i<GAME.nbJoueurs; i++ ) {
+		if (GAME.player[i].id == SOCKET.idJoueur)
+			return i;
+	}
+	return -1;
+}
+
 GAME.draw = function() {
 	GAME.drawBackground(canvas_game, ctx_game);
 	GAME.drawPersosInfos(canvas_game, ctx_game);

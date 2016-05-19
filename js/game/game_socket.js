@@ -4,7 +4,7 @@ var DEBUG = true;
 
 SOCKET.init = function() {
 	SOCKET.canal = io.connect('http://82.239.215.158:8080');
-	console.log(SOCKET.canal);
+	SOCKET.idJoueur;
 };
 
 SOCKET.init();

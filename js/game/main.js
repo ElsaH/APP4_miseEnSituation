@@ -58,7 +58,8 @@ $(document).ready(function() {
 		GAME.pointer = false;
 		CHOOSE.pointer = false;
 		CHOOSE.init();
-		SOCKET.emit('changedSocket',{idUser:$('#idJoueur').val()});
+		SOCKET.idJoueur = $('#idJoueur').val();
+		SOCKET.emit('changedSocket',{idUser:SOCKET.idJoueur});
 
 		// Initialisation du jeu
 		//SOCKET.init();

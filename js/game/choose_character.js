@@ -55,7 +55,6 @@ CHOOSE.drawMenu = function(canvas, ctx) {
 }
 
 CHOOSE.drawOption = function(canvas, ctx, num) {
-	console.log("drawOption",CHOOSE.picked);
 	var opt = CHOOSE.opt[num];
 	var pos = {x: opt.px+20, y:opt.py+20};
 
