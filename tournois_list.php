@@ -14,14 +14,14 @@
 	// connexion à la base de données
 	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');	
 		
-	// GET ALL room of type GET:type
+
 	try
 	{
-		$s_select = "SELECT * ";
-		$s_from = "FROM tournoi t, table_tournoi tt, salle s";
-		$where = "WHERE t.id_tournoi=tt.id_tournoi AND tt.id_salle=s.id_salle;";
+		$s_select = "SELECT heure_debut,heure_fin, t.id_tournoi as idT, s.id_salle as idS, xp_min, xp_max, libelle_type_salle ";
+		$s_from = "FROM tournoi t, table_tournoi tt, salle s, type_salle ts ";
+		$where = "WHERE t.id_tournoi=tt.id_tournoi AND tt.id_salle=s.id_salle AND ts.id_type_salle=s.id_type_salle;";
 		$s_request = $s_select.$s_from.$where;
-
+		
 		$statement = $db->prepare($s_request);
 		$statement->execute();
 		$result = $statement->fetchAll();
@@ -46,20 +46,22 @@
 						
 						<div class='col-xs-2'>
 							<div class="row type_label">
-								<?php echo $type?>
+								<?php echo $row["libelle_type_salle"]?>
 							</div>
 							
 							<form method="post" action="join_room.php">
 								<div class="row">
 									<p hidden>
-										<input id='idTournoi' name='idTournoi' type="number" value="<?php echo $row["id_tournoi"];?>"/>
+										<input id='idTournoi' name='idTournoi' type="number" value="<?php echo $row["idT"];?>"/>
 									</p>
 									<?php 
-									$debut = strtotime($row["heure_debut"]);
-									$end = strtotime($row["heure_fin"]);
-									$current = strtotime(now);
+									$debut = $row["heure_debut"];
+									$end = $row["heure_fin"];
+									$current = date('Y-m-d H:i:s');
 									if(!isset($_SESSION["login"]) || $debut>$current 
-									|| $end<$current){
+									|| $end<$current 
+									||  $_SESSION["xp"]<$row["xp_min"] 
+									|| $_SESSION["xp"]>$row["xp_max"]){
 										echo "<input type='submit' class='button btn btn-warning' name='join' value='Rejoindre' disabled='disabled' />";
 									}else{
 										echo "<input type='submit' class='join btn btn-warning' name='join' value='Rejoindre' />";
@@ -74,7 +76,7 @@
 							<?php
 								$s_select = "SELECT * ";
 								$s_from = "FROM salle_user s, user u ";
-								$s_where = "WHERE s.id_salle = '".$row['s.id_salle']."' AND s.id_user=u.id_user;";
+								$s_where = "WHERE s.id_salle = '".$row['idS']."' AND s.id_user=u.id_user;";
 								$s_request = $s_select.$s_from.$s_where;
 
 								$statement = $db->prepare($s_request);
