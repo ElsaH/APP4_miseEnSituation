@@ -1,6 +1,5 @@
 html, body 
 {
-	
 	font: 14px/18px Calibri,Helvetica,Arial,sans-serif;
 	background-color: #ECAD71;
 	color: #B06B4F;
@@ -8,7 +7,6 @@ html, body
 	cursor: default;
 	font-weight: bold;
 	min-width: 1024px;
-
 }
 
 .phplist
@@ -56,6 +54,8 @@ small.date_comm
 	float:right;
 }
 
+/**	PARTIE HEADER **/
+
 div.header
 {
 
@@ -94,22 +94,33 @@ div.user-choice *
 	height: 80px;
 }
 
+/**	PARTIE FOOTER **/
+
 div#footer
 {
 	background-image:url(/APP4_miseEnSituation/images/footer_background.png);
     height: 150px;
 	background-repeat: no-repeat;
 	margin: 0px;
-	padding-left:400px;
 	background-position: center; 
-	
 	font-size: 10pt;
 	color: #733C2F;
 	padding-bottom: 25px;
+	text-align: center;
+
+}
+
+#footer-widgets
+{
+	background-color: blue;
+	height: 100px;
+	margin-top: 20px;
+	text-align: center;
 }
 
 img.logo_footer
 {
+	background-color: red;
 	height:80px;
 	padding-top:0px; 
 	padding-left:0px;
@@ -117,13 +128,10 @@ img.logo_footer
 	padding-bottom:0px;
 }
 
-img.logo_uni{
-	height:50%;
-	width:50%;
-}
-
-img.logo_poly{
-	height:60px;
+img.logo_poly
+{
+	background-color: white;
+	height:120px;
 }
 
 #connexion_link
@@ -270,7 +278,6 @@ ul#game_pass_abd li {
 	border-radius: 4px;
 	width:80px;
 	margin-top:15px;
-
 }
 
 .room
@@ -290,7 +297,8 @@ ul#game_pass_abd li {
 	width: 800px;
 }
 
-.left-resultat{
+.left-resultat
+{
 	width: 49%;
 	float: left;
 	margin-right: auto;
@@ -305,6 +313,7 @@ ul#game_pass_abd li {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+}
 
 #background
 {

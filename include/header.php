@@ -62,48 +62,48 @@
 		<script src="http://82.239.215.158:8080/socket.io/socket.io.js" type="text/javascript"></script>
 		<script src="js/combat.js" type="text/javascript"></script>
 	</head>
-	<body>			
-		<!-- En tête du site à inclure sur les autres pages -->
-		<div class="header">
-			<div class="row">
-				<div class="col-lg-8"> <!-- logo du site avec lien vers l'accueil -->
-					<a href="/APP4_miseEnSituation/index.php"><img class="logo_header" src="/APP4_miseEnSituation/images/logo_polyquest.png" alt="logo"/></a>
-				</div>
+	<body>
+			<!-- En tête du site à inclure sur les autres pages -->
+			<div class="header">
+				<div class="row">
+					<div class="col-lg-8"> <!-- logo du site avec lien vers l'accueil -->
+						<a href="/APP4_miseEnSituation/index.php"><img class="logo_header" src="/APP4_miseEnSituation/images/logo_polyquest.png" alt="logo"/></a>
+					</div>
 
-				<div id="connexion_link" class="col-lg-2"> <!-- lien du compte -->
-					<?php if (!isset($_SESSION['login'])): ?>
-							<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
-							<span><a href="./connexion.php">Se connecter</a> | <a href="./register.php">S'inscrire</a></span> 
+					<div id="connexion_link" class="col-lg-2"> <!-- lien du compte -->
+						<?php if (!isset($_SESSION['login'])): ?>
+								<!-- si l'internaute n'est pas connecté, il peut se connecter ou s'inscrire -->
+								<span><a href="./connexion.php">Se connecter</a> | <a href="./register.php">S'inscrire</a></span> 
 
-					<?php else: ?>
-							<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
-							<span><a href="./profil_view_edit.php?id_user=<?= $_SESSION["id_user"]?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
-					<?php endif; ?>
-				</div>
-			</div> <!-- row -->		
+						<?php else: ?>
+								<!-- si le membre est connecté il peut voir son profil ou se deconnecter -->
+								<span><a href="./profil_view_edit.php?id_user=<?= $_SESSION["id_user"]?>">Mon compte</a> | <a href="./logout.php">Se déconnecter</a></span> 
+						<?php endif; ?>
+					</div>
+				</div> <!-- row -->		
+				
+				<div class="row">
+					<div class="user-choice">
+						<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
+							<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
+						</div>
+						
+						<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+							<a href="/APP4_miseEnSituation/room_list.php?type=2"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
+						</div>
+						
+						<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+							<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+						</div>
+						
+						<div class="col-sm-2 "> <!-- lien salle 1v1 -->
+							<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
+						</div>
+					</div>
+				</div> <!-- row -->
+				
+			</div> <!-- header --> 
 			
-			<div class="row">
-				<div class="user-choice">
-					<div class="col-sm-2 col-md-offset-2"> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=1"><img class="logo_menu" src="/APP4_miseEnSituation/images/1v1.png" alt="1v1"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=2"><img class="logo_menu" src="/APP4_miseEnSituation/images/2v2.png" alt="2v2"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
-					</div>
-					
-					<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-						<a href="/APP4_miseEnSituation/classement.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/rank.png" alt="classement"/></a>
-					</div>
-				</div>
-			</div> <!-- row -->
-			
-		</div> <!-- header --> 
-		
-		<div id="div_for_background">
-			<img id="background" src="/APP4_miseEnSituation/images/body_background.png" />
-			<div class="body_general">
+			<div id="div_for_background">
+				<img id="background" src="/APP4_miseEnSituation/images/body_background.png" />
+				<div class="body_general">
