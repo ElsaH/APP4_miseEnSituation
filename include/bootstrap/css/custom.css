@@ -7,6 +7,7 @@ html, body
 	cursor: default;
 	font-weight: bold;
 	min-width: 1024px;
+	min-height: 900px;
 }
 
 .phplist
@@ -112,10 +113,17 @@ div#footer
 
 #footer-widgets
 {
-	background-color: blue;
 	height: 100px;
-	margin-top: 20px;
+	width:900px;
 	text-align: center;
+	margin : 0 auto;
+	top:0;
+	left:0;
+}
+
+#footer-wrapper
+{
+	background-color: yellow;
 }
 
 img.logo_footer
@@ -130,7 +138,6 @@ img.logo_footer
 
 img.logo_poly
 {
-	background-color: white;
 	height:120px;
 }
 
@@ -156,7 +163,8 @@ img.logo_poly
 	z-index:0;
 }
 
-#div_for_background .body_general{
+#div_for_background .body_general
+{
 	width: 950px;
 	margin : 0 auto;
     position: absolute;
