@@ -6,7 +6,7 @@ html, body
 	padding: 0px;
 	cursor: default;
 	font-weight: bold;
-	min-width: 1024px;
+	min-width: 1025px;
 	min-height: 900px;
 }
 
@@ -103,11 +103,9 @@ div#footer
     height: 150px;
 	background-repeat: no-repeat;
 	margin: 0px;
-	background-position: center; 
 	font-size: 10pt;
 	color: #733C2F;
 	padding-bottom: 25px;
-	text-align: center;
 
 }
 
@@ -115,7 +113,6 @@ div#footer
 {
 	height: 100px;
 	width:900px;
-	text-align: center;
 	margin : 0 auto;
 	top:0;
 	left:0;
@@ -123,17 +120,7 @@ div#footer
 
 #footer-wrapper
 {
-	background-color: yellow;
-}
-
-img.logo_footer
-{
-	background-color: red;
-	height:80px;
-	padding-top:0px; 
-	padding-left:0px;
-	margin-right:100px;
-	padding-bottom:0px;
+	align-content: center;
 }
 
 img.logo_poly
@@ -141,13 +128,50 @@ img.logo_poly
 	height:120px;
 }
 
+div.footer-liens-annexes
+{
+	height: 10px;
+	width: 300px;
+	margin:0 auto;
+}
+
+#liens-annexes-gauche
+{
+	height: 10px;
+	width: 150px;
+	float: left;
+}
+
+#liens-annexes-droit
+{
+	height: 10px;
+	width: 150px;
+	float: right;
+}
+
+div.widgetFooter
+{
+	width: 200px;
+}
+
+#logo-footer-droit
+{
+	float:right;
+}
+
+img.logo_footer
+{
+	height:80px;
+	float:right;
+}
+
 #connexion_link
 {
 	margin-top:20px;
 }
 
-
-.logo_menu{
+.logo_menu
+{
 	height:100px;
 }
 
