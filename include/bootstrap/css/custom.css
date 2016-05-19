@@ -280,7 +280,8 @@ ul#game_pass_abd li {
 
 }
 
-.room{
+.room
+{
 	display: inline-block;
 	background-color:#FED09B;
 	padding: 5px 5px 5px 5px;
@@ -289,8 +290,15 @@ ul#game_pass_abd li {
 	margin : 0 auto;
 }
 
-.content_body{
+.content_body
+{
 	margin : 0 auto;
 	margin-top:10px;
 	width: 800px;
+}
+
+#background
+{
+	width: 950px;
+	content: center;
 }
