@@ -2,7 +2,6 @@ var GAME = {};
 
 GAME.init = function(nbJoueurs) {
 	GAME.nbJoueurs = nbJoueurs;
-	console.log("INIT", nbJoueurs);
 	// joueurs en jeu
 	GAME.player = new Array(GAME.nbJoueurs);
 	for (var i=0; i<GAME.nbJoueurs; i++) {
@@ -55,7 +54,7 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 
 	// positions des barres
 	GAME.barresPos = new Array(GAME.nbJoueurs);
-	console.log(GAME.nbJoueurs);
+	
 	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.barresPos[i] = {};
 

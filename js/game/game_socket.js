@@ -11,7 +11,7 @@ SOCKET.init();
 
 SOCKET.emit = function(tag, msg) {
 	if (DEBUG)
-		console.log("emit : ", tag, msg);
+		console.log("[emit] ", tag, msg);
 	SOCKET.canal.emit(tag, msg);
 }
 
@@ -21,11 +21,11 @@ SOCKET.on = function(tag, callback) {
 
 SOCKET.onDebugDisplay = function(tag, msg) {
 	if (DEBUG)
-		console.log("on : ", tag, msg);
+		console.log("[on] ", tag, msg);
 }
 
 SOCKET.on('start', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "start";
 	GAME.updateJoueurs(msg);
 	$('#canvas_choose_container').addClass('nodisplay');
@@ -33,47 +33,47 @@ SOCKET.on('start', function(msg) {
 });
 
 SOCKET.on('error', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	window.alert(msg.txt);
 });
 
 SOCKET.on('go', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "go";
 });
 
 SOCKET.on('update', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "update";
 	GAME.updateJoueurs(msg);
 });
 
 SOCKET.on('alert_mana', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "alert_mana";
 	window.alert(msg.txt);
 });
 
 SOCKET.on('wait', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "wait";
 });
 
 SOCKET.on('action', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "action";
 	window.alert(msg.txt);
 });
 
 SOCKET.on('win', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "win";
 	GAME.updateJoueurs(msg);
 	// redirection POST vers resultat.php
 });
 
 SOCKET.on('loose', function(msg) {
-	onDebugDisplay(arguments[0], msg);
+	SOCKET.onDebugDisplay(arguments[0], msg);
 	SOCKET.state = "loose";
 	GAME.updateJoueurs(msg);
 	// redirection POST vers resultat.php
@@ -95,21 +95,24 @@ $('#abandonner').click(function() {
 
 /* CHAT */
 
-socket.on('message', function(message) {
-	//alert('Le serveur a un message pour vous : ' + message);
-  document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + message + "<br/>";
-  document.getElementById( 'bottom' ).scrollIntoView();
+//socket.on('m')
+
+SOCKET.on('message', function(msg) {
+	SOCKET.onDebugDisplay(arguments[0], msg);
+	var string = "<span class='msg'>"+msg + "<br/><span>";
+	$(string).appendTo( "#text" );
+  //document.getElementById( 'bottom' ).scrollIntoView();
 })
 
 $("#message").keyup(function(event){
 	if(event.keyCode == 13){
-        	$("#send").click();
-        }
+    $("#send").click();
+  }
 });
 
 $('#send').click(function () {
-	socket.emit('message', {pseudo: pseudo, message: document.getElementById("message").value} );
-        document.getElementById("message").value = "";
+	SOCKET.emit('message', {pseudo: pseudo, message: document.getElementById("message").value} );
+  document.getElementById("message").value = "";
 })
 
 

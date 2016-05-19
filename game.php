@@ -39,14 +39,22 @@ $nbJoueurs = 2;
       </div>
     </div>
   </div>
+
+  <!-- Chat -->
   <h1>Chat</h1>
   <div id="text"></div>
   <input type="text" value="" id="message"/>
   <input type="button" value="Envoyer" id="send"/><br/>
+  <div id="bottom"></div> 
+
+
+  <!-- Infos cachées -->
   <input type="hidden" id="pseudo_player" value="<?php echo $pseudo ?>">
   <input type="hidden" id="id_champion" value="<?php echo $id_champion; ?>">
   <input type="hidden" id="nbJoueurs" value="<?php echo $nbJoueurs; ?>"> 
-<!--   <script src="http://82.239.215.158:8080/socket.io/socket.io.js"></script> -->
+
+
+  <!-- Include JS pour le game -->
   <script src="js/game/game_socket.js"></script>
   <script src="js/game/character.js"></script>
   <script src="js/game/game.js"></script>

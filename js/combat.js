@@ -10,12 +10,14 @@ socket.emit('pseudo', pseudo);
 socket.on('nouveau', function(message) {
      document.getElementById("text").innerHTML=document.getElementById("text").innerHTML + message + "<br/>";
 })
+/*
 // On affiche une boîte de dialogue quand le serveur nous envoie un "message"
 socket.on('message', function(message) {
 	//alert('Le serveur a un message pour vous : ' + message);
         document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + message + "<br/>";
         document.getElementById( 'bottom' ).scrollIntoView();
 })
+*/
 socket.on('erreur', function(message) {
 	document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + '<span style="color:red;">ERREUR : ' + message + "</span><br/>";
 	document.getElementById('bottom').scrollIntoView();
@@ -34,7 +36,7 @@ socket.on('disable', function(message) {
 
 
 
-
+/*
 // Lorsqu'on clique sur le bouton, on envoie un "message" au serveur
 $("#message").keyup(function(event){
 	if(event.keyCode == 13){
@@ -45,6 +47,7 @@ $('#send').click(function () {
 	socket.emit('message', {pseudo: pseudo, message: document.getElementById("message").value} );
         document.getElementById("message").value = "";
 })
+*/
 $('#Sort').click(function() {
 	socket.emit('attaquer',{numS : 2}); //document.getElementById...
 })
