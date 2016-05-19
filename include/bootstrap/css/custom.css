@@ -125,7 +125,8 @@ div#footer
 
 img.logo_poly
 {
-	height:120px;
+	height:110px;
+	margin-left: 20px;
 }
 
 div.footer-liens-annexes
@@ -133,6 +134,7 @@ div.footer-liens-annexes
 	height: 10px;
 	width: 300px;
 	margin:0 auto;
+	text-align: left;
 }
 
 #liens-annexes-gauche
@@ -163,6 +165,7 @@ img.logo_footer
 {
 	height:80px;
 	float:right;
+	margin-right: 10px;
 }
 
 #connexion_link
@@ -200,6 +203,22 @@ img.logo_footer
 {
 	width: 950px;
 	padding: 30px;
+}
+
+.container-floor
+{
+	padding-bottom: 30px;
+}
+
+#floor-gauche
+{
+	margin-left: 0px;
+	width: 600px;
+}
+
+#floor-droit
+{
+	float: right;
 }
 
 .left

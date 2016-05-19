@@ -20,7 +20,7 @@
 							<div class="col-sm-1 col-md-2"> <!-- liens liés au compte, si connecté : voir son profil ou se déconnecter, sinon se connecter ou inscription -->
 								<div id="meta-3" id="tofuwtofuw1" class="widget widgetFooter widget-meta">
 									<h4 class="widgettitle">COMPTE</h4>
-									<ul>
+									<ul class="liste-lien">
 										<?php if(!isset($_SESSION["login"])) { ?>
 											<li><a href="./connexion.php">Se connecter</a></li>
 											<li><a href="./register.php">Inscription</a></li>
@@ -37,7 +37,7 @@
 							<div class="col-sm-6 col-md-2"> <!-- Liens lié au site : accueil, page a propos et page de contact -->
 								<div id="meta-3" id="tofuwtofuw2" class="widget widgetFooter widget-meta">
 									<h4 class="widgettitle">INFORMATIONS</h4>
-									<ul>
+									<ul class="liste-lien">
 										<li><a href="/APP4_miseEnSituation/index.php">Accueil</a></li>
 										<li><a href="/APP4_miseEnSituation/a_propos.php">A propos</a></li>
 										<li><a href="/APP4_miseEnSituation/contact.php">Nous contacter</a></li>
@@ -58,10 +58,10 @@
 			</div> <!-- footer-wrapper -->
 			<br/>
 			<div id="sub-floor"> <!-- seconde partie du pied de page copyright et noms des étudiants -->
-				<div class="container">
+				<div class="container-floor">
 					<div class="row">
-						<div class="col-md-4 copyright">Copyright © PolyQuest -2016- Tous droits réservés</div>
-						<div class="col-md-4 col-md-offset-2 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien <br/> CORDEAU Elyse | EDORH TOSSA Léon <br/> HELIES Elsa | MASSARDIER Anaïs <br/> NGO BUI HUNG Christelle </div>
+						<div id="floor-gauche" class="col-md-4 col-md-offset-2 attribution">BRECHENMACHER Grégoire | CLAUDET Adrien | CORDEAU Elyse | EDORH TOSSA Léon <br/> HELIES Elsa | MASSARDIER Anaïs | NGO BUI HUNG Christelle </div>
+						<div id="floor-droit" class="col-md-4 copyright">Copyright © PolyQuest -2016- Tous droits réservés</div>
 					</div>
 				</div>
 			</div> <!-- row-->
