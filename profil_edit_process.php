@@ -1,5 +1,7 @@
 <!-- Page php qui enregistre la modification d'un profile (on previent à la fin le membre pour lui dire si tout est Ok ou s'il y a une erreur -->
-<?php include ("./include/header.php"); ?>
+<?php include ("./include/header.php");
+include('include/connexionBD.php');
+ ?>
 <!-- Popup qui donne les informations à la fin du traitement -->
 <script type="text/javascript">
     $(window).load(function(){
@@ -22,8 +24,9 @@
 					$b_modificationValide = true;
 					
 					// ====connexion base de données====
-					$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
-					
+					//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+					$db = connexion();
+
 					// ====récupération et traitement des infos=====
 					$s_photo = '"'.$_POST["photolink"].'"';
 					$i_idMembre = $_POST["idMembre"];

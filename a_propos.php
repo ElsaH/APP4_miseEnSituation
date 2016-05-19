@@ -37,9 +37,9 @@
 		
 		<br/>
 		<p class="text-justify">
-			Afin de mener à bien le projet, ce site a été réalisé grâce à la participation de 	7 étudiants étudiants : BRECHENMACHER Grégoire | CLAUDET Adrien | CORDEAU Elyse | EDORH TOSSA Léon | HELIES Elsa | MASSARDIER Anaïs | NGO BUI HUNG Christelle 
+			Afin de mener à bien le projet, ce site a été réalisé grâce à la participation de 	7 étudiants : BRECHENMACHER Grégoire | CLAUDET Adrien | CORDEAU Elyse | EDORH TOSSA Léon | HELIES Elsa | MASSARDIER Anaïs | NGO BUI HUNG Christelle 
 		
 			<center><img src="/APP4_miseEnSituation/images/logo_polytech.png"/></center>
-		</p>
+		</p><br>
 	</div>
 <?php include("./include/footer.php"); ?>

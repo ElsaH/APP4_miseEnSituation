@@ -1,10 +1,12 @@
 <?php
 	include ("./include/header.php");
+	include('include/connexionBD.php');
 	
 	// *******REQUETTES D'INSERTION DU USER DANS LA SALLE************
 	// ====connexion base de données====
-	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
-	
+	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	$db = connexion();
+
 	// ====récupération et traitement des infos=====
 	
 	$idSalle = $_POST["idSalle"];

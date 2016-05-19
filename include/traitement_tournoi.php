@@ -32,7 +32,7 @@
 		$id_salle = $tmp->fetch();
 		$id_salle = $id_salle['id_salle'] +1;
 
-		$tmp = $db->prepare('INSERT INTO salle (id_salle, nb_joueurs, id_type_salle, cree_par, cree_le) VALUES (:id_salle, 0, :id_type_salle, "admin", NOW())');
+		$tmp = $db->prepare('INSERT INTO salle (id_salle, nb_joueurs, id_type_salle, xp_min, xp_max, cree_par, cree_le) VALUES (:id_salle, 0, :id_type_salle, 0, 100,"admin", NOW())');
 		$tmp->execute(array(
 			'id_salle' => $id_salle,
 			'id_type_salle' => $tSalle
@@ -46,5 +46,5 @@
 		));
 	}
 
-	header('Location: ../tournois_planifies.php');
+	header('Location: ../creation_tournoi.php');
 ?>

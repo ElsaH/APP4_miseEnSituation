@@ -93,7 +93,7 @@
 						</div>
 						
 						<div class="col-sm-2 "> <!-- lien salle 1v1 -->
-							<a href="/APP4_miseEnSituation/room_list.php?type=3"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
+							<a href="/APP4_miseEnSituation/tournois_list.php"><img class="logo_menu" src="/APP4_miseEnSituation/images/tournoi.png" alt="tournois"/></a>
 						</div>
 						
 						<div class="col-sm-2 "> <!-- lien salle 1v1 -->

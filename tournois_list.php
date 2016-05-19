@@ -1,14 +1,7 @@
 <?php include("./include/header.php"); 
 include('include/connexionBD.php');
-	
-	
-	if(!isset($_GET["type"])){
-		//ERREUR si non connecté 
-		echo "<script>";
-		echo "javascript:window.location.replace('erreur404.php?url='+document.URL);" ; 
-		echo "</script>";
-	}
-		
+
+
 	// ===variables "globales"===
 	$s_select;
 	$s_from;
@@ -20,30 +13,17 @@ include('include/connexionBD.php');
 	$s_erreurSQL = "Erreur : impossible d'effectuer la requete SQL.";
 	
 	// connexion à la base de données
-	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
+	//$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');	
 	$db = connexion();
 
-	// récupération de l'ID User pour le profil
-	$type = $_GET["type"];
-	
-	if($type==1)
-		$type="1 vs 1";
-	else if($type==2)
-		$type="2 vs 2";
-	else{
-		echo "<script>";
-		echo "javascript:window.location.replace('erreur404.php?url='+document.URL);" ; 
-		echo "</script>";
-	}
-		
-	// GET ALL room of type GET:type
+
 	try
 	{
-		$s_select = "SELECT * ";
-		$s_from = "FROM salle s, type_salle t ";
-		$s_where = "WHERE libelle_type_salle = '".$type."' AND s.id_type_salle=t.id_type_salle AND s.id_salle NOT IN (SELECT id_salle FROM table_tournoi);";
-		$s_request = $s_select.$s_from.$s_where;
-
+		$s_select = "SELECT heure_debut,heure_fin, t.id_tournoi as idT, s.id_salle as idS, xp_min, xp_max, libelle_type_salle ";
+		$s_from = "FROM tournoi t, table_tournoi tt, salle s, type_salle ts ";
+		$where = "WHERE t.id_tournoi=tt.id_tournoi AND tt.id_salle=s.id_salle AND ts.id_type_salle=s.id_type_salle;";
+		$s_request = $s_select.$s_from.$where;
+		
 		$statement = $db->prepare($s_request);
 		$statement->execute();
 		$result = $statement->fetchAll();
@@ -56,7 +36,7 @@ include('include/connexionBD.php');
 ?>
 	<div class='row'>
 		<div class="content_body">
-			<h1>Liste des salles de type <?php echo $type?></h1>
+			<h1>Liste des tournois</h1>
 			
 			
 			<?php if(is_array($result)){ 
@@ -68,23 +48,24 @@ include('include/connexionBD.php');
 						
 						<div class='col-xs-2'>
 							<div class="row type_label">
-								<?php echo $type?>
+								<?php echo $row["libelle_type_salle"]?>
 							</div>
 							
 							<form method="post" action="join_room.php">
 								<div class="row">
 									<p hidden>
-										<input id='idSalle' name='idSalle' type="number" value="<?php echo $row["id_salle"];?>"/>
+										<input id='idTournoi' name='idTournoi' type="number" value="<?php echo $row["idT"];?>"/>
 									</p>
 									<?php 
-									// disabled si créateur ou xp not in [xpMin, xpMax] ou room pleine ou déjà dans la salle ou pas connecté
-									if(!isset($_SESSION["login"]) || $_SESSION["xp"]<$row["xp_min"] 
-									|| $_SESSION["xp"]>$row["xp_max"] 
-									|| $_SESSION["id_user"] == $row["cree_par"]){
-										//echo "<button type='button' class='btn btn-warning' disabled='disabled'>Rejoindre</button>";
+									$debut = $row["heure_debut"];
+									$end = $row["heure_fin"];
+									$current = date('Y-m-d H:i:s');
+									if(!isset($_SESSION["login"]) || $debut>$current 
+									|| $end<$current 
+									||  $_SESSION["xp"]<$row["xp_min"] 
+									|| $_SESSION["xp"]>$row["xp_max"]){
 										echo "<input type='submit' class='button btn btn-warning' name='join' value='Rejoindre' disabled='disabled' />";
 									}else{
-										//echo "<button type='button' class='btn btn-warning'>Rejoindre</button>"; 
 										echo "<input type='submit' class='join btn btn-warning' name='join' value='Rejoindre' />";
 									}?>
 								</div>
@@ -97,7 +78,7 @@ include('include/connexionBD.php');
 							<?php
 								$s_select = "SELECT * ";
 								$s_from = "FROM salle_user s, user u ";
-								$s_where = "WHERE s.id_salle = '".$row['id_salle']."' AND s.id_user=u.id_user;";
+								$s_where = "WHERE s.id_salle = '".$row['idS']."' AND s.id_user=u.id_user;";
 								$s_request = $s_select.$s_from.$s_where;
 
 								$statement = $db->prepare($s_request);
@@ -117,7 +98,13 @@ include('include/connexionBD.php');
 						</div>
 						
 						<div class='col-xs-4'>
-							<label for='xpRquest'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							<div class="row">
+								<label for='xpRquest'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							</div>
+							
+							<div class="row">
+								<label for='dates_tournoi'>Xp demandé : entre <?php echo $row["xp_min"];?> et <?php echo $row["xp_max"];?></label>
+							</div>
 						</div>
 						
 					</div>
@@ -134,10 +121,10 @@ include('include/connexionBD.php');
 		
 					
 				<!-- Bonton creer salle -->
-				<?php if(!isset($_SESSION["login"]))
+				<?php /* if(!isset($_SESSION["login"]))
 					echo "<input id='submit' class='btn btn-success btn-lg' type='submit' disabled='disabled' value='Crée une salle'>";
 				else
-					echo "<input id='submit' class='btn btn-success btn-lg' type='submit' value='Crée une salle'>";
+					echo "<input id='submit' class='btn btn-success btn-lg' type='submit' value='Crée une salle'>";*/
 				?>
 			</form>
 		</div>

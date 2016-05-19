@@ -2,7 +2,7 @@
 	include("./include/header.php");
 	
 	if(isset($_GET["numS"])){
-		echo "<script type=\"text/javascript\">socket.emit('join',{numS:".$_GET["numS"].", idUser: ".$_GET["idUser"]."});</script>";
+		echo "<script type=\"text/javascript\">socket.emit('join',{numS:".$_GET["numS"].", idUser: ".$_GET["idUser"].", pseudo:'".$_SESSION["pseudo"]."', xp:".$_SESSION["xp"]."});</script>";
 	}
 	else
 		echo "<script type='text/javascript'>socket.emit('changedSocket',{idUser: ".$_SESSION["id_user"]."});</script>";
@@ -10,8 +10,7 @@
 ?>
 	<script type="text/javascript">
 		socket.on('begin',function(){
-			alert("ça marche \o/");
-		
+			document.location.href="./game.php";
 		});
 		
 		socket.on('attente',function(param){
