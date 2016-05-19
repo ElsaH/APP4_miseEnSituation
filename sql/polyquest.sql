@@ -188,6 +188,9 @@ CREATE TABLE `type_salle` (
 -- Records of type_salle
 -- ----------------------------
 
+INSERT INTO `type_salle` (`id_type_salle`,`libelle_type_salle`) VALUES (1, "1 vs 1");
+INSERT INTO `type_salle` (`id_type_salle`,`libelle_type_salle`) VALUES (2, "2 vs 2");
+
 -- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
