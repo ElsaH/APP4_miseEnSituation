@@ -27,8 +27,6 @@ img.img-circle
 	margin-right:1em;
 }
 
-
-
 h1
 {
 	text-align:center;
@@ -39,15 +37,13 @@ h1
 h2
 {
 	text-align:center;
-	font-style: italic;
-	
+	font-style: italic;	
 }
 
 h4
 {
 	text-decoration: underline;
 }
-
 
 .nom_org
 {
@@ -56,11 +52,39 @@ h4
 	size:20px;
 }
 
-
 small.date_comm
 {
 	float:right;
 }
+
+div.header
+{
+
+	background-image:url(/APP4_miseEnSituation/images/header_background.png);
+	background-position: center; 
+	height: 150px;
+	width: 1000px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	min-width: 1000px;
+}
+
+#connexion_link
+{
+	margin-left: 130px;
+}
+
+img.logo_header
+{
+	position : absolute;
+	width: 300px;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+
+
+
 
 div#footer
 {
@@ -75,35 +99,6 @@ div#footer
 	color: #733C2F;
 	padding-bottom: 25px;
 }
-
-
-
-div.header
-{
-
-	background-image:url(/APP4_miseEnSituation/images/header_background.png);
-	background-position: center; 
-	height: 150px;
-	width: 1000px;
-	margin: 0 auto;
-	background-repeat: no-repeat;
-	min-width: 1000px;
-}
-
-img.logo_header
-{
-	position : absolute;
-	width: 300px;
-	margin-top: 25px;
-	margin-left: 25px;
-}
-
-#connexion_link
-{
-	margin-left: 130px;
-}
-
-
 
 img.logo_footer
 {
@@ -280,7 +275,8 @@ ul#game_pass_abd li {
 
 }
 
-.room{
+.room
+{
 	display: inline-block;
 	background-color:#FED09B;
 	padding: 5px 5px 5px 5px;
@@ -289,7 +285,8 @@ ul#game_pass_abd li {
 	margin : 0 auto;
 }
 
-.content_body{
+.content_body
+{
 	margin : 0 auto;
 	margin-top:10px;
 	width: 800px;
@@ -310,4 +307,9 @@ ul#game_pass_abd li {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+
+#background
+{
+	width: 950px;
+	content: center;
 }

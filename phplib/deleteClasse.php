@@ -11,7 +11,7 @@ if(isset($_POST['id_classe']) && $_POST['id_classe']!=''){
 
 	$sql = 'DELETE FROM champion WHERE id_champion=:id_champion';
 	$q = $bdd->prepare($sql);
-	$q->bindParam(':id_champion',$_POST['id_classe'],PDO::PARAM_STR);
+	$q->bindParam(':id_champion',$_POST['id_classe'],PDO::PARAM_INT);
 	$q->execute();
 	$q->closeCursor();
 	echo json_encode('ok');

@@ -1,6 +1,7 @@
 <?php	
-	session_start();
-
+	//session_start();
+	include ("./include/header.php");
+	
 	// ====connexion base de données====
 	$db = new PDO("mysql:host=localhost;dbname=polyquest;charset=utf8",'root','');
 	
@@ -64,9 +65,14 @@
 	{
 		echo ($s_erreurSQL);
 	}
-	header('Location: index.php'); // TO DO
-
 	
-//header('Location:profil_view_edit.php?id_membre='.$i_idMembre);  
-
+	// ******* emit creation *******
+	// ******* redirection vers une page d'attente *******
+	echo "<script>";
+	echo "socket.emit('create',{nbJ: 2, xpMin: ".$xpMin.", xpMax:". $xpMax.", idUser: ".$i_idMembre.", numS:".$id_salle."});";
+	echo "socket.on('roomCreated', function() {document.location.href=\"./index.php\"});";
+	echo "</script>";
+	
+	
+	include ("./include/footer.php");
 ?>

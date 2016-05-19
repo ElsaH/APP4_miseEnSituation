@@ -2,7 +2,7 @@ var GAME = {};
 
 GAME.init = function(nbJoueurs) {
 	GAME.nbJoueurs = nbJoueurs;
-
+	console.log("INIT", nbJoueurs);
 	// joueurs en jeu
 	GAME.player = new Array(GAME.nbJoueurs);
 	for (var i=0; i<GAME.nbJoueurs; i++) {
@@ -29,8 +29,8 @@ GAME.initJoueurs = function(joueur) {
 
 GAME.draw = function() {
 	GAME.drawBackground(canvas_game, ctx_game);
-	GAME.drawCharactersInfos(canvas_game, ctx_game);
-	GAME.drawCharacters(canvas_game, ctx_game);
+	GAME.drawPersosInfos(canvas_game, ctx_game);
+	GAME.drawPersos(canvas_game, ctx_game);
 }
 
 GAME.drawBackground = function(canvas, ctx) {
@@ -55,7 +55,7 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 
 	// positions des barres
 	GAME.barresPos = new Array(GAME.nbJoueurs);
-
+	console.log(GAME.nbJoueurs);
 	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.barresPos[i] = {};
 
@@ -118,7 +118,7 @@ GAME.drawInfos = function(ctx, pos, style, i) {
 	ctx.globalAlpha = 1;
 }
 
-GAME.drawCharacters = function(canvas, ctx) {
+GAME.drawPersos = function(canvas, ctx) {
 	// positions des personnages
 	GAME.charPos = new Array(GAME.nbJoueurs);
 

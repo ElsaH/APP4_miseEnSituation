@@ -1,6 +1,12 @@
+// variables globales
+
 var RATIO = 4;
 var CANVAS_WIDTH = 500;
 var CANVAS_HEIGHT = 300;
+var canvas_choose;
+var ctx_choose;
+var canvas_game;
+var ctx_game;
 
 $(document).ready(function() {
 
@@ -15,10 +21,10 @@ $(document).ready(function() {
 	}
 
 	//Create canvas with a custom resolution.
-	var canvas_choose = setHiDPICanvas(500, 300, "canvas_choose");
-	var ctx_choose = canvas_choose.getContext("2d");
-	var canvas_game = setHiDPICanvas(500, 300, "canvas_game");
-	var ctx_game = canvas_game.getContext("2d");
+	canvas_choose = setHiDPICanvas(500, 300, "canvas_choose");
+	ctx_choose = canvas_choose.getContext("2d");
+	canvas_game = setHiDPICanvas(500, 300, "canvas_game");
+	ctx_game = canvas_game.getContext("2d");
 
 	var init = function() {
 		// Gestion image du curseur
@@ -26,28 +32,21 @@ $(document).ready(function() {
 		CHOOSE.pointer = false;
 
 		// Initialisation du jeu
-		//GAME.init(2);
 		SOCKET.init();
+		var nbJoueurs = $('#nbJoueurs').val();
+		GAME.init(nbJoueurs);
 
 		// choix du canvas à afficher
 		if (SOCKET.statut == "choose_perso") {
 			$('#canvas_game_container').addClass('nodisplay');
 		}
 
-		window.addEventListener('resize', updateCanvas, false);
-		CHARACTER.load(updateCanvas);
+		CHARACTER.load(draw);
 	}
 
-	var drawChooseCanvas = function() {
-		CHOOSE.drawBackground(canvas_choose, ctx_choose);
-		CHOOSE.drawMenu(canvas_choose, ctx_choose);
-	}
-
-	var updateCanvas = function() {
-		// canvas_game.width = window.innerWidth;
-		// canvas_game.height = window.innerHeight;
-		drawGameCanvas();
-		drawChooseCanvas();
+	var draw = function() {
+		CHOOSE.draw();
+		GAME.draw();
 	}
 
 	var getYXcanvas = function(canvas, e) {
@@ -65,8 +64,6 @@ $(document).ready(function() {
 		y -= canvas.offsetTop;
 		return {x:x, y:y};
 	}
-
-	//$('canvas').addClass('default');
 
 	$('canvas').mousemove(function(e) {
 		var pos = getYXcanvas(this, e);
