@@ -40,7 +40,7 @@ if($numWin == 0) {
 		$xp = $joueur1['xp'];
 }
 
-$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;')
+$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
 $update1->execute(array(
 	'combats_gagnes' => $combats_gagnes,
 	'combats_joues' =>> ($joueur1['combats_joues'] + 1),
@@ -62,7 +62,7 @@ if($numWin == 0) {
 		$xp = $joueur2['xp'] +1;
 }
 
-$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;')
+$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
 $update1->execute(array(
 	'combats_gagnes' => $combats_gagnes,
 	'combats_joues' =>> ($joueur2['combats_joues'] + 1),
