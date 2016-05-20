@@ -176,11 +176,7 @@ TRUNCATE TABLE `salle`;
 -- Contenu de la table `salle`
 --
 
-INSERT INTO `salle` (`id_salle`, `ouvert`, `nb_joueurs`, `id_type_salle`, `xp_min`, `xp_max`, `cree_par`, `cree_le`) VALUES
-(1, 1, 1, 2, 0, 10, 6, '2016-05-20 09:44:01'),
-(2, 1, 1, 1, 0, 10, 6, '2016-05-20 09:46:16'),
-(3, 1, 0, 1, 0, 100, 0, '2016-05-20 10:07:49'),
-(4, 1, 0, 1, 0, 100, 0, '2016-05-20 10:07:49');
+
 
 -- --------------------------------------------------------
 
@@ -205,16 +201,7 @@ TRUNCATE TABLE `salle_user`;
 -- Contenu de la table `salle_user`
 --
 
-INSERT INTO `salle_user` (`id_salle_user`, `id_user`, `id_salle`) VALUES
-(1, 6, 1),
-(2, 6, 2),
-(3, 7, 2),
-(4, 7, 2),
-(5, 7, 2),
-(6, 7, 2),
-(7, 7, 2),
-(8, 7, 2),
-(9, 7, 2);
+
 
 -- --------------------------------------------------------
 
@@ -239,9 +226,7 @@ TRUNCATE TABLE `table_tournoi`;
 -- Contenu de la table `table_tournoi`
 --
 
-INSERT INTO `table_tournoi` (`id_table_tournoi`, `id_salle`, `id_tournoi`) VALUES
-(1, 3, 1),
-(2, 4, 1);
+
 
 -- --------------------------------------------------------
 
@@ -268,8 +253,7 @@ TRUNCATE TABLE `tournoi`;
 -- Contenu de la table `tournoi`
 --
 
-INSERT INTO `tournoi` (`id_tournoi`, `heure_debut`, `heure_fin`, `user_vainqueur`, `bonus`) VALUES
-(1, '2016-05-20 10:07:00', '2016-05-20 13:07:00', NULL, 1);
+
 
 -- --------------------------------------------------------
 
@@ -329,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `admin` tinyint(4) NOT NULL DEFAULT '0',
   `pseudo` varchar(255) NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT "./images/no_profile_picture.jpg",
   `password` varchar(255) NOT NULL,
   `mail_user` varchar(255) NOT NULL,
   `xp` int(11) NOT NULL DEFAULT '0',

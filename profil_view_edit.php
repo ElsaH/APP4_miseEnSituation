@@ -97,7 +97,7 @@ if(!isset($_SESSION["id_user"]) || !isset($_GET["id_user"])){
 				{ ?>				
 					<div class='row'>
 						<div class='col-xs-4'>
-							<label for='photolink'>Lien photo : </label>
+							<label for='photolink'>Lien photo (html uniquement): </label>
 							<input  class='input-sm form-control' id='photolink' type='text' name='photolink' value="<?php echo $result["photo"]?>">
 						</div>
 					</div>
