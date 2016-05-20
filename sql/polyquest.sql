@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
   `xp_max` int(11) DEFAULT NULL,
   `cree_par` int(11) NOT NULL,
   `cree_le` datetime NOT NULL,
+  `termine` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id_salle`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
