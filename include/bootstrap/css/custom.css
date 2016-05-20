@@ -390,7 +390,6 @@ ul#game_pass_abd li {
 
 div#guide-container
 {
-	background-color: purple;
 	width: 900px;
 	height: 500px;
 	position: center;
@@ -399,7 +398,6 @@ div#guide-container
 
 div#guide-gauche
 {
-	background-color:pink;
 	margin-top: 50px;
 	width: 300px;
 	position:absolute;	
@@ -407,7 +405,7 @@ div#guide-gauche
 
 div#guide-droit
 {
-	background-color:grey;
+	text-align: justify;
 	float: right;
 	padding-left:100px;
 	margin-top: 50px;

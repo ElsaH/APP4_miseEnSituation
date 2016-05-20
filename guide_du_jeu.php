@@ -6,50 +6,77 @@
 		{
 			var ele = document.getElementById("toggleText1");
 			var text = document.getElementById("displayText1");
-			if(ele.style.display == "block")
-		    	ele.style.display = "none";
-			else
+			if(ele.style.display == "none")
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText2").style.display="none";
+				document.getElementById("toggleText3").style.display="none";
+				document.getElementById("toggleText4").style.display="none";
+				document.getElementById("toggleText5").style.display="none";
+				document.getElementById("toggleText6").style.display="none";
+			}
 		} 
 
 		function toggle2()
 		{
 			var ele = document.getElementById("toggleText2");
 			var text = document.getElementById("displayText2");
-			if(ele.style.display == "block")
-		    	ele.style.display = "none";
-			else
+			if(ele.style.display == "none")
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText1").style.display="none";
+				document.getElementById("toggleText3").style.display="none";
+				document.getElementById("toggleText4").style.display="none";
+				document.getElementById("toggleText5").style.display="none";
+				document.getElementById("toggleText6").style.display="none";
+			}
 		} 
 
 		function toggle3()
 		{
 			var ele = document.getElementById("toggleText3");
 			var text = document.getElementById("displayText3");
-			if(ele.style.display == "block")
-		    	ele.style.display = "none";
-			else 
+
+			if(ele.style.display == "none")
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText1").style.display="none";
+				document.getElementById("toggleText2").style.display="none";
+				document.getElementById("toggleText4").style.display="none";
+				document.getElementById("toggleText5").style.display="none";
+				document.getElementById("toggleText6").style.display="none";
+			}
 		} 
 
 		function toggle4()
 		{
 			var ele = document.getElementById("toggleText4");
 			var text = document.getElementById("displayText4");
-			if(ele.style.display == "block")
-		    		ele.style.display = "none";
-			else
+
+			if(ele.style.display == "none")
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText1").style.display="none";
+				document.getElementById("toggleText2").style.display="none";
+				document.getElementById("toggleText3").style.display="none";
+				document.getElementById("toggleText5").style.display="none";
+				document.getElementById("toggleText6").style.display="none";
+			}
 		} 
 
 		function toggle5()
 		{
 			var ele = document.getElementById("toggleText5");
 			var text = document.getElementById("displayText5");
-			if(ele.style.display == "block")
-		    		ele.style.display = "none";
-			else 
+			if(ele.style.display == "none") 
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText1").style.display="none";
+				document.getElementById("toggleText2").style.display="none";
+				document.getElementById("toggleText3").style.display="none";
+				document.getElementById("toggleText4").style.display="none";
+				document.getElementById("toggleText6").style.display="none";
+			}
 		} 
 
 		function toggle6()
@@ -59,7 +86,14 @@
 			if(ele.style.display == "block") 
 		    		ele.style.display = "none";
 			else 
+			{
 				ele.style.display = "block";
+				document.getElementById("toggleText1").style.display="none";
+				document.getElementById("toggleText2").style.display="none";
+				document.getElementById("toggleText3").style.display="none";
+				document.getElementById("toggleText4").style.display="none";
+				document.getElementById("toggleText5").style.display="none";				
+			}
 		}
 		
 	</script>
@@ -97,27 +131,43 @@
 			-->
 			<div id="guide-droit">
 				<div id="toggleText1" style="display: block">
-					<p> MON INTRODUCTION </p>
+					<p>
+						INTRODUCTION <br><br>
+						Bienvenue sur PolyQuest. Sur ce site, vous pourrez incarner différentes classes d'étudiants Polyteckien. Choisissez celle(s) que vous soutiendrez le plus et défendez les couleurs de votre spécialité au cours de combats épiques !
+						Gagnez de l'expériences au cours des différents types de combat : en solo ou en duo, en bataille simple ou en tournois, votre quête est de devenir le futur Maître PolyQuest !
+					</p>
 				</div>
 
 				<div id="toggleText2" style="display: none">
-					<p> COMMENT REJOINDRE LA SALLE </p>
+					<p>
+						REJOINDRE LA SALLE <br><br>
+						Afin de vous battre aux côtés de votre spécialité, 
+					</p>
 				</div>
 
 				<div id="toggleText3" style="display: none">
-					<p> COMMENT DEMARRER UNE PARTIE </p>
+					<p>
+						DEMARRER UNE PARTIE<br><br>
+
+					</p>
 				</div>
 
 				<div id="toggleText4" style="display: none">
-					<p> COMBATS </p>
+					<p> 
+						COMBATS <br><br>
+					</p>
 				</div>
 
 				<div id="toggleText5" style="display: none">
-					<p> FIN DE PARTIE </p>
+					<p> 
+						FIN DE PARTIE <br><br>
+					</p>
 				</div>
 
 				<div id="toggleText6" style="display: none">
-					<p> BONUS D'EXPERIENCE </p>
+					<p> 
+						BONUS D'EXPERIENCE <br>
+					</p>
 				</div>
 			</div>
 
