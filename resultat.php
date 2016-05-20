@@ -7,8 +7,8 @@ include('include/connexionBD.php');
 $bd = connexion();
 
 /* Récupération des personnages et des scores */
-$perso1 = (isset($_POST['perso0'])) ? $_POST['perso0'] : "J1??";
-$perso2 = (isset($_POST['perso1'])) ? $_POST['perso1'] : "J2??";
+$perso1 = (isset($_POST['perso0'])) ? $_POST['perso0'] : "adri";
+$perso2 = (isset($_POST['perso1'])) ? $_POST['perso1'] : "leon";
 
 $class1 = (isset($_POST['class0'])) ? intval($_POST['class0']) : 0;
 $class2 = (isset($_POST['class1'])) ? intval($_POST['class1']) : 0;
@@ -37,13 +37,15 @@ if($numWin == 0) {
 	$xp = $joueur1['xp'] +1;
 } else {
 	$combats_gagnes = $joueur1['combats_gagnes'];
-		$xp = $joueur1['xp'];
+	$xp = $joueur1['xp'];
 }
 
-$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
+$combats_joues = ($joueur1['combats_joues'] + 1);
+
+$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joues, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
 $update1->execute(array(
 	'combats_gagnes' => $combats_gagnes,
-	'combats_joues' =>> ($joueur1['combats_joues'] + 1),
+	'combats_joues' => $combats_joues,
 	'id_user' => $joueur1['id_user'],
 	'xp' => $xp
 )); 
@@ -59,13 +61,15 @@ if($numWin == 0) {
 	$xp = $joueur2['xp'];
 } else {
 	$combats_gagnes = $joueur2['combats_gagnes']+1;
-		$xp = $joueur2['xp'] +1;
+	$xp = $joueur2['xp'] +1;
 }
 
-$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joue, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
+$combats_joues = ($joueur2['combats_joues'] + 1);
+
+$update1 = $bd->prepare('UPDATE user SET combats_joues = :combats_joues, combats_gagnes = :combats_gagnes, xp = :xp WHERE user.id_user = :id_user;');
 $update1->execute(array(
 	'combats_gagnes' => $combats_gagnes,
-	'combats_joues' =>> ($joueur2['combats_joues'] + 1),
+	'combats_joues' => $combats_joues,
 	'id_user' => $joueur2['id_user'],
 	'xp' => $xp
 ));  
