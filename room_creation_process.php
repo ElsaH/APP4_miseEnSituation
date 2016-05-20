@@ -82,7 +82,7 @@
 		}, 1000);
 		";
 	echo "</script>";
-?><a href="wait_room.php">Attendre</a>	
+?><div class="container content_body"><a href="wait_room.php">Attendre</a></div>
 <?php	
 	include ("./include/footer.php");
 ?>
