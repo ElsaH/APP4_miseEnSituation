@@ -59,7 +59,6 @@ SOCKET.on('alert_mana', function(msg) {
 SOCKET.on('wait', function(msg) {
 	SOCKET.onDebugDisplay('wait', msg);
 	SOCKET.state = "wait";
-	$('#choose_action').addClass('nodisplay');
 });
 
 SOCKET.on('action', function(msg) {
@@ -90,12 +89,15 @@ SOCKET.on('loose', function(msg) {
 $('.sort').click(function() {
 	var id = this.attr('value');
 	SOCKET.emit('sort', {numSort : id});
+	$('#choose_action').addClass('nodisplay');
 })
 $('#passer').click(function() {
 	SOCKET.emit('passer');
+	$('#choose_action').addClass('nodisplay');
 })
 $('#abandonner').click(function() {
 	SOCKET.emit('abandonner');
+	$('#choose_action').addClass('nodisplay');
 })
 
 /* CHAT */

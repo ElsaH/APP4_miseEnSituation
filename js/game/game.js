@@ -26,14 +26,6 @@ GAME.updateJoueurs = function(msg) {
 	GAME.draw();
 }
 
-GAME.whoAreYou = function() {
-	for (var i=0; i<GAME.nbJoueurs; i++ ) {
-		if (GAME.player[i].id == SOCKET.idJoueur)
-			return i;
-	}
-	return -1;
-}
-
 GAME.draw = function() {
 	GAME.drawBackground(canvas_game, ctx_game);
 	GAME.drawPersosInfos(canvas_game, ctx_game);
@@ -156,10 +148,16 @@ GAME.drawPersos = function(canvas, ctx) {
 }
 
 GAME.drawPseudos = function (canvas, ctx, i) {
-	console.log('drawPseudos');
 	var pos = GAME.charPos[i];
-	ctx.fillStyle = "#000000";
-	ctx.font = "12px Arial";
+	// Si c'est le joueur connecté
+	if (SOCKET.idJoueur == GAME.player[i].id) {
+		ctx.fillStyle = "blue";
+		ctx.font = "bold 12px Arial";
+	}
+	else {
+		ctx.fillStyle = "#000000";
+		ctx.font = "12px Arial";
+	}
 	ctx.textAlign = 'center';
 	var txt = GAME.player[i].pseudo;
 	var x = pos.x;
