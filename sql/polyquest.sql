@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 20 Mai 2016 à 10:13
+-- Généré le :  Ven 20 Mai 2016 à 10:56
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `capacite`
 --
 
+DROP TABLE IF EXISTS `capacite`;
 CREATE TABLE IF NOT EXISTS `capacite` (
   `id_capacite` int(11) NOT NULL AUTO_INCREMENT,
   `nom_capacite` varchar(255) NOT NULL,
@@ -36,6 +37,11 @@ CREATE TABLE IF NOT EXISTS `capacite` (
   PRIMARY KEY (`id_capacite`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
+--
+-- Vider la table avant d'insérer `capacite`
+--
+
+TRUNCATE TABLE `capacite`;
 --
 -- Contenu de la table `capacite`
 --
@@ -60,6 +66,7 @@ INSERT INTO `capacite` (`id_capacite`, `nom_capacite`, `montant_soins`, `montant
 -- Structure de la table `champion`
 --
 
+DROP TABLE IF EXISTS `champion`;
 CREATE TABLE IF NOT EXISTS `champion` (
   `id_champion` int(11) NOT NULL AUTO_INCREMENT,
   `classe` varchar(255) NOT NULL,
@@ -68,6 +75,11 @@ CREATE TABLE IF NOT EXISTS `champion` (
   PRIMARY KEY (`id_champion`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
+--
+-- Vider la table avant d'insérer `champion`
+--
+
+TRUNCATE TABLE `champion`;
 --
 -- Contenu de la table `champion`
 --
@@ -84,6 +96,7 @@ INSERT INTO `champion` (`id_champion`, `classe`, `hp_base`, `mana_base`) VALUES
 -- Structure de la table `champion_capacite`
 --
 
+DROP TABLE IF EXISTS `champion_capacite`;
 CREATE TABLE IF NOT EXISTS `champion_capacite` (
   `id_champion_capacite` int(11) NOT NULL AUTO_INCREMENT,
   `id_champion` int(11) NOT NULL,
@@ -91,6 +104,11 @@ CREATE TABLE IF NOT EXISTS `champion_capacite` (
   PRIMARY KEY (`id_champion_capacite`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
+--
+-- Vider la table avant d'insérer `champion_capacite`
+--
+
+TRUNCATE TABLE `champion_capacite`;
 --
 -- Contenu de la table `champion_capacite`
 --
@@ -115,6 +133,7 @@ INSERT INTO `champion_capacite` (`id_champion_capacite`, `id_champion`, `id_capa
 -- Structure de la table `historique`
 --
 
+DROP TABLE IF EXISTS `historique`;
 CREATE TABLE IF NOT EXISTS `historique` (
   `id_historique` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
@@ -124,12 +143,18 @@ CREATE TABLE IF NOT EXISTS `historique` (
   PRIMARY KEY (`id_historique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Vider la table avant d'insérer `historique`
+--
+
+TRUNCATE TABLE `historique`;
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `salle`
 --
 
+DROP TABLE IF EXISTS `salle`;
 CREATE TABLE IF NOT EXISTS `salle` (
   `id_salle` int(11) NOT NULL AUTO_INCREMENT,
   `ouvert` tinyint(4) DEFAULT '1',
@@ -142,6 +167,11 @@ CREATE TABLE IF NOT EXISTS `salle` (
   PRIMARY KEY (`id_salle`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
+--
+-- Vider la table avant d'insérer `salle`
+--
+
+TRUNCATE TABLE `salle`;
 --
 -- Contenu de la table `salle`
 --
@@ -158,13 +188,19 @@ INSERT INTO `salle` (`id_salle`, `ouvert`, `nb_joueurs`, `id_type_salle`, `xp_mi
 -- Structure de la table `salle_user`
 --
 
+DROP TABLE IF EXISTS `salle_user`;
 CREATE TABLE IF NOT EXISTS `salle_user` (
   `id_salle_user` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `id_salle` int(11) NOT NULL,
   PRIMARY KEY (`id_salle_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
+--
+-- Vider la table avant d'insérer `salle_user`
+--
+
+TRUNCATE TABLE `salle_user`;
 --
 -- Contenu de la table `salle_user`
 --
@@ -175,7 +211,10 @@ INSERT INTO `salle_user` (`id_salle_user`, `id_user`, `id_salle`) VALUES
 (3, 7, 2),
 (4, 7, 2),
 (5, 7, 2),
-(6, 7, 2);
+(6, 7, 2),
+(7, 7, 2),
+(8, 7, 2),
+(9, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -183,6 +222,7 @@ INSERT INTO `salle_user` (`id_salle_user`, `id_user`, `id_salle`) VALUES
 -- Structure de la table `table_tournoi`
 --
 
+DROP TABLE IF EXISTS `table_tournoi`;
 CREATE TABLE IF NOT EXISTS `table_tournoi` (
   `id_table_tournoi` int(11) NOT NULL AUTO_INCREMENT,
   `id_salle` int(11) NOT NULL,
@@ -190,6 +230,11 @@ CREATE TABLE IF NOT EXISTS `table_tournoi` (
   PRIMARY KEY (`id_table_tournoi`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+--
+-- Vider la table avant d'insérer `table_tournoi`
+--
+
+TRUNCATE TABLE `table_tournoi`;
 --
 -- Contenu de la table `table_tournoi`
 --
@@ -204,6 +249,7 @@ INSERT INTO `table_tournoi` (`id_table_tournoi`, `id_salle`, `id_tournoi`) VALUE
 -- Structure de la table `tournoi`
 --
 
+DROP TABLE IF EXISTS `tournoi`;
 CREATE TABLE IF NOT EXISTS `tournoi` (
   `id_tournoi` int(11) NOT NULL AUTO_INCREMENT,
   `heure_debut` datetime NOT NULL,
@@ -213,6 +259,11 @@ CREATE TABLE IF NOT EXISTS `tournoi` (
   PRIMARY KEY (`id_tournoi`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+--
+-- Vider la table avant d'insérer `tournoi`
+--
+
+TRUNCATE TABLE `tournoi`;
 --
 -- Contenu de la table `tournoi`
 --
@@ -226,6 +277,7 @@ INSERT INTO `tournoi` (`id_tournoi`, `heure_debut`, `heure_fin`, `user_vainqueur
 -- Structure de la table `tournoi_user`
 --
 
+DROP TABLE IF EXISTS `tournoi_user`;
 CREATE TABLE IF NOT EXISTS `tournoi_user` (
   `id_tournoi_user` int(11) NOT NULL AUTO_INCREMENT,
   `id_tournoi` int(11) NOT NULL,
@@ -234,12 +286,18 @@ CREATE TABLE IF NOT EXISTS `tournoi_user` (
   PRIMARY KEY (`id_tournoi_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Vider la table avant d'insérer `tournoi_user`
+--
+
+TRUNCATE TABLE `tournoi_user`;
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `type_salle`
 --
 
+DROP TABLE IF EXISTS `type_salle`;
 CREATE TABLE IF NOT EXISTS `type_salle` (
   `id_type_salle` int(11) NOT NULL AUTO_INCREMENT,
   `libelle_type_salle` varchar(255) NOT NULL,
@@ -247,6 +305,11 @@ CREATE TABLE IF NOT EXISTS `type_salle` (
   PRIMARY KEY (`id_type_salle`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+--
+-- Vider la table avant d'insérer `type_salle`
+--
+
+TRUNCATE TABLE `type_salle`;
 --
 -- Contenu de la table `type_salle`
 --
@@ -261,6 +324,7 @@ INSERT INTO `type_salle` (`id_type_salle`, `libelle_type_salle`, `nb_joueurs_max
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `admin` tinyint(4) NOT NULL DEFAULT '0',
@@ -274,6 +338,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
+--
+-- Vider la table avant d'insérer `user`
+--
+
+TRUNCATE TABLE `user`;
 --
 -- Contenu de la table `user`
 --
