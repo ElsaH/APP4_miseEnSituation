@@ -41,7 +41,7 @@ include('include/connexionBD.php');
 	{
 		$s_select = "SELECT * ";
 		$s_from = "FROM salle s, type_salle t ";
-		$s_where = "WHERE libelle_type_salle = '".$type."' AND s.id_type_salle=t.id_type_salle AND ouvert=1 AND s.id_salle NOT IN (SELECT id_salle FROM table_tournoi) AND s.ouvert!=0;";
+		$s_where = "WHERE libelle_type_salle = '".$type."' AND s.id_type_salle=t.id_type_salle AND ouvert=1 AND s.id_salle NOT IN (SELECT id_salle FROM table_tournoi);";
 		$s_request = $s_select.$s_from.$s_where;
 
 		$statement = $db->prepare($s_request);

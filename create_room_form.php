@@ -60,7 +60,11 @@ include('include/connexionBD.php');
 								<?php if(is_array($result_type_room)){ 
 									foreach($result_type_room as $row ) {	//Liste des type ?>
 											<div class="radio">
-											  <label><input type="radio" name="type" checked="checked" value="<?php echo $row["libelle_type_salle"];?>"><?php echo $row["libelle_type_salle"];?></label>
+												<?php if($row['libelle_type_salle']=="1 vs 1")
+													echo "<label><input type='radio' name='type' checked='checked' value='".$row["libelle_type_salle"]."''>".$row["libelle_type_salle"]."</label>";
+												else
+													echo "<label><input type='radio' name='type' value='".$row["libelle_type_salle"]."''>".$row["libelle_type_salle"]."</label>";
+												?>
 											</div>
 								<?php	} 
 								} ?>

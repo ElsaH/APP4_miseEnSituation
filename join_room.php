@@ -36,32 +36,6 @@
 			$statement->execute();
 
 		}
-		/*$s_select = "SELECT COUNT(id_salle)";
-		$s_from = "FROM salle_user";
-		$s_where = "WHERE s.id_salle =".$idSalle.";";
-		$s_request = $s_select.$s_from.$s_where;
-
-		$statement = $db->prepare($s_request);
-		$statement->execute();
-		$nb_current = $statement->fetch();
-
-		$s_select = "SELECT nb_joueurs_max";
-		$s_from = "FROM type_salle t INNER JOIN salle s ON s.id_type_salle=t.id_type_salle";
-		$s_where = "WHERE id_salle =".$idSalle.";";
-		$s_request = $s_select.$s_from.$s_where;
-
-		$statement = $db->prepare($s_request);
-		$statement->execute();
-		$nb_max = $statement->fetch();
-
-		echo ($nb_current.','.$nb_max);
-
-		if(intval($nb_current) >=  intval($nb_max)) {
-			$s_request = "UPDATE `salle`(`ouvert`) VALUES ('0') WHERE id_salle=".$idSalle;
-
-			$statement = $db->prepare($s_request);
-			$statement->execute();
-		}*/
 	}
 	catch (PDOException $ex)
 	{
