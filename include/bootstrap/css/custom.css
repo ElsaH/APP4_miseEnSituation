@@ -416,3 +416,8 @@ div#guide-droit
 ul.nav.nav-tabs.nav-justified{
 	width:900px;
 }
+
+div.DTTT_container
+{
+	display:none;
+}
