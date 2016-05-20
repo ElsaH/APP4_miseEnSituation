@@ -14,7 +14,7 @@ include("include/header.php");
 
 <body>
 	<div class='row'>
-		<div class='col-md-12'>
+		<div class='col-md-12' style="width:80%;margin-left:auto; margin-right:auto; margin-left:10%;">
 		<h1>Gestion des capacités</h1>
 			<div>
 		  		<table id="table_capacites" class="table table-bordered table-hover">
@@ -34,7 +34,7 @@ include("include/header.php");
 	        </div>
 	    </div>
 	    <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="width:80%;margin-left:auto; margin-right:auto; margin-left:10%;">
               	<div class="box box-primary">
                 	<div class="box-header">
                   		<h3 class="box-title">Informations Capacité</h3>
