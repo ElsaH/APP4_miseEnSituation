@@ -333,13 +333,13 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id_user`, `admin`, `pseudo`, `photo`, `password`, `mail_user`, `xp`, `combats_joues`, `combats_gagnes`) VALUES
-(1, 1, 'leon', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'leon@gamil.com', 20, 1, 1),
-(2, 0, 'tofuw', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'tofuw@gmail.com', 40, 2, 1),
-(3, 0, 'adri', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'adri@gmail.com', 5, 0, 0),
-(4, 1, 'test', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'test@gmail.com', 0, 0, 0),
-(5, 0, 'test2', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'test2@gmail.com', 0, 0, 0),
-(6, 0, 'annoa', NULL, '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'annoa@yopmail.com', 0, 0, 0),
-(7, 1, 'bbbb', NULL, '$2y$10$tSZh0aW46vzXfTnAcE5y0OUnDspvyiD8TPbLZL9g5OEswV8acG66S', 'aa@aa.fr', 0, 0, 0);
+(1, 1, 'leon', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'leon@gamil.com', 20, 1, 1),
+(2, 0, 'tofuw', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'tofuw@gmail.com', 40, 2, 1),
+(3, 0, 'adri', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'adri@gmail.com', 5, 0, 0),
+(4, 1, 'test', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'test@gmail.com', 0, 0, 0),
+(5, 0, 'test2', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'test2@gmail.com', 0, 0, 0),
+(6, 0, 'annoa', './images/no_profile_picture.jpg', '$2y$10$fFv86mipa/he7YzS1B1.Luam0eAL.EX1wEHH.IXtWZbLUq7MLqKeG', 'annoa@yopmail.com', 0, 0, 0),
+(7, 1, 'bbbb', './images/no_profile_picture.jpg', '$2y$10$tSZh0aW46vzXfTnAcE5y0OUnDspvyiD8TPbLZL9g5OEswV8acG66S', 'aa@aa.fr', 0, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
