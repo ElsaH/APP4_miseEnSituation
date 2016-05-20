@@ -60,6 +60,7 @@ $(document).ready(function() {
 		CHOOSE.init();
 		SOCKET.idJoueur = $('#idJoueur').val();
 		SOCKET.emit('changedSocket',{idUser:SOCKET.idJoueur});
+		SOCKET.pseudo = $('#pseudo_player').val();
 
 		// Initialisation du jeu
 		//SOCKET.init();
@@ -90,6 +91,8 @@ $(document).ready(function() {
 
 					var li = "<li><a id='"+res[i].id_capacite+"'>";
 					li += res[i].nom_capacite;
+					if (parseInt(res[i].montant_soins) > 0)
+						li += "<span color='red'>&hearts;</span>"
 					li += "</a></li>";
 
 					$(li).appendTo('#choose_spells');

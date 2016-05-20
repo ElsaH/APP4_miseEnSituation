@@ -59,7 +59,6 @@ SOCKET.on('alert_mana', function(msg) {
 SOCKET.on('wait', function(msg) {
 	SOCKET.onDebugDisplay('wait', msg);
 	SOCKET.state = "wait";
-	$('#choose_action').addClass('nodisplay');
 });
 
 SOCKET.on('action', function(msg) {
@@ -90,12 +89,15 @@ SOCKET.on('loose', function(msg) {
 $('.sort').click(function() {
 	var id = this.attr('value');
 	SOCKET.emit('sort', {numSort : id});
+	$('#choose_action').addClass('nodisplay');
 })
 $('#passer').click(function() {
 	SOCKET.emit('passer');
+	$('#choose_action').addClass('nodisplay');
 })
 $('#abandonner').click(function() {
 	SOCKET.emit('abandonner');
+	$('#choose_action').addClass('nodisplay');
 })
 
 /* CHAT */
@@ -106,18 +108,18 @@ SOCKET.on('message', function(msg) {
 	SOCKET.onDebugDisplay(arguments[0], msg);
 	var string = "<span class='msg'>"+msg + "<br/><span>";
 	$(string).appendTo( "#text" );
-  //document.getElementById( 'bottom' ).scrollIntoView();
+  	//document.getElementById( 'bottom' ).scrollIntoView();
 })
 
 $("#message").keyup(function(event){
-	if(event.keyCode == 13){
-    $("#send").click();
+	if(event.keyCode == 13) {
+    	$("#send").click();
   }
 });
 
 $('#send').click(function () {
-	SOCKET.emit('message', {pseudo: pseudo, message: document.getElementById("message").value} );
-  document.getElementById("message").value = "";
+	SOCKET.emit('message', {pseudo: SOCKET.pseudo, message: document.getElementById("message").value} );
+  	document.getElementById("message").value = "";
 })
 
 
