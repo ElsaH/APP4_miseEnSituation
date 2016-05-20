@@ -72,7 +72,7 @@ SOCKET.on('win', function(msg) {
 	SOCKET.onDebugDisplay('win', msg);
 	SOCKET.state = "win";
 	alert("Vous avez gagné");
-	$().redirect('resultat.php', 
+	$.redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
@@ -86,7 +86,7 @@ SOCKET.on('loose', function(msg) {
 	SOCKET.onDebugDisplay('loose', msg);
 	SOCKET.state = "loose";
 	alert("Vous avez perdu !");
-	$().redirect('resultat.php', 
+	$.redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
