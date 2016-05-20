@@ -7,13 +7,13 @@ include('include/connexionBD.php');
 $bd = connexion();
 
 /* Récupération des personnages et des scores */
-$perso1 = (isset($_SESSION['perso0'])) ? $_SESSION['perso0'] : "J1??";
-$perso2 = (isset($_SESSION['perso1'])) ? $_SESSION['perso1'] : "J2??";
+$perso1 = (isset($_POST['perso0'])) ? $_POST['perso0'] : "J1??";
+$perso2 = (isset($_POST['perso1'])) ? $_POST['perso1'] : "J2??";
 
-$class1 = (isset($_SESSION['class0'])) ? intval($_SESSION['class0']) : 0;
-$class2 = (isset($_SESSION['class1'])) ? intval($_SESSION['class1']) : 0;
+$class1 = (isset($_POST['class0'])) ? intval($_POST['class0']) : 0;
+$class2 = (isset($_POST['class1'])) ? intval($_POST['class1']) : 0;
 
-$numWin = (isset($_SESSION['numWin'])) ? intval($_SESSION['numWin']) : 0;
+$numWin = (isset($_POST['numWin'])) ? intval($_POST['numWin']) : 0;
 
 if ($numWin == 0) {
 	$score1 = "gagné";
