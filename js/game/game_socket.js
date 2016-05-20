@@ -121,10 +121,12 @@ $('#abandonner').click(function() {
 
 //socket.on('m')
 
+q
 SOCKET.on('message', function(msg) {
 	SOCKET.onDebugDisplay(arguments[0], msg);
 	var string = "<span class='msg'>"+msg + "<br/><span>";
-	$(string).appendTo( "#text" );
+//	$(string).appendTo( "#text" );
+	document.getElementById('text').innerHTML = msg+"<br/>"+document.getElementById('text');
   	//document.getElementById( 'bottom' ).scrollIntoView();
 })
 
