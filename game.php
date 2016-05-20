@@ -47,6 +47,7 @@ $id_joueur = $_SESSION['id_user'];
   <input type="hidden" id="idJoueur" value="<?php echo $id_joueur; ?>"> 
 
   <!-- Include JS pour le game -->
+  <script src="js/jquery.redirect/jquery.redirect.js"></script>
   <script src="js/game/game_socket.js"></script>
   <script src="js/game/character.js"></script>
   <script src="js/game/game.js"></script>

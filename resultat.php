@@ -3,16 +3,26 @@
 include('include/header.php');
 include('include/connexionBD.php');
 
-/* Récupération des personnages et des scores */
-/* ELYSE */
-$perso1 = 'test';
-$perso2 = 'test2';
-
-$score1 = 'gagné';
-$score2 = 'perdu';
-
 /* Connexion à la base de données */
 $bd = connexion();
+
+/* Récupération des personnages et des scores */
+$perso1 = (isset($_SESSION['perso0'])) ? $_SESSION['perso0'] : "J1??";
+$perso2 = (isset($_SESSION['perso1'])) ? $_SESSION['perso1'] : "J2??";
+
+$class1 = (isset($_SESSION['class0'])) ? intval($_SESSION['class0']) : 0;
+$class2 = (isset($_SESSION['class1'])) ? intval($_SESSION['class1']) : 0;
+
+$numWin = (isset($_SESSION['numWin'])) ? intval($_SESSION['numWin']) : 0;
+
+if ($numWin == 0) {
+	$score1 = "gagné";
+	$score2 = "perdu";
+}
+else {
+	$score1 = "perdu";
+	$score2 = "gagné";
+}
 
 $joueur1 = $bd->prepare('SELECT * FROM user WHERE pseudo=:perso1');
 $joueur1->execute(array(

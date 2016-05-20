@@ -72,6 +72,13 @@ SOCKET.on('win', function(msg) {
 	SOCKET.state = "win";
 	GAME.updateJoueurs(msg);
 	windows.alert("Vous avez gagné");
+	$().redirect('resultat.php', 
+		{'perso0': GAME.player[0].pseudo,
+		 'perso1': GAME.player[1].pseudo,
+		 'class0': GAME.player[0].pers,
+		 'class1': GAME.player[1].pers,
+		 'numWin': msg.numWin}
+	);
 	// redirection POST vers resultat.php
 });
 
@@ -80,6 +87,13 @@ SOCKET.on('loose', function(msg) {
 	SOCKET.state = "loose";
 	GAME.updateJoueurs(msg);
 	windows.alert("Vous avez perdu !");
+	$().redirect('resultat.php', 
+		{'perso0': GAME.player[0].pseudo,
+		 'perso1': GAME.player[1].pseudo,
+		 'class0': GAME.player[0].pers,
+		 'class1': GAME.player[1].pers,
+		 'numWin': msg.numWin}
+	);
 	// redirection POST vers resultat.php
 });
 
