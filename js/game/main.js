@@ -92,7 +92,7 @@ $(document).ready(function() {
 					var li = "<li><a id='"+res[i].id_capacite+"'>";
 					li += res[i].nom_capacite;
 					if (parseInt(res[i].montant_soins) > 0)
-						li += "<span color='red'>&hearts;</span>"
+						li += " <span color='red'> &hearts;</span>"
 					li += "</a></li>";
 
 					$(li).appendTo('#choose_spells');

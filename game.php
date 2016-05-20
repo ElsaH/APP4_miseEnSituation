@@ -21,7 +21,7 @@ $id_joueur = $_SESSION['id_user'];
   	<canvas id="canvas_game" width="500" height="300"></canvas>
     <!-- div du choix d'action -->
     <div id="choose_action">
-      <span>Niveau <?php echo $_SESSION['xp']; ?></span>
+      <span class="niveau0">Niveau <?php echo $_SESSION['xp']; ?></span>
       <ul id="choose_spells">
       </ul>
       <ul id="game_pass_abd">
