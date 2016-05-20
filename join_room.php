@@ -20,7 +20,23 @@
 		$statement = $db->prepare($s_request);
 		$statement->execute();
 
-		$s_select = "SELECT COUNT(id_salle)";
+		$request = "UPDATE salle SET nb_joueurs=nb_joueurs+1 WHERE id_salle=".$idSalle.";";
+		$statement = $db->prepare($request);
+		$statement->execute();
+
+		$request = "SELECT nb_joueurs, nb_joueurs_max FROM salle s, type_salle ts WHERE s.id_type_salle=ts.id_type_salle AND id_salle=".$idSalle.";";
+		$statement = $db->prepare($request);
+		$statement->execute();
+		$res = $statement->fetch();
+
+		if($res["nb_joueurs"]==$res["nb_joueurs_max"])
+		{
+			$request = "UPDATE salle SET ouvert=0 WHERE id_salle=".$idSalle.";";
+			$statement = $db->prepare($request);
+			$statement->execute();
+
+		}
+		/*$s_select = "SELECT COUNT(id_salle)";
 		$s_from = "FROM salle_user";
 		$s_where = "WHERE s.id_salle =".$idSalle.";";
 		$s_request = $s_select.$s_from.$s_where;
@@ -38,12 +54,14 @@
 		$statement->execute();
 		$nb_max = $statement->fetch();
 
+		echo ($nb_current.','.$nb_max);
+
 		if(intval($nb_current) >=  intval($nb_max)) {
-			$s_request = "UPDATE `salle`(`ouvert`) VALUES (0) WHERE id_salle=".$idSalle;
+			$s_request = "UPDATE `salle`(`ouvert`) VALUES ('0') WHERE id_salle=".$idSalle;
 
 			$statement = $db->prepare($s_request);
 			$statement->execute();
-		}
+		}*/
 	}
 	catch (PDOException $ex)
 	{
