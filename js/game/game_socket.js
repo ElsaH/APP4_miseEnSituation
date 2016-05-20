@@ -65,7 +65,7 @@ SOCKET.on('wait', function(msg) {
 SOCKET.on('action', function(msg) {
 	SOCKET.onDebugDisplay('action', msg);
 	SOCKET.state = "action";
-	window.alert(msg.txt);
+	//window.alert(msg.txt);
 });
 
 SOCKET.on('win', function(msg) {
