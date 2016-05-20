@@ -11,10 +11,8 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
 }
 
 ?>
-
-<body>
 	<div class='row'>
-		<div class='col-md-8'>
+		<div class='col-md-8' style="margin-left:auto;margin-right:auto;margin-left:10%;width:80%">
 		  <h1>Page d'administration</h1>
 		  <div id='tableusers'>
 				<table class="table table-striped">

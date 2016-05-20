@@ -108,18 +108,18 @@ SOCKET.on('message', function(msg) {
 	SOCKET.onDebugDisplay(arguments[0], msg);
 	var string = "<span class='msg'>"+msg + "<br/><span>";
 	$(string).appendTo( "#text" );
-  //document.getElementById( 'bottom' ).scrollIntoView();
+  	//document.getElementById( 'bottom' ).scrollIntoView();
 })
 
 $("#message").keyup(function(event){
-	if(event.keyCode == 13){
-    $("#send").click();
+	if(event.keyCode == 13) {
+    	$("#send").click();
   }
 });
 
 $('#send').click(function () {
-	SOCKET.emit('message', {pseudo: pseudo, message: document.getElementById("message").value} );
-  document.getElementById("message").value = "";
+	SOCKET.emit('message', {pseudo: SOCKET.pseudo, message: document.getElementById("message").value} );
+  	document.getElementById("message").value = "";
 })
 
 

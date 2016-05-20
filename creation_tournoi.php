@@ -10,11 +10,11 @@
 <script type="text/javascript" src="./include/wickedpicker/src/wickedpicker.js"></script>
 
 <div class='row'>
-	<ul class="nav nav-tabs nav-justified">
-	  <li class="active"><a data-toggle='tab' href="#creation">Créer un tournoi</a></li>
+	<ul class="nav nav-tabs nav-justified" style="width:900px;margin-left:auto;margin-right:auto;">
+	  <li class="active" style="padding-left:-5px;"><a data-toggle='tab' href="#creation">Créer un tournoi</a></li>
 	  <li><a data-toggle='tab' href="#en_cours">Tournois en cours</a></li>
 	  <li><a data-toggle='tab' href="#passes">Tournois passés</a></li>
-	  <li><a data-toggle='tab' href="#prevus">Tournois prévus</a></li>
+	  <li><a data-toggle='tab' style="padding-right:-5px" href="#prevus">Tournois prévus</a></li>
 	</ul>
 </div>
 

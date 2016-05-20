@@ -198,11 +198,16 @@ img.logo_footer
 
 #div_for_background .body_general
 {
+	padding-top: 30px;
 	width: 950px;
 	margin : 0 auto;
     position: absolute;
 	top:0;
 	left:0;
+}
+
+.body_general {
+	width:900px;
 }
 
 .container
@@ -408,4 +413,8 @@ div#guide-droit
 	margin-top: 50px;
 	margin-right:100px;
 	width: 500px;
+}
+
+ul.nav.nav-tabs.nav-justified{
+	width:900px;
 }
