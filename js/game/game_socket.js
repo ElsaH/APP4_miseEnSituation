@@ -77,7 +77,9 @@ SOCKET.on('win', function(msg) {
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
 		 'class1': GAME.player[1].pers,
-		 'numJ': msg.numWin}
+		 'numWin': msg.numJ,
+		 'numS'  : msg.numS
+		}
 	);
 	// redirection POST vers resultat.php
 });
@@ -91,7 +93,9 @@ SOCKET.on('loose', function(msg) {
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
 		 'class1': GAME.player[1].pers,
-		 'numJ': msg.numWin}
+		 'numWin': msg.numJ,
+		 'numS'  : msg.numS
+		}
 	);
 	// redirection POST vers resultat.php
 });
