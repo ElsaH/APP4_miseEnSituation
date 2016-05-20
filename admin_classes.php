@@ -14,7 +14,7 @@ include("include/header.php");
 
 <body>
 	<div class='row'>
-		<div class='col-md-12'>
+		<div class='col-md-12' style="width:80%;margin-left:auto; margin-right:auto; margin-left:10%;">
 		<h1>Gestion des classes</h1>
 			<div>
 		  		<table id="table_classes" class="table table-bordered table-hover">
@@ -28,8 +28,8 @@ include("include/header.php");
 	            </table>
 	        </div>
 	    </div>
-	    <div class="row">
-            <div class="col-md-12">
+	    <div class="row" >
+            <div class="col-md-12" style="width:80%;margin-left:auto; margin-right:auto; margin-left:10%;">
               	<div class="box box-primary">
                 	<div class="box-header">
                   		<h3 class="box-title">Informations Classe</h3>
