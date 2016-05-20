@@ -279,7 +279,7 @@ div.nodisplay {
 	height: 300px;
 }
 
-#choose_action span {
+#choose_action span.niveau0 {
 	display: inline-block;
 	margin-bottom: 10px;
 	background-color: white;
