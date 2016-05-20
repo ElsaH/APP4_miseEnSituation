@@ -130,16 +130,16 @@ GAME.drawPersos = function(canvas, ctx) {
 	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.charPos[i] = {};
 
-	GAME.charPos[0] = {x:100, y:120};
-	GAME.charPos[1] = {x:350, y:120};
+	GAME.charPos[0] = {x:100, y:140};
+	GAME.charPos[1] = {x:350, y:140};
 	console.log(GAME.player[0].pers);
 	CHARACTER.draw(ctx, GAME.charPos[0], false, GAME.player[0].pers);
 	CHARACTER.draw(ctx, GAME.charPos[1], true, GAME.player[1].pers);
 	GAME.drawPseudos(canvas, ctx, 0);
 	GAME.drawPseudos(canvas, ctx, 1);
 	if (GAME.nbJoueurs == 4) {
-		GAME.charPos[2] = {x:50, y:180};
-		GAME.charPos[3] = {x:400, y:180};
+		GAME.charPos[2] = {x:50, y:200};
+		GAME.charPos[3] = {x:400, y:200};
 		CHARACTER.draw(ctx, GAME.charPos[2], false, GAME.player[2].pers);
 		CHARACTER.draw(ctx, GAME.charPos[3], true, GAME.player[3].pers);
 	}

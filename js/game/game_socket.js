@@ -35,7 +35,7 @@ SOCKET.on('start', function(msg) {
 
 SOCKET.on('error', function(msg) {
 	SOCKET.onDebugDisplay('error', msg);
-	window.alert(msg.txt);
+	alert(msg.txt);
 });
 
 SOCKET.on('go', function(msg) {
@@ -53,7 +53,7 @@ SOCKET.on('update', function(msg) {
 SOCKET.on('alert_mana', function(msg) {
 	SOCKET.onDebugDisplay('alert_mana', msg);
 	SOCKET.state = "alert_mana";
-	window.alert(msg.txt);
+	alert(msg.txt);
 });
 
 SOCKET.on('wait', function(msg) {
@@ -65,13 +65,13 @@ SOCKET.on('wait', function(msg) {
 SOCKET.on('action', function(msg) {
 	SOCKET.onDebugDisplay('action', msg);
 	SOCKET.state = "action";
-	//window.alert(msg.txt);
+	//alert(msg.txt);
 });
 
 SOCKET.on('win', function(msg) {
 	SOCKET.onDebugDisplay('win', msg);
 	SOCKET.state = "win";
-	windows.alert("Vous avez gagné");
+	alert("Vous avez gagné");
 	$().redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
@@ -85,7 +85,7 @@ SOCKET.on('win', function(msg) {
 SOCKET.on('loose', function(msg) {
 	SOCKET.onDebugDisplay('loose', msg);
 	SOCKET.state = "loose";
-	windows.alert("Vous avez perdu !");
+	alert("Vous avez perdu !");
 	$().redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
