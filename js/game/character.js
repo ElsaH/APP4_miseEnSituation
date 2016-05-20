@@ -4,7 +4,7 @@ CHARACTER.load = function(callback) {
 	
 	var c = 0;
 	var isloaded = function() {
-		if (c == 4) {
+		if (c == 5) {
 			callback();
 		}
 	}
@@ -43,6 +43,11 @@ CHARACTER.load = function(callback) {
 	CHARACTER.pers[3].name  = "Optro";
 	CHARACTER.pers[3].bonus = "vigilant";
 	CHARACTER.pers[3].malus = "en sous-nombre";
+
+	CHARACTER.bg = {};
+	CHARACTER.bg.img = new Image();
+	CHARACTER.bg.img.src = "images/background.png";
+	CHARACTER.bg.img.onload = function() {c++; isloaded();}
 
 	
 

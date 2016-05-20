@@ -33,8 +33,9 @@ GAME.draw = function() {
 
 GAME.drawBackground = function(canvas, ctx) {
 	// fond
-	ctx.fillStyle="#DDE3FF";
-	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	//ctx.fillStyle="#DDE3FF";
+	//ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	ctx.drawImage(CHARACTER.bg.img, 0, 0);
 }
 
 GAME.drawPersosInfos = function(canvas, ctx) {
@@ -60,9 +61,11 @@ GAME.drawPersosInfos = function(canvas, ctx) {
 	GAME.barresPos[0].x = mx;
 	GAME.barresPos[0].y = my;
 	GAME.drawInfos(ctx, GAME.barresPos[0], style, 0);
+	GAME.drawPseudos(canvas, ctx, 0);
 	GAME.barresPos[1].x = CANVAS_WIDTH - style.len - mx;
 	GAME.barresPos[1].y = my;
 	GAME.drawInfos(ctx, GAME.barresPos[1], style, 1);
+	GAME.drawPseudos(canvas, ctx, 1);
 
 	if (GAME.nbJoueurs == 4) {
 		GAME.barresPos[2].x = mx;
@@ -130,13 +133,11 @@ GAME.drawPersos = function(canvas, ctx) {
 	for (var i=0; i<GAME.nbJoueurs; i++)
 		GAME.charPos[i] = {};
 
-	GAME.charPos[0] = {x:100, y:140};
-	GAME.charPos[1] = {x:350, y:140};
+	GAME.charPos[0] = {x:136, y:83};
+	GAME.charPos[1] = {x:386, y:83};
 	console.log(GAME.player[0].pers);
 	CHARACTER.draw(ctx, GAME.charPos[0], false, GAME.player[0].pers);
 	CHARACTER.draw(ctx, GAME.charPos[1], true, GAME.player[1].pers);
-	GAME.drawPseudos(canvas, ctx, 0);
-	GAME.drawPseudos(canvas, ctx, 1);
 	if (GAME.nbJoueurs == 4) {
 		GAME.charPos[2] = {x:50, y:200};
 		GAME.charPos[3] = {x:400, y:200};
@@ -147,7 +148,9 @@ GAME.drawPersos = function(canvas, ctx) {
 }
 
 GAME.drawPseudos = function (canvas, ctx, i) {
-	var pos = GAME.charPos[i];
+	var pos = GAME.barresPos[i];
+	var x = pos.x;
+	var y = pos.y + 30;
 	// Si c'est le joueur connecté
 	if (SOCKET.idJoueur == GAME.player[i].id) {
 		ctx.fillStyle = "blue";
@@ -157,10 +160,16 @@ GAME.drawPseudos = function (canvas, ctx, i) {
 		ctx.fillStyle = "#000000";
 		ctx.font = "12px Arial";
 	}
-	ctx.textAlign = 'center';
+	if (i == 0) {
+		ctx.textAlign = 'left';
+	}
+	else {
+		ctx.textAlign = 'right';
+		x += 150;
+	}
+	
 	var txt = GAME.player[i].pseudo;
-	var x = pos.x;
-	var y = pos.y - CHARACTER.height/2;
+	
 	ctx.fillText(txt, x, y);
 }
 
