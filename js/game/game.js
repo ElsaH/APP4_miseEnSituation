@@ -13,7 +13,6 @@ GAME.updateJoueurs = function(msg) {
 	console.log("bonjour", msg);
 
 	for (var i=0; i<GAME.nbJoueurs; i++ ) {
-		console.log("coucou", msg.joueur[i]);
 		GAME.player[i].pseudo = msg.joueur[i].pseudo;
 		GAME.player[i].pers = msg.joueur[i].champion;
 		GAME.player[i].manatot = msg.joueur[i].manaTot;

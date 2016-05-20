@@ -59,6 +59,7 @@ SOCKET.on('alert_mana', function(msg) {
 SOCKET.on('wait', function(msg) {
 	SOCKET.onDebugDisplay('wait', msg);
 	SOCKET.state = "wait";
+	$('#choose_action').addClass('nodisplay');
 });
 
 SOCKET.on('action', function(msg) {
@@ -70,14 +71,13 @@ SOCKET.on('action', function(msg) {
 SOCKET.on('win', function(msg) {
 	SOCKET.onDebugDisplay('win', msg);
 	SOCKET.state = "win";
-	GAME.updateJoueurs(msg);
 	windows.alert("Vous avez gagné");
 	$().redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
 		 'class1': GAME.player[1].pers,
-		 'numWin': msg.numWin}
+		 'numJ': msg.numWin}
 	);
 	// redirection POST vers resultat.php
 });
@@ -85,14 +85,13 @@ SOCKET.on('win', function(msg) {
 SOCKET.on('loose', function(msg) {
 	SOCKET.onDebugDisplay('loose', msg);
 	SOCKET.state = "loose";
-	GAME.updateJoueurs(msg);
 	windows.alert("Vous avez perdu !");
 	$().redirect('resultat.php', 
 		{'perso0': GAME.player[0].pseudo,
 		 'perso1': GAME.player[1].pseudo,
 		 'class0': GAME.player[0].pers,
 		 'class1': GAME.player[1].pers,
-		 'numWin': msg.numWin}
+		 'numJ': msg.numWin}
 	);
 	// redirection POST vers resultat.php
 });
@@ -101,17 +100,17 @@ SOCKET.on('loose', function(msg) {
 /* BOUTONS ACTION */
 
 $('.sort').click(function() {
+	$('#choose_action').addClass('nodisplay');
 	var id = this.attr('value');
 	SOCKET.emit('sort', {numSort : id});
-	$('#choose_action').addClass('nodisplay');
 })
 $('#passer').click(function() {
-	SOCKET.emit('passer');
 	$('#choose_action').addClass('nodisplay');
+	SOCKET.emit('passer');
 })
 $('#abandonner').click(function() {
-	SOCKET.emit('abandonner');
 	$('#choose_action').addClass('nodisplay');
+	SOCKET.emit('abandonner');
 })
 
 /* CHAT */
